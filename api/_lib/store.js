@@ -32,7 +32,7 @@ export function hashIp(ip) {
 export async function checkRateLimit(ip) {
   const pathname = `ratelimit/${hashIp(ip)}.json`;
   const now = Date.now();
-  const existing = await readJsonBlob(pathname);
+  const existing = await readJsonBlob(pathname, false);
   let hits = Array.isArray(existing?.hits) ? existing.hits : [];
   hits = hits.filter((t) => now - t < WINDOW_MS);
   if (hits.length >= MAX_PER_WINDOW) return false;
