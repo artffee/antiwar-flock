@@ -13,12 +13,14 @@
     --teal:#22d3b5;
     --orange:#f2542d;
     --gold:#e0ab35;
-    --paper-line: rgba(20,19,17,0.12);
+    --muted:#9c9686;
     --white:#fdfbf6;
   }
 
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
   body{
     background:var(--cream);
     color:var(--ink);
@@ -35,12 +37,12 @@
     line-height:0.86;
     text-wrap:balance;
   }
-  .mono{
-    font-family:'Space Mono', 'Courier New', monospace;
-  }
+  .mono{font-family:'Space Mono', 'Courier New', monospace;}
+  .tnum{font-variant-numeric:tabular-nums;}
 
   a{color:inherit;}
   img,svg{max-width:100%;display:block;}
+  button{font:inherit;}
 
   .wrap{
     max-width:1280px;
@@ -68,6 +70,8 @@
   }
   .eyebrow.on-dark::before{background:var(--teal);}
 
+  section{padding-top:0;}
+
   /* ---------- NAV ---------- */
   .nav{
     position:sticky;
@@ -82,11 +86,7 @@
     justify-content:space-between;
     height:76px;
   }
-  .nav-mark{
-    font-family:'Anton',sans-serif;
-    font-size:1.5rem;
-    letter-spacing:0.02em;
-  }
+  .nav-mark{font-family:'Anton',sans-serif;font-size:1.5rem;letter-spacing:0.02em;text-decoration:none;}
   .nav-mark span{color:var(--pink);}
   .nav-links{
     display:flex;
@@ -122,47 +122,44 @@
     white-space:nowrap;
   }
   .nav-cta:hover, .nav-cta:focus-visible{background:var(--pink);border-color:var(--pink);outline:none;}
-  .nav-toggle{display:none;}
-
-  @media (max-width:820px){
-    .nav-links{display:none;}
-  }
+  @media (max-width:820px){.nav-links{display:none;}}
 
   /* ---------- HERO ---------- */
-  .hero{
-    padding-top:clamp(36px,5vw,56px);
-  }
+  .hero{padding-top:clamp(28px,4vw,44px);}
   .hero-grid{
     display:grid;
-    grid-template-columns:1.05fr 0.95fr;
-    gap:clamp(24px,4vw,48px);
+    grid-template-columns:1fr 1fr;
+    gap:clamp(20px,4vw,40px);
     align-items:stretch;
   }
   .hero-copy{
-    padding-bottom:40px;
+    padding-bottom:36px;
     display:flex;
     flex-direction:column;
     justify-content:center;
-    gap:22px;
-  }
-  .hero-copy h1{
-    margin:14px 0 0 0;
-    font-size:clamp(2.6rem,7.4vw,5.6rem);
-  }
-  .hero-copy h1 .accent{color:var(--pink);}
-  .hero-sub{
-    max-width:46ch;
-    font-size:1.08rem;
-    line-height:1.55;
-    font-weight:500;
-    color:var(--ink-2);
-  }
-  .hero-actions{
-    display:flex;
-    flex-wrap:wrap;
     gap:14px;
+  }
+  .hero-headline{
+    margin:10px 0 0 0;
+    font-size:clamp(3.2rem,10.5vw,6.6rem);
+  }
+  .hero-headline .accent{color:var(--pink);}
+  .hero-hierarchy{
+    font-size:0.86rem;
+    letter-spacing:0.1em;
+    color:var(--ink-2);
+    text-transform:uppercase;
+  }
+  .hero-hierarchy .sep{color:var(--muted);margin:0 6px;}
+  .hero-tagline{
+    font-family:'Anton',sans-serif;
+    text-transform:uppercase;
+    font-size:clamp(1.15rem,3vw,1.6rem);
+    line-height:1.18;
     margin-top:6px;
   }
+  .hero-tagline .p{color:var(--pink);}
+  .hero-actions{margin-top:12px;}
   .btn{
     font-family:'Space Mono',monospace;
     font-weight:700;
@@ -173,65 +170,65 @@
     padding:16px 26px;
     border:2px solid var(--ink);
     display:inline-block;
-    transition:transform .12s ease;
+    transition:transform .12s ease, box-shadow .12s ease;
+    cursor:pointer;
   }
   .btn:hover, .btn:focus-visible{transform:translate(-2px,-2px);outline:none;}
   .btn-solid{background:var(--ink);color:var(--white);box-shadow:5px 5px 0 var(--pink);}
   .btn-solid:hover{box-shadow:7px 7px 0 var(--pink);}
-  .btn-outline{background:transparent;color:var(--ink);}
-  .btn-outline:hover{background:var(--ink);color:var(--white);}
 
   .hero-art{
     position:relative;
     background:var(--ink);
-    min-height:420px;
+    min-height:440px;
     overflow:hidden;
     border:2px solid var(--ink);
   }
   .hero-art .circle-pink{
     position:absolute;
-    width:60%;
+    width:64%;
     aspect-ratio:1;
     border-radius:50%;
     background:var(--pink);
-    top:8%;
-    left:16%;
+    top:4%;
+    left:14%;
   }
   .hero-art .circle-teal{
     position:absolute;
-    width:34%;
+    width:36%;
     aspect-ratio:1;
     border-radius:50%;
     background:var(--teal);
-    bottom:-10%;
-    right:-6%;
+    bottom:-12%;
+    right:-8%;
   }
   .hero-art .bird{
     position:absolute;
-    width:62%;
-    left:26%;
-    bottom:0;
+    width:80%;
+    left:19%;
+    bottom:-2%;
     color:var(--white);
   }
-  .hero-tag{
+  .hero-stamp{
     position:absolute;
     top:18px;
     right:18px;
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    border:2px solid var(--white);
     color:var(--white);
-    font-family:'Anton',sans-serif;
-    font-size:0.95rem;
-    line-height:1.1;
-    text-align:right;
-    transform:rotate(2deg);
-  }
-  .hero-caption{
-    position:absolute;
-    left:20px;
-    bottom:16px;
-    color:var(--white);
-    font-family:'Anton',sans-serif;
-    font-size:clamp(1.6rem,3vw,2.3rem);
-    letter-spacing:0.02em;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    transform:rotate(-9deg);
+    font-family:'Space Mono',monospace;
+    font-weight:700;
+    font-size:0.6rem;
+    letter-spacing:0.08em;
+    line-height:1.3;
+    text-align:center;
   }
 
   @media (max-width:900px){
@@ -245,17 +242,14 @@
     border-top:2px solid var(--ink);
     border-bottom:2px solid var(--ink);
     transform:rotate(-1.4deg);
-    margin:56px -4px;
+    margin:48px -4px;
+    background:var(--teal);
   }
-  .marquee-band.flip{transform:rotate(1.2deg);}
-  .marquee-band.teal{background:var(--teal);}
-  .marquee-band.pink{background:var(--pink-2);}
   .marquee-track{
     display:flex;
     width:max-content;
     animation:scroll 26s linear infinite;
   }
-  .marquee-band.flip .marquee-track{animation-direction:reverse;}
   .marquee-item{
     display:flex;
     align-items:center;
@@ -268,36 +262,21 @@
     color:var(--ink);
   }
   .marquee-item .dot{color:var(--ink);opacity:0.55;font-size:0.9em;}
-  @keyframes scroll{
-    from{transform:translateX(0);}
-    to{transform:translateX(-50%);}
-  }
-  @media (prefers-reduced-motion: reduce){
-    .marquee-track{animation:none;}
-  }
+  @keyframes scroll{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+  @media (prefers-reduced-motion: reduce){.marquee-track{animation:none;}}
 
-  /* ---------- REBEL / PRODUCTS ---------- */
-  .rebel-head{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:32px;
-    align-items:end;
-    margin-bottom:44px;
-  }
-  .rebel-head h2{font-size:clamp(2.2rem,5.6vw,3.6rem);margin:12px 0 0 0;}
-  .rebel-sub{
-    font-size:1.02rem;
-    line-height:1.55;
-    font-weight:500;
+  /* ---------- REBELS ---------- */
+  .rebel-head{margin-bottom:36px;}
+  .rebel-head h2{font-size:clamp(2.2rem,5.6vw,3.6rem);margin:12px 0 10px;}
+  .rebel-index{
+    font-family:'Space Mono',monospace;
+    font-weight:700;
+    font-size:0.85rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
     color:var(--ink-2);
-    max-width:38ch;
-    justify-self:end;
-    text-align:left;
   }
-  @media (max-width:760px){
-    .rebel-head{grid-template-columns:1fr;}
-    .rebel-sub{justify-self:start;}
-  }
+  .rebel-index .sep{color:var(--muted);margin:0 10px;}
 
   .rebel-grid{
     display:grid;
@@ -318,7 +297,7 @@
   .rebel-card.c3 .rebel-bar{background:var(--pink);}
 
   .rebel-body{
-    padding:20px 22px 6px;
+    padding:20px 22px 4px;
     display:flex;
     justify-content:space-between;
     align-items:flex-start;
@@ -331,6 +310,15 @@
     color:var(--ink);
     padding:4px 8px;
   }
+  .rebel-id{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .rebel-symbol{width:18px;height:18px;flex-shrink:0;}
+  .rebel-card.c1 .rebel-symbol{color:var(--orange);}
+  .rebel-card.c2 .rebel-symbol{color:var(--teal);}
+  .rebel-card.c3 .rebel-symbol{color:var(--pink-2);}
   .rebel-name{
     font-family:'Anton',sans-serif;
     color:var(--white);
@@ -338,10 +326,18 @@
     font-size:1rem;
     letter-spacing:0.02em;
   }
-  .rebel-art{
-    padding:0 18px;
-    color:var(--white);
+  .rebel-scarcity{
+    padding:0 22px;
+    font-family:'Space Mono',monospace;
+    font-size:0.68rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:#9c9686;
+    text-align:right;
+    margin-top:2px;
   }
+
+  .rebel-art{padding:0 18px;color:var(--white);}
   .rebel-card.c1 .rebel-art{color:var(--orange);}
   .rebel-card.c2 .rebel-art{color:var(--teal);}
   .rebel-card.c3 .rebel-art .bird{transform:scaleX(-1);}
@@ -351,136 +347,168 @@
     font-family:'Anton',sans-serif;
     color:var(--white);
     text-align:center;
-    font-size:clamp(1.15rem,2.4vw,1.4rem);
+    font-size:clamp(1.05rem,2.2vw,1.3rem);
     line-height:1.15;
-    padding:6px 10px 22px;
+    padding:6px 14px 22px;
   }
+  .rebel-card.c1 .rebel-caption{color:var(--orange);}
+  .rebel-card.c2 .rebel-caption{color:var(--teal);}
+  .rebel-card.c3 .rebel-caption{color:var(--pink-2);}
+
   .rebel-shop{
     border-top:1px solid rgba(253,251,246,0.2);
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:14px 22px;
+    gap:10px;
   }
   .rebel-price{
     font-family:'Space Mono',monospace;
     color:var(--white);
     font-weight:700;
-    font-size:0.85rem;
+    font-size:0.8rem;
   }
   .rebel-shop a{
     font-family:'Space Mono',monospace;
     font-weight:700;
-    font-size:0.76rem;
+    font-size:0.72rem;
     letter-spacing:0.06em;
     text-transform:uppercase;
     text-decoration:none;
     color:var(--ink);
     background:var(--white);
     padding:9px 14px;
+    white-space:nowrap;
   }
   .rebel-card.c1 .rebel-shop a:hover{background:var(--orange);color:var(--white);}
   .rebel-card.c2 .rebel-shop a:hover{background:var(--teal);color:var(--ink);}
   .rebel-card.c3 .rebel-shop a:hover{background:var(--pink);color:var(--white);}
 
-  /* ---------- MANIFESTO ---------- */
-  .manifesto{
-    background:var(--ink);
-    color:var(--white);
-    padding:clamp(64px,10vw,110px) 0;
-    margin-top:12px;
-  }
-  .manifesto-grid{
+  /* ---------- INSIDE THE DROP ---------- */
+  .unbox{padding:76px 0 0;}
+  .unbox-head{max-width:56ch;margin-bottom:36px;}
+  .unbox-head h2{font-size:clamp(2rem,5vw,3rem);margin:12px 0 0;}
+  .unbox-grid{
     display:grid;
-    grid-template-columns:220px 1fr;
-    gap:30px;
-  }
-  .manifesto blockquote{
-    margin:16px 0 0 0;
-    font-family:'Anton',sans-serif;
-    font-size:clamp(1.9rem,5vw,3.4rem);
-    line-height:1.06;
-    text-wrap:balance;
-  }
-  .manifesto blockquote .glow{color:var(--teal);}
-  .manifesto p.lede{
-    font-family:'Archivo',sans-serif;
-    font-weight:500;
-    font-size:1.06rem;
-    line-height:1.6;
-    color:#cfc9bd;
-    max-width:62ch;
-    margin:26px 0 0 0;
-  }
-  @media (max-width:760px){
-    .manifesto-grid{grid-template-columns:1fr;}
-  }
-
-  /* ---------- IMPACT ---------- */
-  .impact{padding:clamp(64px,9vw,100px) 0;}
-  .impact-head{max-width:60ch;}
-  .impact-head h2{font-size:clamp(2.2rem,5.4vw,3.4rem);margin:12px 0 0 0;}
-  .impact-steps{
-    margin-top:48px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(4,1fr);
     gap:2px;
     background:var(--ink);
     border:2px solid var(--ink);
   }
-  @media (max-width:800px){.impact-steps{grid-template-columns:1fr;}}
-  .impact-step{
+  @media (max-width:900px){.unbox-grid{grid-template-columns:repeat(2,1fr);}}
+  .unbox-tile{
     background:var(--cream);
-    padding:30px 26px 34px;
+    padding:28px 20px 26px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
   }
-  .impact-step .num{
-    font-family:'Anton',sans-serif;
-    font-size:2.6rem;
-    color:var(--pink);
-  }
-  .impact-step h3{
+  .unbox-icon{width:38px;height:38px;color:var(--ink);}
+  .unbox-tile h3{
     font-family:'Anton',sans-serif;
     text-transform:uppercase;
-    font-size:1.3rem;
-    margin:6px 0 10px;
-    letter-spacing:0.01em;
+    font-size:1rem;
+    letter-spacing:0.02em;
+    margin:0;
   }
-  .impact-step p{
-    font-size:0.98rem;
-    line-height:1.55;
+  .unbox-tile p{
+    font-size:0.9rem;
+    line-height:1.5;
     color:var(--ink-2);
     margin:0;
   }
 
-  .impact-stats{
-    margin-top:56px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:28px;
-    border-top:2px solid var(--ink);
-    padding-top:36px;
+  /* ---------- LEDGER ---------- */
+  .ledger{padding:clamp(64px,9vw,100px) 0;}
+  .ledger-head{max-width:60ch;}
+  .ledger-head h2{font-size:clamp(2rem,5vw,3.2rem);margin:12px 0 0;}
+  .ledger-wrap{
+    display:flex;
+    justify-content:center;
+    margin-top:44px;
   }
-  @media (max-width:700px){.impact-stats{grid-template-columns:1fr;}}
-  .stat .n{
-    font-family:'Anton',sans-serif;
-    font-size:clamp(2.2rem,5vw,3rem);
-    color:var(--ink);
+  .ledger-receipt{
+    width:min(100%,480px);
+    background:var(--white);
+    border:2px dashed var(--ink);
+    padding:26px 26px 22px;
   }
-  .stat .l{
+  .ledger-row{
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
     font-family:'Space Mono',monospace;
-    font-size:0.78rem;
-    letter-spacing:0.06em;
+    font-size:0.8rem;
+    letter-spacing:0.03em;
     text-transform:uppercase;
+    padding:9px 0;
+    border-bottom:1px dashed rgba(20,19,17,0.2);
+  }
+  .ledger-row:last-child{border-bottom:none;}
+  .ledger-row .k{color:var(--ink-2);}
+  .ledger-row .v{color:var(--muted);text-align:right;}
+  .ledger-row.status .v{color:var(--pink);font-weight:700;}
+  .ledger-note{
+    text-align:center;
+    max-width:44ch;
+    margin:22px auto 0;
+    font-size:0.92rem;
     color:var(--ink-2);
-    margin-top:6px;
+    line-height:1.5;
   }
 
-  /* ---------- FOOTER ---------- */
+  /* ---------- MANIFESTO ---------- */
+  .manifesto{
+    background:var(--ink);
+    color:var(--white);
+    padding:clamp(60px,9vw,96px) 0;
+    text-align:center;
+  }
+  .manifesto blockquote{
+    margin:0 auto;
+    max-width:20ch;
+    font-family:'Anton',sans-serif;
+    font-size:clamp(2.1rem,7vw,4rem);
+    line-height:1.04;
+    text-wrap:balance;
+  }
+  .manifesto blockquote .glow{color:var(--teal);}
+  .manifesto .positioning{
+    margin:26px 0 0;
+    font-family:'Space Mono',monospace;
+    font-size:0.76rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:#a49e90;
+  }
+
+  /* ---------- FOOTER / JOIN ---------- */
   .site-footer{
     background:var(--ink);
     color:var(--white);
-    padding:clamp(56px,8vw,80px) 0 28px;
+    padding:clamp(48px,7vw,68px) 0 24px;
   }
+  .flock-counter{
+    text-align:center;
+    padding-bottom:40px;
+    margin-bottom:40px;
+    border-bottom:1px solid rgba(253,251,246,0.16);
+  }
+  .flock-counter .n{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(2.4rem,7vw,3.6rem);
+    color:var(--teal);
+  }
+  .flock-counter .l{
+    font-family:'Space Mono',monospace;
+    font-size:0.78rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:#a49e90;
+    margin-top:6px;
+  }
+
   .footer-top{
     display:grid;
     grid-template-columns:1.3fr 0.7fr 0.7fr;
@@ -491,16 +519,16 @@
   @media (max-width:800px){.footer-top{grid-template-columns:1fr;}}
   .footer-top h3{
     font-family:'Anton',sans-serif;
-    font-size:clamp(1.7rem,3.6vw,2.3rem);
-    margin:10px 0 18px;
+    font-size:clamp(1.6rem,3.4vw,2.1rem);
+    margin:10px 0 6px;
     text-wrap:balance;
   }
-  .signup{
-    display:flex;
-    gap:0;
-    max-width:420px;
-    border:2px solid var(--white);
+  .footer-top .sub{
+    font-size:0.9rem;
+    color:#a49e90;
+    margin:0 0 16px;
   }
+  .signup{display:flex;gap:0;max-width:420px;border:2px solid var(--white);}
   .signup input{
     flex:1;
     background:transparent;
@@ -536,17 +564,13 @@
     margin:0 0 16px;
   }
   .footer-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;}
-  .footer-col a{
-    text-decoration:none;
-    font-size:0.95rem;
-    color:var(--white);
-    border-bottom:1px solid transparent;
-  }
+  .footer-col a{text-decoration:none;font-size:0.95rem;color:var(--white);border-bottom:1px solid transparent;}
   .footer-col a:hover, .footer-col a:focus-visible{border-color:var(--teal);outline:none;}
 
   .footer-bottom{
     display:flex;
     justify-content:space-between;
+    align-items:center;
     flex-wrap:wrap;
     gap:12px;
     padding-top:24px;
@@ -555,140 +579,66 @@
     letter-spacing:0.03em;
     color:#9c9686;
   }
+  .mark-trigger{
+    background:none;
+    border:none;
+    color:#9c9686;
+    cursor:pointer;
+    font-size:0.9rem;
+    padding:2px 6px;
+    line-height:1;
+  }
+  .mark-trigger:hover, .mark-trigger:focus-visible{color:var(--pink-2);outline:none;}
 
-  section{padding-top:0;}
-  .section-space{padding:20px 0 0;}
-
-  /* ---------- CAMPAIGN POSTER ---------- */
-  .campaign{padding:8px 0 12px;}
-  .campaign-head{
+  /* ---------- RECRUIT DIALOG (easter egg) ---------- */
+  .recruit-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(20,19,17,0.72);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:80;
+    padding:20px;
+  }
+  .recruit-overlay.open{display:flex;}
+  .recruit-card{
+    width:min(92vw,380px);
+    background:var(--cream);
+    border:2px solid var(--ink);
+    padding:30px 26px;
     text-align:center;
-    max-width:52ch;
-    margin:0 auto 40px;
-  }
-  .campaign-head h2{
-    font-size:clamp(2rem,5vw,3.1rem);
-    margin:12px 0 0 0;
-  }
-  .campaign .eyebrow{
-    justify-content:center;
-    width:100%;
-  }
-  .poster-wrap{
-    display:flex;
-    justify-content:center;
-  }
-  .poster-frame{
     position:relative;
-    width:min(90vw,480px);
-    aspect-ratio:2/3;
-    background:
-      radial-gradient(circle at 1px 1px, rgba(20,19,17,0.09) 1px, transparent 0) 0 0/18px 18px,
-      var(--cream-2);
-    border:2.5px solid var(--pink);
-    border-radius:20px;
-    padding:16px;
-    overflow:hidden;
   }
-  .poster-frame::before{
-    content:"";
-    position:absolute;
-    inset:11px;
-    border:1.5px solid var(--pink);
-    border-radius:13px;
-    pointer-events:none;
-  }
-  .poster-inner{
-    position:relative;
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    padding:18px 16px 14px;
-  }
-  .poster-word{
+  .recruit-symbol{width:44px;height:44px;margin:0 auto 14px;color:var(--pink);}
+  .recruit-card h3{
     font-family:'Anton',sans-serif;
-    font-size:clamp(2.6rem,9vw,3.8rem);
-    line-height:0.82;
-    letter-spacing:0.01em;
-    text-shadow:3px 4px 0 var(--ink);
+    font-size:1.5rem;
+    margin:0 0 8px;
+    text-wrap:balance;
   }
-  .poster-word .p{color:var(--pink);}
-  .poster-word .t{color:var(--teal);}
-  .poster-tag{margin-top:14px;}
-  .poster-tag-line{
-    font-family:'Anton',sans-serif;
-    text-transform:uppercase;
-    font-size:clamp(1.1rem,3.4vw,1.5rem);
-    line-height:1.05;
-    color:var(--ink);
-  }
-  .poster-tag-line.accent{color:var(--pink);}
-  .poster-underline{
-    width:64px;
-    height:4px;
-    background:var(--teal);
-    margin:10px 0 8px;
-    position:relative;
-  }
-  .poster-underline::after{
-    content:"";
-    position:absolute;
-    left:76px;
-    top:-1px;
-    width:6px;
-    height:6px;
-    border-radius:50%;
-    background:var(--pink);
-  }
-  .poster-caps{
+  .recruit-id{
     font-family:'Space Mono',monospace;
     font-weight:700;
-    font-size:0.68rem;
-    letter-spacing:0.16em;
-    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--pink);
+    margin:0 0 14px;
+  }
+  .recruit-card p{font-size:0.9rem;line-height:1.5;color:var(--ink-2);margin:0;}
+  .recruit-close{
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:none;
+    border:none;
+    font-family:'Space Mono',monospace;
+    font-weight:700;
+    font-size:0.9rem;
+    cursor:pointer;
     color:var(--ink-2);
+    padding:6px;
   }
-  .poster-art{
-    flex:1;
-    display:flex;
-    align-items:flex-end;
-    justify-content:center;
-    min-height:0;
-  }
-  .poster-art .bird{
-    width:52%;
-    color:var(--ink);
-  }
-  .poster-caption{
-    text-align:center;
-    font-family:'Space Mono',monospace;
-    font-weight:700;
-    font-size:0.74rem;
-    letter-spacing:0.06em;
-    line-height:1.6;
-  }
-  .poster-caption .line1{color:var(--pink);display:block;}
-  .poster-caption .line2{color:var(--teal);display:block;}
-
-  .poster-circuit{
-    position:absolute;
-    width:76px;
-    height:120px;
-    opacity:0.85;
-    pointer-events:none;
-  }
-  .poster-circuit--tr{top:8px;right:8px;}
-  .poster-circuit--bl{bottom:8px;left:8px;transform:rotate(180deg);}
-
-  .poster-cta{
-    display:flex;
-    justify-content:center;
-    margin-top:34px;
-  }
-
-  @media (max-width:640px){
-    .poster-frame{width:min(94vw,340px);}
-  }
+  .recruit-close:hover, .recruit-close:focus-visible{color:var(--pink);outline:none;}
 
   /* ---------- SEND LOVE ---------- */
   .love-btn{
@@ -734,18 +684,8 @@
     padding:2px 9px;
     font-size:0.72rem;
   }
-  .love-hearts{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:49;
-    overflow:hidden;
-  }
-  .love-heart-particle{
-    position:absolute;
-    color:var(--pink-2);
-    animation:love-float linear forwards;
-  }
+  .love-hearts{position:fixed;inset:0;pointer-events:none;z-index:49;overflow:hidden;}
+  .love-heart-particle{position:absolute;color:var(--pink-2);animation:love-float linear forwards;}
   @keyframes love-float{
     0%{transform:translate(0,0) scale(0.7) rotate(0deg);opacity:1;}
     100%{transform:translate(var(--dx,0px),-220px) scale(1.15) rotate(var(--rot,20deg));opacity:0;}
@@ -762,72 +702,60 @@
 
 <nav class="nav">
   <div class="wrap">
-    <div class="nav-mark">A305X<span>.</span></div>
+    <a class="nav-mark" href="#top">A305X<span>.</span></a>
     <ul class="nav-links">
       <li><a href="#rebels">Drops</a></li>
-      <li><a href="#manifesto">Manifesto</a></li>
-      <li><a href="#impact">Impact</a></li>
-      <li><a href="#join">Join</a></li>
+      <li><a href="#ledger">Ledger</a></li>
+      <li><a href="#join">Flock</a></li>
     </ul>
-    <a class="nav-cta" href="#rebels">Shop Drop 001</a>
+    <a class="nav-cta" href="#rebels">Enter Drop 001</a>
   </div>
 </nav>
 
-<header class="hero">
+<header class="hero" id="top">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow">A305X Presents / Drop 001</span>
-      <h1 class="display">THE ANTIWAR<br><span class="accent">FLOCK.</span></h1>
-      <p class="hero-sub">Three rebellious birds. One loud refusal. Limited streetwear that turns creative resistance into direct humanitarian support.</p>
+      <span class="eyebrow">A305X Presents</span>
+      <h1 class="display hero-headline">FLUCK <span class="accent">WAR.</span></h1>
+      <p class="hero-hierarchy mono">The Antiwar Flock <span class="sep">—</span> Drop 001</p>
+      <p class="hero-tagline display">WEAR THE NOISE. <span class="p">FUND THE PEACE.</span></p>
       <div class="hero-actions">
-        <a class="btn btn-solid" href="#rebels">Shop the Drop</a>
-        <a class="btn btn-outline" href="#manifesto">Read the Manifesto</a>
+        <a class="btn btn-solid" href="#rebels">Enter Drop 001 ↓</a>
       </div>
     </div>
 
-    <div class="hero-art" aria-hidden="false" role="img" aria-label="Line-art illustration of a punk bird playing guitar in cowboy boots, raising a middle finger, in front of a pink circle on a black background">
+    <div class="hero-art" role="img" aria-label="Giant line-art illustration of a punk bird playing guitar in cowboy boots, raising a middle finger, in front of a pink circle on a black background">
       <div class="circle-pink"></div>
       <div class="circle-teal"></div>
-      <div class="hero-tag">NO BOMBS<br>JUST BASS</div>
+      <div class="hero-stamp">DROP<br>001</div>
       <svg class="bird" viewBox="0 0 220 340" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
-        <!-- feather tuft -->
         <path d="M150 40 C142 16 138 8 130 -2"/>
         <path d="M158 38 C156 12 158 2 156 -8"/>
         <path d="M166 42 C170 20 176 12 182 4"/>
-        <!-- head -->
         <circle cx="158" cy="58" r="21"/>
         <path d="M150 52 C147 49 147 45 150 43 C153 45 153 49 150 52 Z"/>
         <path d="M176 60 L196 66 L176 76"/>
-        <!-- neck -->
         <path d="M141 74 C118 96 158 116 118 148"/>
-        <!-- guitar body -->
         <path d="M78 178 C55 178 46 200 58 222 C46 244 58 268 90 268 C122 268 138 244 128 222 C142 200 118 178 96 178 C90 178 84 178 78 178 Z"/>
         <circle cx="92" cy="222" r="13"/>
-        <!-- guitar neck + head -->
         <path d="M132 196 L196 108"/>
         <path d="M188 118 L200 100"/>
         <path d="M178 130 L190 112"/>
         <circle cx="204" cy="96" r="4"/>
         <circle cx="196" cy="88" r="4"/>
         <circle cx="188" cy="100" r="4"/>
-        <!-- strumming arm -->
         <path d="M100 200 C118 188 128 180 138 168"/>
-        <!-- raised arm + hand -->
         <path d="M118 150 C96 132 78 116 66 96"/>
         <circle cx="60" cy="86" r="9"/>
         <path d="M58 78 L52 40"/>
         <path d="M48 40 L52 40 L56 40"/>
-        <!-- legs -->
         <path d="M84 262 C80 276 74 286 66 296"/>
         <path d="M118 262 C126 276 138 284 150 288"/>
-        <!-- boots -->
         <path d="M66 296 L44 300 L40 312 L78 310 L78 298 Z"/>
         <path d="M150 288 L176 282 L182 292 L148 302 L146 290 Z"/>
-        <!-- motion lines -->
         <path d="M30 210 L14 206" stroke-width="3.5"/>
         <path d="M26 232 L8 232" stroke-width="3.5"/>
         <path d="M34 254 L16 260" stroke-width="3.5"/>
-        <!-- music notes -->
         <g stroke-width="3.5">
           <circle cx="26" cy="150" r="6"/>
           <path d="M32 150 L32 122 L44 118"/>
@@ -835,12 +763,11 @@
           <path d="M65 130 L65 108"/>
         </g>
       </svg>
-      <div class="hero-caption">FLUCK WAR</div>
     </div>
   </div>
 </header>
 
-<div class="marquee-band teal">
+<div class="marquee-band">
   <div class="marquee-track">
     <div class="marquee-item">WEAR THE NOISE <span class="dot">✦</span> FUND THE PEACE <span class="dot">✦</span> WEAR THE NOISE <span class="dot">✦</span> FUND THE PEACE <span class="dot">✦</span></div>
     <div class="marquee-item">WEAR THE NOISE <span class="dot">✦</span> FUND THE PEACE <span class="dot">✦</span> WEAR THE NOISE <span class="dot">✦</span> FUND THE PEACE <span class="dot">✦</span></div>
@@ -850,11 +777,8 @@
 <main>
   <section id="rebels" class="wrap">
     <div class="rebel-head">
-      <div>
-        <span class="eyebrow">Meet the Resistance</span>
-        <h2 class="display">CHOOSE YOUR<br>REBEL.</h2>
-      </div>
-      <p class="rebel-sub">Every character carries a different attitude. Every piece carries the same purpose.</p>
+      <h2 class="display">CHOOSE YOUR<br>REBEL.</h2>
+      <p class="rebel-index mono">01 INSTIGATOR<span class="sep">·</span>02 LOOKOUT<span class="sep">·</span>03 HEADLINER</p>
     </div>
 
     <div class="rebel-grid">
@@ -862,8 +786,12 @@
         <div class="rebel-bar"></div>
         <div class="rebel-body">
           <span class="rebel-num">01</span>
-          <span class="rebel-name">The Instigator</span>
+          <span class="rebel-id">
+            <svg class="rebel-symbol" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h7l-2 8 11-13h-7l2-7Z"/></svg>
+            <span class="rebel-name">The Instigator</span>
+          </span>
         </div>
+        <div class="rebel-scarcity mono">100 pieces · Archived when gone</div>
         <div class="rebel-art">
           <svg class="bird" viewBox="0 0 220 340" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M150 40 C142 16 138 8 130 -2"/>
@@ -901,10 +829,10 @@
             </g>
           </svg>
         </div>
-        <div class="rebel-caption">FLUCK WAR<br>FLUCK POLITICS</div>
+        <div class="rebel-caption">STARTS NOISE.<br>NOT WARS.</div>
         <div class="rebel-shop">
-          <span class="rebel-price">$46 · Tee</span>
-          <a href="#">Shop</a>
+          <span class="rebel-price mono tnum">037/100 · $46</span>
+          <a href="#">Join the Drop</a>
         </div>
       </article>
 
@@ -912,8 +840,12 @@
         <div class="rebel-bar"></div>
         <div class="rebel-body">
           <span class="rebel-num">02</span>
-          <span class="rebel-name">The Lookout</span>
+          <span class="rebel-id">
+            <svg class="rebel-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/></svg>
+            <span class="rebel-name">The Lookout</span>
+          </span>
         </div>
+        <div class="rebel-scarcity mono">100 pieces · Archived when gone</div>
         <div class="rebel-art">
           <svg class="bird" viewBox="0 0 220 340" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M150 40 C142 16 138 8 130 -2"/>
@@ -929,7 +861,6 @@
             <path d="M48 40 L52 40 L56 40"/>
             <path d="M96 180 L96 268" stroke-width="4.5"/>
             <path d="M60 224 L132 224"/>
-            <path d="M96 200 L96 200" stroke-width="9"/>
             <circle cx="96" cy="200" r="4"/>
             <path d="M84 268 C80 278 76 286 70 296"/>
             <path d="M108 268 C112 278 116 286 122 296"/>
@@ -937,10 +868,10 @@
             <path d="M122 296 L144 300 L148 312 L110 310 L110 298 Z"/>
           </svg>
         </div>
-        <div class="rebel-caption">FLUCK WAR<br>FLUCK POLITICS</div>
+        <div class="rebel-caption">STANDS WATCH.<br>NEVER STANDS DOWN.</div>
         <div class="rebel-shop">
-          <span class="rebel-price">$46 · Tee</span>
-          <a href="#">Shop</a>
+          <span class="rebel-price mono tnum">058/100 · $46</span>
+          <a href="#">Join the Drop</a>
         </div>
       </article>
 
@@ -948,8 +879,12 @@
         <div class="rebel-bar"></div>
         <div class="rebel-body">
           <span class="rebel-num">03</span>
-          <span class="rebel-name">The Headliner</span>
+          <span class="rebel-id">
+            <svg class="rebel-symbol" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1 14.4 8.9 22 12 14.4 15.1 12 23 9.6 15.1 2 12 9.6 8.9Z"/></svg>
+            <span class="rebel-name">The Headliner</span>
+          </span>
         </div>
+        <div class="rebel-scarcity mono">50 pieces · Archived when gone</div>
         <div class="rebel-art">
           <svg class="bird" viewBox="0 0 220 340" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M150 40 C142 16 138 8 130 -2"/>
@@ -977,178 +912,135 @@
             <path d="M160 300 L188 296 L196 306 L164 314 Z"/>
           </svg>
         </div>
-        <div class="rebel-caption">FLUCK WAR<br>FLUCK POLITICS</div>
+        <div class="rebel-caption">MAKES NOISE THEY<br>CAN'T CENSOR.</div>
         <div class="rebel-shop">
-          <span class="rebel-price">$52 · Hoodie</span>
-          <a href="#">Shop</a>
+          <span class="rebel-price mono tnum">012/50 · $52</span>
+          <a href="#">Join the Drop</a>
         </div>
       </article>
     </div>
   </section>
 
-  <section id="campaign" class="wrap campaign">
-    <div class="campaign-head">
-      <span class="eyebrow">The Campaign</span>
-      <h2 class="display">ART AGAINST WAR.</h2>
+  <section class="wrap unbox">
+    <div class="unbox-head">
+      <span class="eyebrow">Inside the Drop</span>
+      <h2 class="display">EVERY PIECE ARRIVES<br>LIKE EVIDENCE.</h2>
     </div>
-    <div class="poster-wrap">
-      <div class="poster-frame">
-        <svg class="poster-circuit poster-circuit--tr" viewBox="0 0 76 120" fill="none" stroke-linecap="round">
-          <path d="M76 18 L52 18 L52 40 L38 40" stroke="var(--pink)" stroke-width="2"/>
-          <path d="M76 42 L60 42 L60 62" stroke="var(--teal)" stroke-width="2"/>
-          <path d="M30 0 L30 14 L14 14 L14 30" stroke="var(--teal)" stroke-width="2" stroke-dasharray="1 6"/>
-          <circle cx="38" cy="40" r="3.5" fill="var(--gold)"/>
-          <circle cx="60" cy="62" r="3" fill="var(--pink)"/>
-          <circle cx="14" cy="30" r="3" fill="var(--teal)"/>
-          <path d="M4 55 L4 65 M-1 60 L9 60" stroke="var(--pink)" stroke-width="1.6"/>
+    <div class="unbox-grid">
+      <div class="unbox-tile">
+        <svg class="unbox-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M8 18 20 6l12 4 4 12-12 12L8 18Z"/>
+          <circle cx="14" cy="12" r="2.5"/>
         </svg>
-        <svg class="poster-circuit poster-circuit--bl" viewBox="0 0 76 120" fill="none" stroke-linecap="round">
-          <path d="M76 18 L52 18 L52 40 L38 40" stroke="var(--teal)" stroke-width="2"/>
-          <path d="M30 0 L30 14 L14 14 L14 30" stroke="var(--pink)" stroke-width="2" stroke-dasharray="1 6"/>
-          <circle cx="38" cy="40" r="3.5" fill="var(--pink)"/>
-          <circle cx="14" cy="30" r="3" fill="var(--gold)"/>
-          <path d="M4 55 L4 65 M-1 60 L9 60" stroke="var(--teal)" stroke-width="1.6"/>
-        </svg>
-
-        <div class="poster-inner">
-          <div class="poster-word"><span class="p">A</span><span class="p">3</span><span class="t">0</span><span class="t">5</span><span class="p">X</span></div>
-          <div class="poster-tag">
-            <div class="poster-tag-line">WEAR THE</div>
-            <div class="poster-tag-line accent">MESSAGE</div>
-            <div class="poster-underline"></div>
-            <div class="poster-caps">Art Against War</div>
-          </div>
-          <div class="poster-art">
-            <svg class="bird" viewBox="0 0 220 340" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M150 40 C142 16 138 8 130 -2"/>
-              <path d="M158 38 C156 12 158 2 156 -8"/>
-              <path d="M166 42 C170 20 176 12 182 4"/>
-              <circle cx="158" cy="58" r="21"/>
-              <path d="M150 52 C147 49 147 45 150 43 C153 45 153 49 150 52 Z"/>
-              <path d="M176 60 L196 66 L176 76"/>
-              <path d="M141 74 C118 96 158 116 118 148"/>
-              <path d="M78 178 C55 178 46 200 58 222 C46 244 58 268 90 268 C122 268 138 244 128 222 C142 200 118 178 96 178 C90 178 84 178 78 178 Z"/>
-              <circle cx="92" cy="222" r="13"/>
-              <path d="M132 196 L196 108"/>
-              <path d="M188 118 L200 100"/>
-              <path d="M178 130 L190 112"/>
-              <circle cx="204" cy="96" r="4"/>
-              <circle cx="196" cy="88" r="4"/>
-              <circle cx="188" cy="100" r="4"/>
-              <path d="M100 200 C118 188 128 180 138 168"/>
-              <path d="M118 150 C96 132 78 116 66 96"/>
-              <circle cx="60" cy="86" r="9"/>
-              <path d="M58 78 L52 40"/>
-              <path d="M48 40 L52 40 L56 40"/>
-              <path d="M84 262 C80 276 74 286 66 296"/>
-              <path d="M118 262 C126 276 138 284 150 288"/>
-              <path d="M66 296 L44 300 L40 312 L78 310 L78 298 Z"/>
-              <path d="M150 288 L176 282 L182 292 L148 302 L146 290 Z"/>
-            </svg>
-          </div>
-          <div class="poster-caption">
-            <span class="line1">FLUCK WAR</span>
-            <span class="line2">FLUCK POLITICS</span>
-          </div>
-        </div>
+        <h3>Numbered Tag</h3>
+        <p>037/100 — stitched into the tag, not printed.</p>
       </div>
-    </div>
-    <div class="poster-cta">
-      <a class="btn btn-solid" href="#rebels">Shop This Tee</a>
+      <div class="unbox-tile">
+        <svg class="unbox-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="5" y="9" width="30" height="22" rx="2.5"/>
+          <circle cx="13" cy="17" r="3.5"/>
+          <path d="M9 26 L31 26 M9 21 L20 21"/>
+        </svg>
+        <h3>Collector Card</h3>
+        <p>Same number on the card. Scan the back.</p>
+      </div>
+      <div class="unbox-tile">
+        <svg class="unbox-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 12 20 22 36 12"/>
+          <rect x="4" y="9" width="32" height="22" rx="1.5"/>
+          <circle cx="29" cy="26" r="5" stroke-dasharray="1.5 3"/>
+        </svg>
+        <h3>Black Mailer</h3>
+        <p>Stamped: YOU HAVE BEEN RECRUITED.</p>
+      </div>
+      <div class="unbox-tile">
+        <svg class="unbox-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <rect x="6" y="6" width="28" height="28" rx="2"/>
+          <path d="M6 14 L34 14 M6 22 L34 22 M6 30 L34 30 M14 6 L14 34 M22 6 L22 34 M30 6 L30 34"/>
+        </svg>
+        <h3>Heavyweight Print</h3>
+        <p>240gsm cotton, puff-ink. Built to outlast the headline.</p>
+      </div>
     </div>
   </section>
 
-  <div class="marquee-band pink flip">
-    <div class="marquee-track">
-      <div class="marquee-item">100% OF PROFIT <span class="dot">✦</span> TO CEASEFIRE RELIEF <span class="dot">✦</span> 100% OF PROFIT <span class="dot">✦</span> TO CEASEFIRE RELIEF <span class="dot">✦</span></div>
-      <div class="marquee-item">100% OF PROFIT <span class="dot">✦</span> TO CEASEFIRE RELIEF <span class="dot">✦</span> 100% OF PROFIT <span class="dot">✦</span> TO CEASEFIRE RELIEF <span class="dot">✦</span></div>
+  <section id="ledger" class="wrap ledger">
+    <div class="ledger-head">
+      <span class="eyebrow">The Impact Ledger</span>
+      <h2 class="display">EVERY PIECE HAS A NUMBER.<br>EVERY DROP LEAVES A RECEIPT.</h2>
     </div>
-  </div>
+    <div class="ledger-wrap">
+      <div class="ledger-receipt">
+        <div class="ledger-row status"><span class="k">Drop 001</span><span class="v">Open</span></div>
+        <div class="ledger-row"><span class="k">Revenue</span><span class="v">Publishes at close</span></div>
+        <div class="ledger-row"><span class="k">Production cost</span><span class="v">Publishes at close</span></div>
+        <div class="ledger-row"><span class="k">Net profit</span><span class="v">Publishes at close</span></div>
+        <div class="ledger-row"><span class="k">Donation</span><span class="v">Publishes at close</span></div>
+        <div class="ledger-row"><span class="k">Receipt</span><span class="v">Publishes at close</span></div>
+      </div>
+    </div>
+    <p class="ledger-note">No estimates. No rounded-up percentages. The first public receipt goes live the day Drop 001 closes.</p>
+  </section>
 
   <section id="manifesto" class="manifesto">
-    <div class="wrap manifesto-grid">
-      <span class="eyebrow on-dark">The Manifesto</span>
-      <div>
-        <blockquote>&ldquo;We cannot stop every war. But we can refuse to profit from <span class="glow">silence.&rdquo;</span></blockquote>
-        <p class="lede">A305X started as three friends drawing angry birds on the back of a merch order form. It became a flock. Every drop is small, numbered, and gone fast &mdash; because the point was never to build a fashion label. It was to move money to people who need it, loud enough that you can't scroll past it.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="impact" class="wrap impact">
-    <div class="impact-head">
-      <span class="eyebrow">How It Works</span>
-      <h2 class="display">BUY. WEAR.<br>FUND.</h2>
-    </div>
-
-    <div class="impact-steps">
-      <div class="impact-step">
-        <div class="num mono">01</div>
-        <h3>You buy the drop</h3>
-        <p>Each release is capped and numbered. When it's gone, it's gone &mdash; no restocks, no filler sizes added later.</p>
-      </div>
-      <div class="impact-step">
-        <div class="num mono">02</div>
-        <h3>You wear the refusal</h3>
-        <p>The flock isn't subtle. It's a piece of streetwear built to start the conversation you were going to have anyway.</p>
-      </div>
-      <div class="impact-step">
-        <div class="num mono">03</div>
-        <h3>Profit funds relief</h3>
-        <p>100% of profit is wired directly to vetted humanitarian partners providing medical aid and shelter in conflict zones.</p>
-      </div>
-    </div>
-
-    <div class="impact-stats">
-      <div class="stat">
-        <div class="n mono">$48,200</div>
-        <div class="l">Funded to date</div>
-      </div>
-      <div class="stat">
-        <div class="n mono">3</div>
-        <div class="l">Relief partners on the ground</div>
-      </div>
-      <div class="stat">
-        <div class="n mono">001</div>
-        <div class="l">Drops released so far</div>
-      </div>
+    <div class="wrap">
+      <blockquote>WE DON'T SELL PEACE.<br><span class="glow">WE FUND IT.</span></blockquote>
+      <p class="positioning">Humanity over war. Creativity over division. Love over tribalism.</p>
     </div>
   </section>
 </main>
 
 <footer id="join" class="site-footer">
+  <div class="wrap flock-counter">
+    <div class="n mono tnum" id="flock-n">0</div>
+    <div class="l">Rebels in the Flock</div>
+  </div>
   <div class="wrap footer-top">
     <div>
       <span class="eyebrow on-dark">Join the Flock</span>
-      <h3>Get next drop first. No spam, just birds.</h3>
+      <h3>Get recruited first.</h3>
+      <p class="sub">First to know when Drop 001 goes live. No spam, just birds.</p>
       <form class="signup" onsubmit="return false;">
         <input type="email" placeholder="you@email.com" aria-label="Email address" required>
         <button type="submit">Join</button>
       </form>
     </div>
     <div class="footer-col">
-      <h4>Shop</h4>
+      <h4>Rebels</h4>
       <ul>
-        <li><a href="#rebels">Drop 001</a></li>
-        <li><a href="#rebels">All tees</a></li>
-        <li><a href="#rebels">Hoodies</a></li>
+        <li><a href="#rebels">01 Instigator</a></li>
+        <li><a href="#rebels">02 Lookout</a></li>
+        <li><a href="#rebels">03 Headliner</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Flock</h4>
+      <h4>The Flock</h4>
       <ul>
         <li><a href="#manifesto">Manifesto</a></li>
-        <li><a href="#impact">Impact reports</a></li>
+        <li><a href="#ledger">Impact Ledger</a></li>
         <li><a href="#">Instagram</a></li>
         <li><a href="#">TikTok</a></li>
       </ul>
     </div>
   </div>
   <div class="wrap footer-bottom">
-    <span>&copy; 2026 A305X. NO BOMBS, JUST BASS.</span>
-    <span>Privacy &nbsp;·&nbsp; Terms &nbsp;·&nbsp; Returns</span>
+    <span>&copy; 2026 A305X. WEAR THE NOISE. FUND THE PEACE.</span>
+    <span>
+      Privacy &nbsp;·&nbsp; Terms &nbsp;·&nbsp; Archive &nbsp;·&nbsp;
+      <button type="button" class="mark-trigger" id="mark-trigger" aria-haspopup="dialog">◆</button>
+    </span>
   </div>
 </footer>
+
+<div class="recruit-overlay" id="recruit-overlay" role="dialog" aria-modal="true" aria-labelledby="recruit-title">
+  <div class="recruit-card">
+    <button type="button" class="recruit-close" id="recruit-close" aria-label="Close">✕</button>
+    <svg class="recruit-symbol" id="recruit-symbol" viewBox="0 0 24 24" aria-hidden="true"></svg>
+    <h3 id="recruit-title">YOU HAVE BEEN RECRUITED.</h3>
+    <p class="recruit-id mono" id="recruit-id"></p>
+    <p>You found the mark. Every Rebel gets an ID the moment they find it — yours is permanent, tied to this browser.</p>
+  </div>
+</div>
 
 <button id="love-btn" class="love-btn" type="button" aria-label="Send love. 0 sent so far.">
   <svg class="heart-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -1178,8 +1070,7 @@
     var rect = btn.getBoundingClientRect();
     var originX = rect.left + rect.width * 0.25;
     var originY = rect.top + rect.height * 0.35;
-    var n = 7;
-    for (var i = 0; i < n; i++){
+    for (var i = 0; i < 7; i++){
       var el = document.createElement('div');
       el.className = 'love-heart-particle';
       el.textContent = '♥';
@@ -1194,9 +1085,7 @@
       el.style.setProperty('--rot', rot + 'deg');
       el.style.animationDuration = duration + 's';
       field.appendChild(el);
-      (function(node){
-        node.addEventListener('animationend', function(){ node.remove(); });
-      })(el);
+      (function(node){ node.addEventListener('animationend', function(){ node.remove(); }); })(el);
     }
   }
 
@@ -1212,5 +1101,94 @@
   });
 
   render();
+})();
+
+(function(){
+  var el = document.getElementById('flock-n');
+  var target = 2417;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function setFinal(){ el.textContent = target.toLocaleString('en-US'); }
+
+  if (reduceMotion || !('IntersectionObserver' in window)){
+    setFinal();
+    return;
+  }
+
+  var done = false;
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting && !done){
+        done = true;
+        var start = null;
+        var duration = 1200;
+        function step(ts){
+          if (!start) start = ts;
+          var progress = Math.min((ts - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(target * eased).toLocaleString('en-US');
+          if (progress < 1) requestAnimationFrame(step);
+          else setFinal();
+        }
+        requestAnimationFrame(step);
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+  observer.observe(el);
+})();
+
+(function(){
+  var trigger = document.getElementById('mark-trigger');
+  var overlay = document.getElementById('recruit-overlay');
+  var closeBtn = document.getElementById('recruit-close');
+  var idEl = document.getElementById('recruit-id');
+  var symbolEl = document.getElementById('recruit-symbol');
+  var ID_KEY = 'a305x-rebel-id';
+
+  var symbols = [
+    { path: 'M13 2 4 14h7l-2 8 11-13h-7l2-7Z', fill: true, color: 'var(--orange)' },
+    { path: 'M12 1 14.4 8.9 22 12 14.4 15.1 12 23 9.6 15.1 2 12 9.6 8.9Z', fill: true, color: 'var(--pink-2)' },
+    { circle: true, color: 'var(--teal)' }
+  ];
+
+  function getRebelId(){
+    var stored = localStorage.getItem(ID_KEY);
+    if (stored) return parseInt(stored, 10);
+    var id = 10000 + Math.floor(Math.random() * 89999);
+    localStorage.setItem(ID_KEY, id);
+    return id;
+  }
+
+  function open(){
+    var id = getRebelId();
+    var sym = symbols[id % symbols.length];
+    idEl.textContent = 'REBEL #' + id;
+    symbolEl.style.color = sym.color;
+    if (sym.circle){
+      symbolEl.setAttribute('fill', 'none');
+      symbolEl.setAttribute('stroke', 'currentColor');
+      symbolEl.setAttribute('stroke-width', '2');
+      symbolEl.innerHTML = '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/>';
+    } else {
+      symbolEl.setAttribute('fill', 'currentColor');
+      symbolEl.removeAttribute('stroke');
+      symbolEl.innerHTML = '<path d="' + sym.path + '"/>';
+    }
+    overlay.classList.add('open');
+    closeBtn.focus();
+  }
+
+  function close(){
+    overlay.classList.remove('open');
+    trigger.focus();
+  }
+
+  trigger.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', function(e){ if (e.target === overlay) close(); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && overlay.classList.contains('open')) close();
+  });
 })();
 </script>
