@@ -158,7 +158,19 @@
     line-height:1.18;
     margin-top:6px;
   }
-  .hero-tagline .p{color:var(--pink);}
+  .tl-mask{display:inline-block;overflow:hidden;vertical-align:top;}
+  .tl-word{
+    display:inline-block;
+    transform:translateY(115%);
+    animation:tl-reveal 750ms cubic-bezier(.22,1,.36,1) forwards;
+    animation-delay:120ms;
+  }
+  .tl-mask + .tl-mask .tl-word{animation-delay:320ms;}
+  .tl-word.p{color:var(--pink);}
+  @keyframes tl-reveal{to{transform:translateY(0);}}
+  @media (prefers-reduced-motion: reduce){
+    .tl-word{animation:none;transform:none;}
+  }
   .hero-actions{margin-top:12px;}
   .btn{
     font-family:'Space Mono',monospace;
@@ -556,6 +568,15 @@
     cursor:pointer;
   }
   .signup button:hover, .signup button:focus-visible{background:var(--pink-2);outline:none;}
+  .signup button:disabled{opacity:0.6;cursor:not-allowed;}
+  .signup-status{
+    min-height:1.2em;
+    margin:10px 0 0;
+    font-size:0.72rem;
+    letter-spacing:0.04em;
+    color:var(--teal);
+  }
+  .signup-status.is-error{color:var(--pink-2);}
 
   .footer-col h4{
     font-family:'Space Mono',monospace;
@@ -917,7 +938,7 @@
       <span class="eyebrow">A305X Presents</span>
       <h1 class="display hero-headline">FLUCK <span class="accent">WAR.</span></h1>
       <p class="hero-hierarchy mono">The Antiwar Flock <span class="sep">—</span> Drop 001</p>
-      <p class="hero-tagline display">WEAR THE NOISE. <span class="p">FUND THE PEACE.</span></p>
+      <p class="hero-tagline display"><span class="tl-mask"><span class="tl-word">WEAR THE NOISE.</span></span> <span class="tl-mask"><span class="tl-word p">FUND THE PEACE.</span></span></p>
       <div class="hero-actions">
         <a class="btn btn-solid" href="#rebels">Enter Drop 001 ↓</a>
       </div>
@@ -1206,10 +1227,11 @@
       <span class="eyebrow on-dark">Join the Flock</span>
       <h3>Get recruited first.</h3>
       <p class="sub">First to know when Drop 001 goes live. No spam, just birds.</p>
-      <form class="signup" onsubmit="return false;">
-        <input type="email" placeholder="you@email.com" aria-label="Email address" required>
+      <form class="signup" id="join-form">
+        <input type="email" id="join-email" placeholder="you@email.com" aria-label="Email address" required>
         <button type="submit">Join</button>
       </form>
+      <p class="signup-status mono" id="join-status" role="status"></p>
     </div>
     <div class="footer-col">
       <h4>Rebels</h4>
@@ -1666,5 +1688,44 @@ function animateCount(el, target, opts){
     openOverlay('choose');
     history.replaceState(null, '', location.pathname);
   }
+})();
+
+(function(){
+  var form = document.getElementById('join-form');
+  var emailInput = document.getElementById('join-email');
+  var status = document.getElementById('join-status');
+  var button = form.querySelector('button');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    status.textContent = '';
+    status.classList.remove('is-error');
+    button.disabled = true;
+    button.textContent = 'Joining…';
+
+    fetch('/api/join', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: emailInput.value.trim() })
+    })
+      .then(function(r){ return r.json().then(function(data){ return { ok: r.ok, data: data }; }); })
+      .then(function(res){
+        button.disabled = false;
+        button.textContent = 'Join';
+        if (!res.ok) {
+          status.textContent = res.data.error || 'Something went wrong.';
+          status.classList.add('is-error');
+          return;
+        }
+        status.textContent = res.data.alreadyJoined ? "You're already in the Flock." : "You're in. Welcome to the Flock.";
+        emailInput.value = '';
+      })
+      .catch(function(){
+        button.disabled = false;
+        button.textContent = 'Join';
+        status.textContent = 'Network hiccup. Try again.';
+        status.classList.add('is-error');
+      });
+  });
 })();
 </script>

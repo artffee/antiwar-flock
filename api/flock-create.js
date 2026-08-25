@@ -50,7 +50,7 @@ export default async function handler(req, res) {
   }
 
   const ip = getClientIp(req);
-  const allowed = await checkRateLimit(ip);
+  const allowed = await checkRateLimit(ip, 'flock');
   if (!allowed) {
     res.status(429).json({ error: 'Slow down. The Flock needs a minute to catch its breath.' });
     return;

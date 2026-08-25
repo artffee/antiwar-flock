@@ -29,8 +29,8 @@ export function hashIp(ip) {
   return crypto.createHash('sha256').update(String(ip)).digest('hex').slice(0, 24);
 }
 
-export async function checkRateLimit(ip) {
-  const pathname = `ratelimit/${hashIp(ip)}.json`;
+export async function checkRateLimit(ip, bucket) {
+  const pathname = `ratelimit/${bucket || 'default'}/${hashIp(ip)}.json`;
   const now = Date.now();
   const existing = await readJsonBlob(pathname, false);
   let hits = Array.isArray(existing?.hits) ? existing.hits : [];
@@ -69,4 +69,14 @@ export async function saveFlock({ rebel, recipientName, message }) {
 export async function loadFlock(shareId) {
   if (!/^[A-Za-z0-9_-]{6,32}$/.test(String(shareId || ''))) return null;
   return readJsonBlob(`flocks/${shareId}.json`);
+}
+
+export async function saveEmail(email) {
+  const normalized = String(email).trim().toLowerCase();
+  const key = crypto.createHash('sha256').update(normalized).digest('hex');
+  const pathname = `emails/${key}.json`;
+  const existing = await readJsonBlob(pathname, false);
+  if (existing) return { alreadyJoined: true };
+  await writeJsonBlob(pathname, { email: normalized, joinedAt: new Date().toISOString() });
+  return { alreadyJoined: false };
 }
