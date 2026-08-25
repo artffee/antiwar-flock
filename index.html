@@ -557,6 +557,75 @@
 
   section{padding-top:0;}
   .section-space{padding:20px 0 0;}
+
+  /* ---------- SEND LOVE ---------- */
+  .love-btn{
+    position:fixed;
+    right:clamp(16px,3vw,28px);
+    bottom:clamp(16px,3vw,28px);
+    z-index:50;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:var(--ink);
+    color:var(--white);
+    border:2px solid var(--ink);
+    border-radius:999px;
+    padding:13px 18px 13px 16px;
+    font-family:'Space Mono',monospace;
+    font-weight:700;
+    font-size:0.78rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    cursor:pointer;
+    box-shadow:4px 4px 0 var(--pink);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .love-btn:hover, .love-btn:focus-visible{
+    transform:translate(-2px,-2px);
+    box-shadow:6px 6px 0 var(--pink);
+    outline:none;
+  }
+  .love-btn:active{transform:translate(0,0);box-shadow:2px 2px 0 var(--pink);}
+  .love-btn .heart-icon{
+    width:16px;
+    height:16px;
+    flex-shrink:0;
+    color:var(--pink-2);
+    transition:transform .25s cubic-bezier(.34,1.56,.64,1);
+  }
+  .love-btn.pulse .heart-icon{transform:scale(1.5);}
+  .love-count{
+    background:var(--pink-2);
+    color:var(--ink);
+    border-radius:999px;
+    padding:2px 9px;
+    font-size:0.72rem;
+  }
+  .love-hearts{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:49;
+    overflow:hidden;
+  }
+  .love-heart-particle{
+    position:absolute;
+    color:var(--pink-2);
+    animation:love-float linear forwards;
+  }
+  @keyframes love-float{
+    0%{transform:translate(0,0) scale(0.7) rotate(0deg);opacity:1;}
+    100%{transform:translate(var(--dx,0px),-220px) scale(1.15) rotate(var(--rot,20deg));opacity:0;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .love-heart-particle{display:none;}
+    .love-btn .heart-icon{transition:none;}
+  }
+  @media (max-width:520px){
+    .love-btn .love-label{display:none;}
+    .love-btn{padding:13px;}
+  }
 </style>
 
 <nav class="nav">
@@ -876,3 +945,68 @@
     <span>Privacy &nbsp;·&nbsp; Terms &nbsp;·&nbsp; Returns</span>
   </div>
 </footer>
+
+<button id="love-btn" class="love-btn" type="button" aria-label="Send love. 0 sent so far.">
+  <svg class="heart-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12 21s-7.5-4.6-10.2-9.1C0 9.1 1.1 5.5 4.6 4.6c2-.5 3.9.3 5.4 2 1.5-1.7 3.4-2.5 5.4-2 3.5.9 4.6 4.5 2.8 7.3C19.5 16.4 12 21 12 21z"/>
+  </svg>
+  <span class="love-label">Send Love</span>
+  <span class="love-count mono" id="love-count">0</span>
+</button>
+<div class="love-hearts" id="love-hearts" aria-hidden="true"></div>
+
+<script>
+(function(){
+  var STORAGE_KEY = 'a305x-love-count';
+  var btn = document.getElementById('love-btn');
+  var countEl = document.getElementById('love-count');
+  var field = document.getElementById('love-hearts');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var count = parseInt(localStorage.getItem(STORAGE_KEY), 10) || 0;
+
+  function render(){
+    countEl.textContent = count;
+    btn.setAttribute('aria-label', 'Send love. ' + count + ' sent so far.');
+  }
+
+  function spawnHearts(){
+    var rect = btn.getBoundingClientRect();
+    var originX = rect.left + rect.width * 0.25;
+    var originY = rect.top + rect.height * 0.35;
+    var n = 7;
+    for (var i = 0; i < n; i++){
+      var el = document.createElement('div');
+      el.className = 'love-heart-particle';
+      el.textContent = '♥';
+      var size = 14 + Math.random() * 16;
+      var dx = (Math.random() - 0.5) * 140;
+      var rot = (Math.random() - 0.5) * 60;
+      var duration = 1.1 + Math.random() * 0.9;
+      el.style.left = originX + 'px';
+      el.style.top = originY + 'px';
+      el.style.fontSize = size + 'px';
+      el.style.setProperty('--dx', dx + 'px');
+      el.style.setProperty('--rot', rot + 'deg');
+      el.style.animationDuration = duration + 's';
+      field.appendChild(el);
+      (function(node){
+        node.addEventListener('animationend', function(){ node.remove(); });
+      })(el);
+    }
+  }
+
+  btn.addEventListener('click', function(){
+    count += 1;
+    localStorage.setItem(STORAGE_KEY, count);
+    render();
+    if (!reduceMotion) {
+      spawnHearts();
+      btn.classList.add('pulse');
+      setTimeout(function(){ btn.classList.remove('pulse'); }, 260);
+    }
+  });
+
+  render();
+})();
+</script>
