@@ -918,6 +918,169 @@
   .fc-ratio{color:var(--pink);font-weight:700;}
 
   .flock-reveal-actions{display:flex;flex-direction:column;gap:12px;width:100%;max-width:340px;}
+
+  /* ---------- TALK TO A REBEL (chat) ---------- */
+  .chat-btn{
+    position:fixed;
+    left:clamp(16px,3vw,28px);
+    bottom:clamp(16px,3vw,28px);
+    z-index:50;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:var(--ink);
+    color:var(--white);
+    border:2px solid var(--ink);
+    border-radius:999px;
+    padding:15px 20px;
+    font-family:'Space Mono',monospace;
+    font-weight:700;
+    font-size:0.78rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    cursor:pointer;
+    box-shadow:4px 4px 0 var(--teal);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .chat-btn:hover, .chat-btn:focus-visible{transform:translate(2px,-2px);box-shadow:6px 6px 0 var(--teal);outline:none;}
+  .chat-btn:active{transform:translate(0,0);box-shadow:2px 2px 0 var(--teal);}
+  .chat-btn .chat-icon{width:16px;height:16px;flex-shrink:0;color:var(--teal);}
+  @media (max-width:520px){
+    .chat-btn .chat-label{display:none;}
+    .chat-btn{padding:15px;}
+  }
+
+  .chat-panel{
+    position:fixed;
+    left:clamp(16px,3vw,28px);
+    bottom:clamp(80px,10vw,96px);
+    z-index:90;
+    width:min(92vw,360px);
+    max-height:min(72vh,560px);
+    background:var(--ink);
+    color:var(--white);
+    border:2px solid var(--white);
+    display:none;
+    flex-direction:column;
+    overflow:hidden;
+  }
+  .chat-panel.open{display:flex;}
+
+  .chat-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 12px 12px 16px;
+    border-bottom:1px solid rgba(253,251,246,0.18);
+  }
+  .chat-head-title{font-family:'Anton',sans-serif;font-size:1rem;letter-spacing:0.02em;}
+  .chat-head-title span{color:var(--teal);}
+  .chat-close{
+    background:none;
+    border:2px solid var(--white);
+    color:var(--white);
+    width:30px;
+    height:30px;
+    font-family:'Space Mono',monospace;
+    font-size:0.8rem;
+    cursor:pointer;
+  }
+  .chat-close:hover, .chat-close:focus-visible{background:var(--pink);border-color:var(--pink);outline:none;}
+
+  .chat-tabs{display:flex;gap:6px;padding:10px 12px;border-bottom:1px solid rgba(253,251,246,0.18);}
+  .chat-tab{
+    flex:1;
+    background:var(--ink-2);
+    border:1.5px solid rgba(253,251,246,0.22);
+    color:#cfc9bd;
+    font-family:'Space Mono',monospace;
+    font-size:0.62rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    padding:8px 4px;
+    cursor:pointer;
+  }
+  .chat-tab.active{color:var(--white);border-color:var(--teal);background:rgba(34,211,181,0.14);}
+  .chat-tab:hover, .chat-tab:focus-visible{outline:none;border-color:var(--teal);}
+
+  .chat-messages{
+    flex:1;
+    overflow-y:auto;
+    padding:14px 14px 6px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .chat-msg{
+    max-width:82%;
+    padding:9px 12px;
+    font-size:0.9rem;
+    line-height:1.42;
+    border:1.5px solid transparent;
+  }
+  .chat-msg.model{
+    align-self:flex-start;
+    background:var(--ink-2);
+    border-color:rgba(253,251,246,0.18);
+  }
+  .chat-msg.user{
+    align-self:flex-end;
+    background:var(--pink);
+    color:var(--white);
+  }
+  .chat-msg.error{
+    align-self:flex-start;
+    background:transparent;
+    border-color:var(--pink-2);
+    color:var(--pink-2);
+    font-family:'Space Mono',monospace;
+    font-size:0.78rem;
+  }
+  .chat-typing{align-self:flex-start;padding:9px 12px;}
+  .chat-typing span{
+    display:inline-block;
+    width:6px;
+    height:6px;
+    margin-right:3px;
+    border-radius:50%;
+    background:var(--teal);
+    animation:chat-bounce 1s infinite ease-in-out;
+  }
+  .chat-typing span:nth-child(2){animation-delay:0.15s;}
+  .chat-typing span:nth-child(3){animation-delay:0.3s;}
+  @keyframes chat-bounce{0%,80%,100%{transform:translateY(0);opacity:0.5;}40%{transform:translateY(-4px);opacity:1;}}
+  @media (prefers-reduced-motion: reduce){.chat-typing span{animation:none;opacity:1;}}
+
+  .chat-form{
+    display:flex;
+    border-top:1px solid rgba(253,251,246,0.18);
+  }
+  .chat-input{
+    flex:1;
+    background:transparent;
+    border:none;
+    padding:12px 14px;
+    color:var(--white);
+    font-family:'Archivo',sans-serif;
+    font-size:0.92rem;
+  }
+  .chat-input:focus{outline:none;}
+  .chat-input::placeholder{color:#9c9686;}
+  .chat-send{
+    border:none;
+    border-left:1px solid rgba(253,251,246,0.18);
+    background:var(--teal);
+    color:var(--ink);
+    font-family:'Space Mono',monospace;
+    font-weight:700;
+    font-size:0.74rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    padding:0 16px;
+    cursor:pointer;
+  }
+  .chat-send:hover, .chat-send:focus-visible{background:var(--pink-2);color:var(--white);outline:none;}
+  .chat-send:disabled{opacity:0.5;cursor:not-allowed;}
 </style>
 
 <nav class="nav">
@@ -1268,6 +1431,30 @@
     <p class="recruit-id mono" id="recruit-id"></p>
     <p>You found the mark. Every Rebel gets an ID the moment they find it — yours is permanent, tied to this browser.</p>
   </div>
+</div>
+
+<button id="chat-btn" class="chat-btn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="chat-panel">
+  <svg class="chat-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M4 4h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H9l-4.4 3.3A1 1 0 0 1 3 19.5V6a2 2 0 0 1 1-2Z"/>
+  </svg>
+  <span class="chat-label">Talk to a Rebel</span>
+</button>
+
+<div class="chat-panel" id="chat-panel" role="dialog" aria-label="Talk to a Rebel">
+  <div class="chat-head">
+    <span class="chat-head-title">REBEL <span id="chat-active-name">01 · INSTIGATOR</span></span>
+    <button type="button" class="chat-close" id="chat-close" aria-label="Close">&#10005;</button>
+  </div>
+  <div class="chat-tabs" role="tablist">
+    <button type="button" class="chat-tab active" data-rebel="1" role="tab" aria-selected="true">01 INSTIGATOR</button>
+    <button type="button" class="chat-tab" data-rebel="2" role="tab" aria-selected="false">02 LOOKOUT</button>
+    <button type="button" class="chat-tab" data-rebel="3" role="tab" aria-selected="false">03 HEADLINER</button>
+  </div>
+  <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
+  <form class="chat-form" id="chat-form">
+    <input class="chat-input" id="chat-input" type="text" maxlength="500" placeholder="Say something..." autocomplete="off">
+    <button class="chat-send" type="submit" id="chat-send">Send</button>
+  </form>
 </div>
 
 <button id="love-btn" class="love-btn" type="button" aria-haspopup="dialog">
@@ -1725,6 +1912,124 @@ function animateCount(el, target, opts){
         button.textContent = 'Join';
         status.textContent = 'Network hiccup. Try again.';
         status.classList.add('is-error');
+      });
+  });
+})();
+
+(function(){
+  var REBEL_META = {
+    1: { label: '01 · INSTIGATOR', greeting: "Yeah? Say something worth hearing." },
+    2: { label: '02 · LOOKOUT', greeting: "I'm watching. What do you need?" },
+    3: { label: '03 · HEADLINER', greeting: "You're live. Ask me anything — make it good." }
+  };
+
+  var btn = document.getElementById('chat-btn');
+  var panel = document.getElementById('chat-panel');
+  var closeBtn = document.getElementById('chat-close');
+  var tabs = panel.querySelectorAll('.chat-tab');
+  var activeNameEl = document.getElementById('chat-active-name');
+  var messagesEl = document.getElementById('chat-messages');
+  var form = document.getElementById('chat-form');
+  var input = document.getElementById('chat-input');
+  var sendBtn = document.getElementById('chat-send');
+
+  var currentRebel = 1;
+  var histories = { 1: [], 2: [], 3: [] };
+  var sending = false;
+
+  function addBubble(role, text, container){
+    var el = document.createElement('div');
+    el.className = 'chat-msg ' + role;
+    el.textContent = text;
+    (container || messagesEl).appendChild(el);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+    return el;
+  }
+
+  function renderHistory(rebel){
+    messagesEl.innerHTML = '';
+    if (!histories[rebel].length) {
+      addBubble('model', REBEL_META[rebel].greeting);
+    } else {
+      histories[rebel].forEach(function(m){ addBubble(m.role, m.text); });
+    }
+  }
+
+  function switchRebel(rebel){
+    currentRebel = rebel;
+    activeNameEl.textContent = REBEL_META[rebel].label;
+    tabs.forEach(function(t){
+      var isActive = Number(t.dataset.rebel) === rebel;
+      t.classList.toggle('active', isActive);
+      t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+    renderHistory(rebel);
+  }
+
+  function openPanel(){
+    panel.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    if (!histories[currentRebel].length) renderHistory(currentRebel);
+    input.focus();
+  }
+
+  function closePanel(){
+    panel.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.focus();
+  }
+
+  btn.addEventListener('click', function(){
+    if (panel.classList.contains('open')) { closePanel(); } else { openPanel(); }
+  });
+  closeBtn.addEventListener('click', closePanel);
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && panel.classList.contains('open')) closePanel();
+  });
+
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){ switchRebel(Number(tab.dataset.rebel)); });
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var text = input.value.trim();
+    if (!text || sending) return;
+
+    histories[currentRebel].push({ role: 'user', text: text });
+    addBubble('user', text);
+    input.value = '';
+    sending = true;
+    sendBtn.disabled = true;
+
+    var typing = document.createElement('div');
+    typing.className = 'chat-typing';
+    typing.innerHTML = '<span></span><span></span><span></span>';
+    messagesEl.appendChild(typing);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+
+    fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ rebel: currentRebel, messages: histories[currentRebel] })
+    })
+      .then(function(r){ return r.json().then(function(data){ return { ok: r.ok, data: data }; }); })
+      .then(function(res){
+        typing.remove();
+        sending = false;
+        sendBtn.disabled = false;
+        if (!res.ok) {
+          addBubble('error', res.data.error || 'Something went wrong.');
+          return;
+        }
+        histories[currentRebel].push({ role: 'model', text: res.data.reply });
+        addBubble('model', res.data.reply);
+      })
+      .catch(function(){
+        typing.remove();
+        sending = false;
+        sendBtn.disabled = false;
+        addBubble('error', 'Network hiccup. Try again.');
       });
   });
 })();

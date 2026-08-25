@@ -29,13 +29,15 @@ export function hashIp(ip) {
   return crypto.createHash('sha256').update(String(ip)).digest('hex').slice(0, 24);
 }
 
-export async function checkRateLimit(ip, bucket) {
+export async function checkRateLimit(ip, bucket, max, windowMs) {
   const pathname = `ratelimit/${bucket || 'default'}/${hashIp(ip)}.json`;
+  const limit = max || MAX_PER_WINDOW;
+  const window = windowMs || WINDOW_MS;
   const now = Date.now();
   const existing = await readJsonBlob(pathname, false);
   let hits = Array.isArray(existing?.hits) ? existing.hits : [];
-  hits = hits.filter((t) => now - t < WINDOW_MS);
-  if (hits.length >= MAX_PER_WINDOW) return false;
+  hits = hits.filter((t) => now - t < window);
+  if (hits.length >= limit) return false;
   hits.push(now);
   await writeJsonBlob(pathname, { hits });
   return true;
