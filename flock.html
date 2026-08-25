@@ -1,0 +1,279 @@
+<title>A Flock Found You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f1ebdf;
+    --ink:#141311;
+    --ink-2:#211f1c;
+    --pink:#ef2f74;
+    --pink-2:#ff5f97;
+    --teal:#22d3b5;
+    --orange:#f2542d;
+    --muted:#9c9686;
+    --white:#fdfbf6;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--ink);
+    color:var(--white);
+    font-family:'Archivo', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:32px 18px;
+  }
+  a{color:inherit;}
+  img,svg{max-width:100%;display:block;}
+  .display{
+    font-family:'Anton', 'Arial Narrow', sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    line-height:0.92;
+    text-wrap:balance;
+  }
+  .mono{font-family:'Space Mono', 'Courier New', monospace;}
+
+  #app{width:100%;max-width:420px;text-align:center;}
+
+  .loading{
+    font-family:'Space Mono',monospace;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    font-size:0.85rem;
+    color:var(--muted);
+    padding:80px 0;
+  }
+
+  .found h1, .missing h1{
+    font-size:clamp(2rem,9vw,2.7rem);
+    margin:0 0 22px;
+  }
+
+  .arrival{
+    width:150px;
+    margin:0 auto 8px;
+    color:var(--pink-2);
+  }
+  .arrival .bird{
+    animation:arrive 900ms cubic-bezier(.2,.9,.3,1.2) both;
+  }
+  @keyframes arrive{
+    0%{transform:translateX(-140%) rotate(-24deg) scale(0.7);opacity:0;}
+    70%{transform:translateX(6%) rotate(4deg) scale(1.05);opacity:1;}
+    100%{transform:translateX(0) rotate(0deg) scale(1);opacity:1;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .arrival .bird{animation:none;}
+  }
+
+  .flock-card{
+    background:var(--cream);
+    color:var(--ink);
+    border:2px solid var(--white);
+    padding:26px 22px 22px;
+    margin:0 0 26px;
+    text-align:center;
+  }
+  .fc-brand{
+    font-family:'Anton',sans-serif;
+    font-size:1.1rem;
+    letter-spacing:0.03em;
+  }
+  .fc-brand span{color:var(--pink);}
+  .fc-sub{
+    font-family:'Space Mono',monospace;
+    font-size:0.62rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-2);
+    margin-top:2px;
+  }
+  .fc-art{width:44%;margin:14px auto;}
+  .fc-headline{
+    font-family:'Anton',sans-serif;
+    font-size:1.3rem;
+    color:var(--pink);
+    margin:6px 0 14px;
+  }
+  .fc-recipient{
+    font-family:'Anton',sans-serif;
+    font-size:1.15rem;
+    text-transform:uppercase;
+    margin:0 0 4px;
+  }
+  .fc-lede{
+    font-size:0.86rem;
+    color:var(--ink-2);
+    margin:0 0 14px;
+  }
+  .fc-message{
+    font-size:1rem;
+    line-height:1.5;
+    font-weight:600;
+    margin:0 0 18px;
+    text-wrap:balance;
+  }
+  .fc-foot{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-top:1px dashed rgba(20,19,17,0.25);
+    padding-top:14px;
+    font-family:'Space Mono',monospace;
+    font-size:0.68rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+  }
+  .fc-num{font-weight:700;}
+  .fc-ratio{color:var(--pink);font-weight:700;}
+  .fc-pass{
+    background:none;
+    border:none;
+    color:var(--ink-2);
+    font-family:'Space Mono',monospace;
+    font-size:0.68rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    cursor:pointer;
+    padding:4px;
+  }
+  .fc-pass:hover, .fc-pass:focus-visible{color:var(--pink);outline:none;}
+
+  .tag{
+    font-size:0.95rem;
+    color:#cfc9bd;
+    margin:0 0 26px;
+  }
+
+  .actions{display:flex;flex-direction:column;gap:12px;}
+  .btn{
+    font-family:'Space Mono',monospace;
+    font-weight:700;
+    font-size:0.82rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:16px 22px;
+    border:2px solid var(--white);
+    display:block;
+    transition:transform .12s ease;
+  }
+  .btn:hover, .btn:focus-visible{transform:translateY(-2px);outline:none;}
+  .btn-solid{background:var(--pink);color:var(--white);border-color:var(--pink);}
+  .btn-outline{background:transparent;color:var(--white);}
+
+  .missing p{color:#cfc9bd;font-size:0.95rem;line-height:1.5;margin:0 0 26px;}
+
+  [hidden]{display:none !important;}
+</style>
+
+<div id="app">
+  <div class="loading" id="state-loading">FINDING YOUR FLOCK&hellip;</div>
+
+  <div class="found" id="state-found" hidden>
+    <h1 class="display">A FLOCK<br>FOUND YOU.</h1>
+    <div class="arrival" id="arrival"></div>
+
+    <div class="flock-card">
+      <div class="fc-brand">A305X<span>.</span></div>
+      <div class="fc-sub mono">The Antiwar Flock</div>
+      <div class="fc-art" id="fc-art"></div>
+      <div class="fc-headline">A FLOCK FOUND YOU. &hearts;</div>
+      <div class="fc-recipient" id="fc-recipient"></div>
+      <p class="fc-lede">Somebody sent a little love your way.</p>
+      <p class="fc-message" id="fc-message"></p>
+      <div class="fc-foot">
+        <span class="fc-num mono" id="fc-num"></span>
+        <span class="fc-ratio">LOVE &gt; WAR</span>
+        <button type="button" class="fc-pass" id="fc-pass">Pass it on &rarr;</button>
+      </div>
+    </div>
+
+    <p class="tag">Someone chose love instead of silence today.</p>
+
+    <div class="actions">
+      <a class="btn btn-solid" href="/?send=1">PASS THE LOVE ON &rarr;</a>
+      <a class="btn btn-outline" href="/">MEET THE FLOCK &rarr;</a>
+    </div>
+  </div>
+
+  <div class="missing" id="state-missing" hidden>
+    <h1 class="display">THIS FLOCK<br>GOT LOST<br>IN THE WIND.</h1>
+    <p>The link's broken, or this one already flew somewhere else.</p>
+    <div class="actions">
+      <a class="btn btn-solid" href="/?send=1">SEND ONE OF YOUR OWN &rarr;</a>
+      <a class="btn btn-outline" href="/">MEET THE FLOCK &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var REBEL_META = {
+    1: { name: 'The Instigator', color: '#f2542d' },
+    2: { name: 'The Lookout', color: '#22d3b5' },
+    3: { name: 'The Headliner', color: '#ff5f97' }
+  };
+
+  var BIRD_PATHS = {
+    1: '<path d="M150 40 C142 16 138 8 130 -2"/><path d="M158 38 C156 12 158 2 156 -8"/><path d="M166 42 C170 20 176 12 182 4"/><circle cx="158" cy="58" r="21"/><path d="M150 52 C147 49 147 45 150 43 C153 45 153 49 150 52 Z"/><path d="M176 60 L196 66 L176 76"/><path d="M141 74 C118 96 158 116 118 148"/><path d="M78 178 C55 178 46 200 58 222 C46 244 58 268 90 268 C122 268 138 244 128 222 C142 200 118 178 96 178 C90 178 84 178 78 178 Z"/><circle cx="92" cy="222" r="13"/><path d="M132 196 L196 108"/><path d="M188 118 L200 100"/><path d="M178 130 L190 112"/><circle cx="204" cy="96" r="4"/><circle cx="196" cy="88" r="4"/><circle cx="188" cy="100" r="4"/><path d="M100 200 C118 188 128 180 138 168"/><path d="M118 150 C96 132 78 116 66 96"/><circle cx="60" cy="86" r="9"/><path d="M58 78 L52 40"/><path d="M48 40 L52 40 L56 40"/><path d="M84 262 C80 276 74 286 66 296"/><path d="M118 262 C126 276 138 284 150 288"/><path d="M66 296 L44 300 L40 312 L78 310 L78 298 Z"/><path d="M150 288 L176 282 L182 292 L148 302 L146 290 Z"/>',
+    2: '<path d="M150 40 C142 16 138 8 130 -2"/><path d="M158 38 C156 12 158 2 156 -8"/><path d="M166 42 C170 20 176 12 182 4"/><circle cx="158" cy="58" r="21"/><path d="M150 52 C147 49 147 45 150 43 C153 45 153 49 150 52 Z"/><path d="M176 60 L196 66 L176 76"/><path d="M141 74 C118 96 158 116 118 148"/><path d="M118 150 C96 132 78 116 66 96"/><circle cx="60" cy="86" r="9"/><path d="M58 78 L52 40"/><path d="M48 40 L52 40 L56 40"/><path d="M96 180 L96 268" stroke-width="4.5"/><path d="M60 224 L132 224"/><circle cx="96" cy="200" r="4"/><path d="M84 268 C80 278 76 286 70 296"/><path d="M108 268 C112 278 116 286 122 296"/><path d="M70 296 L48 300 L44 312 L82 310 L82 298 Z"/><path d="M122 296 L144 300 L148 312 L110 310 L110 298 Z"/>',
+    3: '<path d="M150 40 C142 16 138 8 130 -2"/><path d="M158 38 C156 12 158 2 156 -8"/><path d="M166 42 C170 20 176 12 182 4"/><circle cx="158" cy="58" r="21"/><path d="M150 52 C147 49 147 45 150 43 C153 45 153 49 150 52 Z"/><path d="M180 66 L184 50"/><path d="M141 74 C118 96 158 116 118 148"/><path d="M78 178 C55 178 46 200 58 222 C46 244 58 268 90 268 C122 268 138 244 128 222 C142 200 118 178 96 178 C90 178 84 178 78 178 Z"/><circle cx="92" cy="222" r="13"/><path d="M132 196 L196 108"/><path d="M188 118 L200 100"/><path d="M178 130 L190 112"/><circle cx="204" cy="96" r="4"/><circle cx="196" cy="88" r="4"/><circle cx="188" cy="100" r="4"/><path d="M118 150 C96 132 78 116 66 96"/><circle cx="60" cy="86" r="9"/><path d="M58 78 L52 40"/><path d="M48 40 L52 40 L56 40"/><path d="M96 260 L60 250 L28 260"/><path d="M118 258 L160 300 L188 296"/><path d="M20 254 L28 260 L24 274 L4 268 Z"/><path d="M160 300 L188 296 L196 306 L164 314 Z"/>'
+  };
+
+  function birdSvg(rebel){
+    return '<svg class="bird" viewBox="0 0 220 340" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">' + BIRD_PATHS[rebel] + '</svg>';
+  }
+
+  function pad(n){
+    n = String(n);
+    while (n.length < 5) n = '0' + n;
+    return n;
+  }
+
+  var id = location.pathname.replace(/\/+$/, '').split('/').pop();
+
+  fetch('/api/flock-get?id=' + encodeURIComponent(id))
+    .then(function(r){ if (!r.ok) throw new Error('not found'); return r.json(); })
+    .then(function(flock){
+      document.getElementById('state-loading').hidden = true;
+      var meta = REBEL_META[flock.rebel] || REBEL_META[1];
+
+      document.getElementById('arrival').innerHTML = birdSvg(flock.rebel);
+      document.getElementById('arrival').style.color = meta.color;
+      document.getElementById('fc-art').innerHTML = birdSvg(flock.rebel);
+      document.getElementById('fc-art').style.color = meta.color;
+
+      document.getElementById('fc-recipient').textContent = flock.recipientName.toUpperCase() + ',';
+      document.getElementById('fc-message').textContent = '“' + flock.message + '”';
+      document.getElementById('fc-num').textContent = 'FLOCK #' + pad(flock.flockNumber);
+
+      document.getElementById('state-found').hidden = false;
+
+      document.getElementById('fc-pass').addEventListener('click', function(){
+        var url = location.href;
+        var text = 'A Flock found you. Someone sent you love, not war.';
+        if (navigator.share) {
+          navigator.share({ title: 'A Flock Found You', text: text, url: url }).catch(function(){});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(url).then(function(){
+            var btn = document.getElementById('fc-pass');
+            var original = btn.textContent;
+            btn.textContent = 'Link copied';
+            setTimeout(function(){ btn.textContent = original; }, 1800);
+          });
+        }
+      });
+    })
+    .catch(function(){
+      document.getElementById('state-loading').hidden = true;
+      document.getElementById('state-missing').hidden = false;
+    });
+})();
+</script>
