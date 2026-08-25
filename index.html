@@ -1,0 +1,878 @@
+<title>The Antiwar Flock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f1ebdf;
+    --cream-2:#e8e0d0;
+    --ink:#141311;
+    --ink-2:#211f1c;
+    --pink:#ef2f74;
+    --pink-2:#ff5f97;
+    --teal:#22d3b5;
+    --orange:#f2542d;
+    --paper-line: rgba(20,19,17,0.12);
+    --white:#fdfbf6;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Archivo', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  .display{
+    font-family:'Anton', 'Arial Narrow', sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    line-height:0.86;
+    text-wrap:balance;
+  }
+  .mono{
+    font-family:'Space Mono', 'Courier New', monospace;
+  }
+
+  a{color:inherit;}
+  img,svg{max-width:100%;display:block;}
+
+  .wrap{
+    max-width:1280px;
+    margin:0 auto;
+    padding-left:clamp(20px,5vw,64px);
+    padding-right:clamp(20px,5vw,64px);
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Space Mono',monospace;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+  }
+  .eyebrow::before{
+    content:"";
+    width:26px;
+    height:3px;
+    background:var(--pink);
+    display:block;
+  }
+  .eyebrow.on-dark::before{background:var(--teal);}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky;
+    top:0;
+    z-index:40;
+    background:var(--cream);
+    border-bottom:2px solid var(--ink);
+  }
+  .nav .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:76px;
+  }
+  .nav-mark{
+    font-family:'Anton',sans-serif;
+    font-size:1.5rem;
+    letter-spacing:0.02em;
+  }
+  .nav-mark span{color:var(--pink);}
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:clamp(16px,2.6vw,34px);
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  .nav-links a{
+    font-family:'Space Mono',monospace;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    text-decoration:none;
+    border-bottom:2px solid transparent;
+    padding-bottom:4px;
+    transition:border-color .15s ease;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible{border-color:var(--pink);outline:none;}
+  .nav-cta{
+    font-family:'Space Mono',monospace;
+    font-weight:700;
+    font-size:0.74rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    text-decoration:none;
+    background:var(--ink);
+    color:var(--white);
+    padding:11px 18px;
+    border:2px solid var(--ink);
+    white-space:nowrap;
+  }
+  .nav-cta:hover, .nav-cta:focus-visible{background:var(--pink);border-color:var(--pink);outline:none;}
+  .nav-toggle{display:none;}
+
+  @media (max-width:820px){
+    .nav-links{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding-top:clamp(36px,5vw,56px);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:clamp(24px,4vw,48px);
+    align-items:stretch;
+  }
+  .hero-copy{
+    padding-bottom:40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:22px;
+  }
+  .hero-copy h1{
+    margin:14px 0 0 0;
+    font-size:clamp(2.6rem,7.4vw,5.6rem);
+  }
+  .hero-copy h1 .accent{color:var(--pink);}
+  .hero-sub{
+    max-width:46ch;
+    font-size:1.08rem;
+    line-height:1.55;
+    font-weight:500;
+    color:var(--ink-2);
+  }
+  .hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:6px;
+  }
+  .btn{
+    font-family:'Space Mono',monospace;
+    font-weight:700;
+    font-size:0.82rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:16px 26px;
+    border:2px solid var(--ink);
+    display:inline-block;
+    transition:transform .12s ease;
+  }
+  .btn:hover, .btn:focus-visible{transform:translate(-2px,-2px);outline:none;}
+  .btn-solid{background:var(--ink);color:var(--white);box-shadow:5px 5px 0 var(--pink);}
+  .btn-solid:hover{box-shadow:7px 7px 0 var(--pink);}
+  .btn-outline{background:transparent;color:var(--ink);}
+  .btn-outline:hover{background:var(--ink);color:var(--white);}
+
+  .hero-art{
+    position:relative;
+    background:var(--ink);
+    min-height:420px;
+    overflow:hidden;
+    border:2px solid var(--ink);
+  }
+  .hero-art .circle-pink{
+    position:absolute;
+    width:60%;
+    aspect-ratio:1;
+    border-radius:50%;
+    background:var(--pink);
+    top:8%;
+    left:16%;
+  }
+  .hero-art .circle-teal{
+    position:absolute;
+    width:34%;
+    aspect-ratio:1;
+    border-radius:50%;
+    background:var(--teal);
+    bottom:-10%;
+    right:-6%;
+  }
+  .hero-art .bird{
+    position:absolute;
+    width:62%;
+    left:26%;
+    bottom:0;
+    color:var(--white);
+  }
+  .hero-tag{
+    position:absolute;
+    top:18px;
+    right:18px;
+    color:var(--white);
+    font-family:'Anton',sans-serif;
+    font-size:0.95rem;
+    line-height:1.1;
+    text-align:right;
+    transform:rotate(2deg);
+  }
+  .hero-caption{
+    position:absolute;
+    left:20px;
+    bottom:16px;
+    color:var(--white);
+    font-family:'Anton',sans-serif;
+    font-size:clamp(1.6rem,3vw,2.3rem);
+    letter-spacing:0.02em;
+  }
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-art{min-height:340px;order:-1;}
+  }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee-band{
+    overflow:hidden;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+    transform:rotate(-1.4deg);
+    margin:56px -4px;
+  }
+  .marquee-band.flip{transform:rotate(1.2deg);}
+  .marquee-band.teal{background:var(--teal);}
+  .marquee-band.pink{background:var(--pink-2);}
+  .marquee-track{
+    display:flex;
+    width:max-content;
+    animation:scroll 26s linear infinite;
+  }
+  .marquee-band.flip .marquee-track{animation-direction:reverse;}
+  .marquee-item{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    font-family:'Anton',sans-serif;
+    font-size:clamp(1.1rem,2.6vw,1.7rem);
+    letter-spacing:0.02em;
+    padding:16px 22px;
+    white-space:nowrap;
+    color:var(--ink);
+  }
+  .marquee-item .dot{color:var(--ink);opacity:0.55;font-size:0.9em;}
+  @keyframes scroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track{animation:none;}
+  }
+
+  /* ---------- REBEL / PRODUCTS ---------- */
+  .rebel-head{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:32px;
+    align-items:end;
+    margin-bottom:44px;
+  }
+  .rebel-head h2{font-size:clamp(2.2rem,5.6vw,3.6rem);margin:12px 0 0 0;}
+  .rebel-sub{
+    font-size:1.02rem;
+    line-height:1.55;
+    font-weight:500;
+    color:var(--ink-2);
+    max-width:38ch;
+    justify-self:end;
+    text-align:left;
+  }
+  @media (max-width:760px){
+    .rebel-head{grid-template-columns:1fr;}
+    .rebel-sub{justify-self:start;}
+  }
+
+  .rebel-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  @media (max-width:900px){.rebel-grid{grid-template-columns:1fr;}}
+
+  .rebel-card{
+    background:var(--ink);
+    border:2px solid var(--ink);
+    display:flex;
+    flex-direction:column;
+  }
+  .rebel-bar{height:12px;}
+  .rebel-card.c1 .rebel-bar{background:var(--orange);}
+  .rebel-card.c2 .rebel-bar{background:var(--teal);}
+  .rebel-card.c3 .rebel-bar{background:var(--pink);}
+
+  .rebel-body{
+    padding:20px 22px 6px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+  }
+  .rebel-num{
+    font-family:'Space Mono',monospace;
+    font-weight:700;
+    font-size:0.8rem;
+    background:var(--cream);
+    color:var(--ink);
+    padding:4px 8px;
+  }
+  .rebel-name{
+    font-family:'Anton',sans-serif;
+    color:var(--white);
+    text-align:right;
+    font-size:1rem;
+    letter-spacing:0.02em;
+  }
+  .rebel-art{
+    padding:0 18px;
+    color:var(--white);
+  }
+  .rebel-card.c1 .rebel-art{color:var(--orange);}
+  .rebel-card.c2 .rebel-art{color:var(--teal);}
+  .rebel-card.c3 .rebel-art .bird{transform:scaleX(-1);}
+  .rebel-card.c3 .rebel-art{color:var(--pink-2);}
+
+  .rebel-caption{
+    font-family:'Anton',sans-serif;
+    color:var(--white);
+    text-align:center;
+    font-size:clamp(1.15rem,2.4vw,1.4rem);
+    line-height:1.15;
+    padding:6px 10px 22px;
+  }
+  .rebel-shop{
+    border-top:1px solid rgba(253,251,246,0.2);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 22px;
+  }
+  .rebel-price{
+    font-family:'Space Mono',monospace;
+    color:var(--white);
+    font-weight:700;
+    font-size:0.85rem;
+  }
+  .rebel-shop a{
+    font-family:'Space Mono',monospace;
+    font-weight:700;
+    font-size:0.76rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--ink);
+    background:var(--white);
+    padding:9px 14px;
+  }
+  .rebel-card.c1 .rebel-shop a:hover{background:var(--orange);color:var(--white);}
+  .rebel-card.c2 .rebel-shop a:hover{background:var(--teal);color:var(--ink);}
+  .rebel-card.c3 .rebel-shop a:hover{background:var(--pink);color:var(--white);}
+
+  /* ---------- MANIFESTO ---------- */
+  .manifesto{
+    background:var(--ink);
+    color:var(--white);
+    padding:clamp(64px,10vw,110px) 0;
+    margin-top:12px;
+  }
+  .manifesto-grid{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:30px;
+  }
+  .manifesto blockquote{
+    margin:16px 0 0 0;
+    font-family:'Anton',sans-serif;
+    font-size:clamp(1.9rem,5vw,3.4rem);
+    line-height:1.06;
+    text-wrap:balance;
+  }
+  .manifesto blockquote .glow{color:var(--teal);}
+  .manifesto p.lede{
+    font-family:'Archivo',sans-serif;
+    font-weight:500;
+    font-size:1.06rem;
+    line-height:1.6;
+    color:#cfc9bd;
+    max-width:62ch;
+    margin:26px 0 0 0;
+  }
+  @media (max-width:760px){
+    .manifesto-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- IMPACT ---------- */
+  .impact{padding:clamp(64px,9vw,100px) 0;}
+  .impact-head{max-width:60ch;}
+  .impact-head h2{font-size:clamp(2.2rem,5.4vw,3.4rem);margin:12px 0 0 0;}
+  .impact-steps{
+    margin-top:48px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:2px;
+    background:var(--ink);
+    border:2px solid var(--ink);
+  }
+  @media (max-width:800px){.impact-steps{grid-template-columns:1fr;}}
+  .impact-step{
+    background:var(--cream);
+    padding:30px 26px 34px;
+  }
+  .impact-step .num{
+    font-family:'Anton',sans-serif;
+    font-size:2.6rem;
+    color:var(--pink);
+  }
+  .impact-step h3{
+    font-family:'Anton',sans-serif;
+    text-transform:uppercase;
+    font-size:1.3rem;
+    margin:6px 0 10px;
+    letter-spacing:0.01em;
+  }
+  .impact-step p{
+    font-size:0.98rem;
+    line-height:1.55;
+    color:var(--ink-2);
+    margin:0;
+  }
+
+  .impact-stats{
+    margin-top:56px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+    border-top:2px solid var(--ink);
+    padding-top:36px;
+  }
+  @media (max-width:700px){.impact-stats{grid-template-columns:1fr;}}
+  .stat .n{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(2.2rem,5vw,3rem);
+    color:var(--ink);
+  }
+  .stat .l{
+    font-family:'Space Mono',monospace;
+    font-size:0.78rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-2);
+    margin-top:6px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  .site-footer{
+    background:var(--ink);
+    color:var(--white);
+    padding:clamp(56px,8vw,80px) 0 28px;
+  }
+  .footer-top{
+    display:grid;
+    grid-template-columns:1.3fr 0.7fr 0.7fr;
+    gap:40px;
+    padding-bottom:44px;
+    border-bottom:1px solid rgba(253,251,246,0.16);
+  }
+  @media (max-width:800px){.footer-top{grid-template-columns:1fr;}}
+  .footer-top h3{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(1.7rem,3.6vw,2.3rem);
+    margin:10px 0 18px;
+    text-wrap:balance;
+  }
+  .signup{
+    display:flex;
+    gap:0;
+    max-width:420px;
+    border:2px solid var(--white);
+  }
+  .signup input{
+    flex:1;
+    background:transparent;
+    border:none;
+    padding:14px 16px;
+    color:var(--white);
+    font-family:'Archivo',sans-serif;
+    font-size:0.95rem;
+  }
+  .signup input::placeholder{color:#9c9686;}
+  .signup input:focus{outline:2px solid var(--teal);outline-offset:-2px;}
+  .signup button{
+    border:none;
+    border-left:2px solid var(--white);
+    background:var(--teal);
+    color:var(--ink);
+    font-family:'Space Mono',monospace;
+    font-weight:700;
+    font-size:0.78rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:0 20px;
+    cursor:pointer;
+  }
+  .signup button:hover, .signup button:focus-visible{background:var(--pink-2);outline:none;}
+
+  .footer-col h4{
+    font-family:'Space Mono',monospace;
+    font-size:0.78rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:#9c9686;
+    margin:0 0 16px;
+  }
+  .footer-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;}
+  .footer-col a{
+    text-decoration:none;
+    font-size:0.95rem;
+    color:var(--white);
+    border-bottom:1px solid transparent;
+  }
+  .footer-col a:hover, .footer-col a:focus-visible{border-color:var(--teal);outline:none;}
+
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    padding-top:24px;
+    font-family:'Space Mono',monospace;
+    font-size:0.76rem;
+    letter-spacing:0.03em;
+    color:#9c9686;
+  }
+
+  section{padding-top:0;}
+  .section-space{padding:20px 0 0;}
+</style>
+
+<nav class="nav">
+  <div class="wrap">
+    <div class="nav-mark">A305X<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#rebels">Drops</a></li>
+      <li><a href="#manifesto">Manifesto</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#join">Join</a></li>
+    </ul>
+    <a class="nav-cta" href="#rebels">Shop Drop 001</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">A305X Presents / Drop 001</span>
+      <h1 class="display">THE ANTIWAR<br><span class="accent">FLOCK.</span></h1>
+      <p class="hero-sub">Three rebellious birds. One loud refusal. Limited streetwear that turns creative resistance into direct humanitarian support.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="#rebels">Shop the Drop</a>
+        <a class="btn btn-outline" href="#manifesto">Read the Manifesto</a>
+      </div>
+    </div>
+
+    <div class="hero-art" aria-hidden="false" role="img" aria-label="Line-art illustration of a punk bird playing guitar in cowboy boots, raising a middle finger, in front of a pink circle on a black background">
+      <div class="circle-pink"></div>
+      <div class="circle-teal"></div>
+      <div class="hero-tag">NO BOMBS<br>JUST BASS</div>
+      <svg class="bird" viewBox="0 0 220 340" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+        <!-- feather tuft -->
+        <path d="M150 40 C142 16 138 8 130 -2"/>
+        <path d="M158 38 C156 12 158 2 156 -8"/>
+        <path d="M166 42 C170 20 176 12 182 4"/>
+        <!-- head -->
+        <circle cx="158" cy="58" r="21"/>
+        <path d="M150 52 C147 49 147 45 150 43 C153 45 153 49 150 52 Z"/>
+        <path d="M176 60 L196 66 L176 76"/>
+        <!-- neck -->
+        <path d="M141 74 C118 96 158 116 118 148"/>
+        <!-- guitar body -->
+        <path d="M78 178 C55 178 46 200 58 222 C46 244 58 268 90 268 C122 268 138 244 128 222 C142 200 118 178 96 178 C90 178 84 178 78 178 Z"/>
+        <circle cx="92" cy="222" r="13"/>
+        <!-- guitar neck + head -->
+        <path d="M132 196 L196 108"/>
+        <path d="M188 118 L200 100"/>
+        <path d="M178 130 L190 112"/>
+        <circle cx="204" cy="96" r="4"/>
+        <circle cx="196" cy="88" r="4"/>
+        <circle cx="188" cy="100" r="4"/>
+        <!-- strumming arm -->
+        <path d="M100 200 C118 188 128 180 138 168"/>
+        <!-- raised arm + hand -->
+        <path d="M118 150 C96 132 78 116 66 96"/>
+        <circle cx="60" cy="86" r="9"/>
+        <path d="M58 78 L52 40"/>
+        <path d="M48 40 L52 40 L56 40"/>
+        <!-- legs -->
+        <path d="M84 262 C80 276 74 286 66 296"/>
+        <path d="M118 262 C126 276 138 284 150 288"/>
+        <!-- boots -->
+        <path d="M66 296 L44 300 L40 312 L78 310 L78 298 Z"/>
+        <path d="M150 288 L176 282 L182 292 L148 302 L146 290 Z"/>
+        <!-- motion lines -->
+        <path d="M30 210 L14 206" stroke-width="3.5"/>
+        <path d="M26 232 L8 232" stroke-width="3.5"/>
+        <path d="M34 254 L16 260" stroke-width="3.5"/>
+        <!-- music notes -->
+        <g stroke-width="3.5">
+          <circle cx="26" cy="150" r="6"/>
+          <path d="M32 150 L32 122 L44 118"/>
+          <circle cx="60" cy="130" r="5"/>
+          <path d="M65 130 L65 108"/>
+        </g>
+      </svg>
+      <div class="hero-caption">FUCK WAR</div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee-band teal">
+  <div class="marquee-track">
+    <div class="marquee-item">WEAR THE NOISE <span class="dot">✦</span> FUND THE PEACE <span class="dot">✦</span> WEAR THE NOISE <span class="dot">✦</span> FUND THE PEACE <span class="dot">✦</span></div>
+    <div class="marquee-item">WEAR THE NOISE <span class="dot">✦</span> FUND THE PEACE <span class="dot">✦</span> WEAR THE NOISE <span class="dot">✦</span> FUND THE PEACE <span class="dot">✦</span></div>
+  </div>
+</div>
+
+<main>
+  <section id="rebels" class="wrap">
+    <div class="rebel-head">
+      <div>
+        <span class="eyebrow">Meet the Resistance</span>
+        <h2 class="display">CHOOSE YOUR<br>REBEL.</h2>
+      </div>
+      <p class="rebel-sub">Every character carries a different attitude. Every piece carries the same purpose.</p>
+    </div>
+
+    <div class="rebel-grid">
+      <article class="rebel-card c1">
+        <div class="rebel-bar"></div>
+        <div class="rebel-body">
+          <span class="rebel-num">01</span>
+          <span class="rebel-name">The Instigator</span>
+        </div>
+        <div class="rebel-art">
+          <svg class="bird" viewBox="0 0 220 340" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M150 40 C142 16 138 8 130 -2"/>
+            <path d="M158 38 C156 12 158 2 156 -8"/>
+            <path d="M166 42 C170 20 176 12 182 4"/>
+            <circle cx="158" cy="58" r="21"/>
+            <path d="M150 52 C147 49 147 45 150 43 C153 45 153 49 150 52 Z"/>
+            <path d="M176 60 L196 66 L176 76"/>
+            <path d="M141 74 C118 96 158 116 118 148"/>
+            <path d="M78 178 C55 178 46 200 58 222 C46 244 58 268 90 268 C122 268 138 244 128 222 C142 200 118 178 96 178 C90 178 84 178 78 178 Z"/>
+            <circle cx="92" cy="222" r="13"/>
+            <path d="M132 196 L196 108"/>
+            <path d="M188 118 L200 100"/>
+            <path d="M178 130 L190 112"/>
+            <circle cx="204" cy="96" r="4"/>
+            <circle cx="196" cy="88" r="4"/>
+            <circle cx="188" cy="100" r="4"/>
+            <path d="M100 200 C118 188 128 180 138 168"/>
+            <path d="M118 150 C96 132 78 116 66 96"/>
+            <circle cx="60" cy="86" r="9"/>
+            <path d="M58 78 L52 40"/>
+            <path d="M48 40 L52 40 L56 40"/>
+            <path d="M84 262 C80 276 74 286 66 296"/>
+            <path d="M118 262 C126 276 138 284 150 288"/>
+            <path d="M66 296 L44 300 L40 312 L78 310 L78 298 Z"/>
+            <path d="M150 288 L176 282 L182 292 L148 302 L146 290 Z"/>
+            <path d="M30 210 L14 206" stroke-width="3.5"/>
+            <path d="M26 232 L8 232" stroke-width="3.5"/>
+            <path d="M34 254 L16 260" stroke-width="3.5"/>
+            <g stroke-width="3.5">
+              <circle cx="26" cy="150" r="6"/>
+              <path d="M32 150 L32 122 L44 118"/>
+              <circle cx="60" cy="130" r="5"/>
+              <path d="M65 130 L65 108"/>
+            </g>
+          </svg>
+        </div>
+        <div class="rebel-caption">FUCK WAR<br>FUCK POLITICS</div>
+        <div class="rebel-shop">
+          <span class="rebel-price">$46 · Tee</span>
+          <a href="#">Shop</a>
+        </div>
+      </article>
+
+      <article class="rebel-card c2">
+        <div class="rebel-bar"></div>
+        <div class="rebel-body">
+          <span class="rebel-num">02</span>
+          <span class="rebel-name">The Lookout</span>
+        </div>
+        <div class="rebel-art">
+          <svg class="bird" viewBox="0 0 220 340" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M150 40 C142 16 138 8 130 -2"/>
+            <path d="M158 38 C156 12 158 2 156 -8"/>
+            <path d="M166 42 C170 20 176 12 182 4"/>
+            <circle cx="158" cy="58" r="21"/>
+            <path d="M150 52 C147 49 147 45 150 43 C153 45 153 49 150 52 Z"/>
+            <path d="M176 60 L196 66 L176 76"/>
+            <path d="M141 74 C118 96 158 116 118 148"/>
+            <path d="M118 150 C96 132 78 116 66 96"/>
+            <circle cx="60" cy="86" r="9"/>
+            <path d="M58 78 L52 40"/>
+            <path d="M48 40 L52 40 L56 40"/>
+            <path d="M96 180 L96 268" stroke-width="4.5"/>
+            <path d="M60 224 L132 224"/>
+            <path d="M96 200 L96 200" stroke-width="9"/>
+            <circle cx="96" cy="200" r="4"/>
+            <path d="M84 268 C80 278 76 286 70 296"/>
+            <path d="M108 268 C112 278 116 286 122 296"/>
+            <path d="M70 296 L48 300 L44 312 L82 310 L82 298 Z"/>
+            <path d="M122 296 L144 300 L148 312 L110 310 L110 298 Z"/>
+          </svg>
+        </div>
+        <div class="rebel-caption">FUCK WAR<br>FUCK POLITICS</div>
+        <div class="rebel-shop">
+          <span class="rebel-price">$46 · Tee</span>
+          <a href="#">Shop</a>
+        </div>
+      </article>
+
+      <article class="rebel-card c3">
+        <div class="rebel-bar"></div>
+        <div class="rebel-body">
+          <span class="rebel-num">03</span>
+          <span class="rebel-name">The Headliner</span>
+        </div>
+        <div class="rebel-art">
+          <svg class="bird" viewBox="0 0 220 340" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M150 40 C142 16 138 8 130 -2"/>
+            <path d="M158 38 C156 12 158 2 156 -8"/>
+            <path d="M166 42 C170 20 176 12 182 4"/>
+            <circle cx="158" cy="58" r="21"/>
+            <path d="M150 52 C147 49 147 45 150 43 C153 45 153 49 150 52 Z"/>
+            <path d="M180 66 L184 50"/>
+            <path d="M141 74 C118 96 158 116 118 148"/>
+            <path d="M78 178 C55 178 46 200 58 222 C46 244 58 268 90 268 C122 268 138 244 128 222 C142 200 118 178 96 178 C90 178 84 178 78 178 Z"/>
+            <circle cx="92" cy="222" r="13"/>
+            <path d="M132 196 L196 108"/>
+            <path d="M188 118 L200 100"/>
+            <path d="M178 130 L190 112"/>
+            <circle cx="204" cy="96" r="4"/>
+            <circle cx="196" cy="88" r="4"/>
+            <circle cx="188" cy="100" r="4"/>
+            <path d="M118 150 C96 132 78 116 66 96"/>
+            <circle cx="60" cy="86" r="9"/>
+            <path d="M58 78 L52 40"/>
+            <path d="M48 40 L52 40 L56 40"/>
+            <path d="M96 260 L60 250 L28 260"/>
+            <path d="M118 258 L160 300 L188 296"/>
+            <path d="M20 254 L28 260 L24 274 L4 268 Z"/>
+            <path d="M160 300 L188 296 L196 306 L164 314 Z"/>
+          </svg>
+        </div>
+        <div class="rebel-caption">FUCK WAR<br>FUCK POLITICS</div>
+        <div class="rebel-shop">
+          <span class="rebel-price">$52 · Hoodie</span>
+          <a href="#">Shop</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="marquee-band pink flip">
+    <div class="marquee-track">
+      <div class="marquee-item">100% OF PROFIT <span class="dot">✦</span> TO CEASEFIRE RELIEF <span class="dot">✦</span> 100% OF PROFIT <span class="dot">✦</span> TO CEASEFIRE RELIEF <span class="dot">✦</span></div>
+      <div class="marquee-item">100% OF PROFIT <span class="dot">✦</span> TO CEASEFIRE RELIEF <span class="dot">✦</span> 100% OF PROFIT <span class="dot">✦</span> TO CEASEFIRE RELIEF <span class="dot">✦</span></div>
+    </div>
+  </div>
+
+  <section id="manifesto" class="manifesto">
+    <div class="wrap manifesto-grid">
+      <span class="eyebrow on-dark">The Manifesto</span>
+      <div>
+        <blockquote>&ldquo;We cannot stop every war. But we can refuse to profit from <span class="glow">silence.&rdquo;</span></blockquote>
+        <p class="lede">A305X started as three friends drawing angry birds on the back of a merch order form. It became a flock. Every drop is small, numbered, and gone fast &mdash; because the point was never to build a fashion label. It was to move money to people who need it, loud enough that you can't scroll past it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="impact" class="wrap impact">
+    <div class="impact-head">
+      <span class="eyebrow">How It Works</span>
+      <h2 class="display">BUY. WEAR.<br>FUND.</h2>
+    </div>
+
+    <div class="impact-steps">
+      <div class="impact-step">
+        <div class="num mono">01</div>
+        <h3>You buy the drop</h3>
+        <p>Each release is capped and numbered. When it's gone, it's gone &mdash; no restocks, no filler sizes added later.</p>
+      </div>
+      <div class="impact-step">
+        <div class="num mono">02</div>
+        <h3>You wear the refusal</h3>
+        <p>The flock isn't subtle. It's a piece of streetwear built to start the conversation you were going to have anyway.</p>
+      </div>
+      <div class="impact-step">
+        <div class="num mono">03</div>
+        <h3>Profit funds relief</h3>
+        <p>100% of profit is wired directly to vetted humanitarian partners providing medical aid and shelter in conflict zones.</p>
+      </div>
+    </div>
+
+    <div class="impact-stats">
+      <div class="stat">
+        <div class="n mono">$48,200</div>
+        <div class="l">Funded to date</div>
+      </div>
+      <div class="stat">
+        <div class="n mono">3</div>
+        <div class="l">Relief partners on the ground</div>
+      </div>
+      <div class="stat">
+        <div class="n mono">001</div>
+        <div class="l">Drops released so far</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="join" class="site-footer">
+  <div class="wrap footer-top">
+    <div>
+      <span class="eyebrow on-dark">Join the Flock</span>
+      <h3>Get next drop first. No spam, just birds.</h3>
+      <form class="signup" onsubmit="return false;">
+        <input type="email" placeholder="you@email.com" aria-label="Email address" required>
+        <button type="submit">Join</button>
+      </form>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#rebels">Drop 001</a></li>
+        <li><a href="#rebels">All tees</a></li>
+        <li><a href="#rebels">Hoodies</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Flock</h4>
+      <ul>
+        <li><a href="#manifesto">Manifesto</a></li>
+        <li><a href="#impact">Impact reports</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">TikTok</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>&copy; 2026 A305X. NO BOMBS, JUST BASS.</span>
+    <span>Privacy &nbsp;·&nbsp; Terms &nbsp;·&nbsp; Returns</span>
+  </div>
+</footer>
