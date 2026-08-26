@@ -74,7 +74,7 @@ export default async function handler(req, res) {
     return;
   }
 
-  const model = process.env.GEMINI_MODEL || 'gemini-2.0-flash';
+  const model = process.env.GEMINI_MODEL || 'gemini-3.6-flash';
   const systemText = SHARED_CONTEXT + '\n\n' + REBEL_PROMPTS[rebel];
   const contents = trimmed.map((m) => ({ role: m.role, parts: [{ text: m.text }] }));
 
@@ -87,7 +87,11 @@ export default async function handler(req, res) {
         body: JSON.stringify({
           systemInstruction: { parts: { text: systemText } },
           contents,
-          generationConfig: { temperature: 0.9, maxOutputTokens: 220 },
+          generationConfig: {
+            temperature: 0.9,
+            maxOutputTokens: 220,
+            thinkingConfig: { thinkingLevel: 'minimal' },
+          },
         }),
       }
     );
