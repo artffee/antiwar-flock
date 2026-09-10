@@ -1,2036 +1,264 @@
-<title>The Antiwar Flock</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --cream:#f1ebdf;
-    --cream-2:#e8e0d0;
-    --ink:#141311;
-    --ink-2:#211f1c;
-    --pink:#ef2f74;
-    --pink-2:#ff5f97;
-    --teal:#22d3b5;
-    --orange:#f2542d;
-    --gold:#e0ab35;
-    --muted:#9c9686;
-    --white:#fdfbf6;
-  }
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ff2f8b" />
+    <meta
+      name="description"
+      content="A305X is a retro-futurist Miami rebellion brand making apparel, coffee, objects, and classified ideas for people who refuse the default."
+    />
+    <title>A305X — Born to Disobey</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23111111'/%3E%3Cpath d='M13 49 27 14h10l14 35H40l-2-7H25l-2 7H13Zm15-16h7l-3-10-4 10Z' fill='%23ff2f8b'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to the signal</a>
 
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
-  body{
-    background:var(--cream);
-    color:var(--ink);
-    font-family:'Archivo', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
+    <header class="site-header" data-header>
+      <a class="wordmark" href="#top" aria-label="A305X home">
+        <span>A305X</span>
+        <small>MIAMI / EARTH</small>
+      </a>
 
-  .display{
-    font-family:'Anton', 'Arial Narrow', sans-serif;
-    font-weight:400;
-    text-transform:uppercase;
-    letter-spacing:0.01em;
-    line-height:0.86;
-    text-wrap:balance;
-  }
-  .mono{font-family:'Space Mono', 'Courier New', monospace;}
-  .tnum{font-variant-numeric:tabular-nums;}
-
-  a{color:inherit;}
-  img,svg{max-width:100%;display:block;}
-  button{font:inherit;}
-
-  .wrap{
-    max-width:1280px;
-    margin:0 auto;
-    padding-left:clamp(20px,5vw,64px);
-    padding-right:clamp(20px,5vw,64px);
-  }
-
-  .eyebrow{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    font-family:'Space Mono',monospace;
-    font-size:0.78rem;
-    font-weight:700;
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-  }
-  .eyebrow::before{
-    content:"";
-    width:26px;
-    height:3px;
-    background:var(--pink);
-    display:block;
-  }
-  .eyebrow.on-dark::before{background:var(--teal);}
-
-  section{padding-top:0;}
-
-  /* ---------- NAV ---------- */
-  .nav{
-    position:sticky;
-    top:0;
-    z-index:40;
-    background:var(--cream);
-    border-bottom:2px solid var(--ink);
-  }
-  .nav .wrap{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    height:76px;
-  }
-  .nav-mark{font-family:'Anton',sans-serif;font-size:1.5rem;letter-spacing:0.02em;text-decoration:none;}
-  .nav-mark span{color:var(--pink);}
-  .nav-links{
-    display:flex;
-    align-items:center;
-    gap:clamp(16px,2.6vw,34px);
-    list-style:none;
-    margin:0;
-    padding:0;
-  }
-  .nav-links a{
-    font-family:'Space Mono',monospace;
-    font-size:0.78rem;
-    font-weight:700;
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    text-decoration:none;
-    border-bottom:2px solid transparent;
-    padding-bottom:4px;
-    transition:border-color .15s ease;
-  }
-  .nav-links a:hover, .nav-links a:focus-visible{border-color:var(--pink);outline:none;}
-  .nav-cta{
-    font-family:'Space Mono',monospace;
-    font-weight:700;
-    font-size:0.74rem;
-    letter-spacing:0.05em;
-    text-transform:uppercase;
-    text-decoration:none;
-    background:var(--ink);
-    color:var(--white);
-    padding:11px 18px;
-    border:2px solid var(--ink);
-    white-space:nowrap;
-  }
-  .nav-cta:hover, .nav-cta:focus-visible{background:var(--pink);border-color:var(--pink);outline:none;}
-  @media (max-width:820px){.nav-links{display:none;}}
-
-  /* ---------- HERO ---------- */
-  .hero{padding-top:clamp(28px,4vw,44px);}
-  .hero-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:clamp(20px,4vw,40px);
-    align-items:stretch;
-  }
-  .hero-copy{
-    padding-bottom:36px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    gap:14px;
-  }
-  .hero-headline{
-    margin:10px 0 0 0;
-    font-size:clamp(3.2rem,10.5vw,6.6rem);
-  }
-  .hero-headline .accent{color:var(--pink);}
-  .hero-hierarchy{
-    font-size:0.86rem;
-    letter-spacing:0.1em;
-    color:var(--ink-2);
-    text-transform:uppercase;
-  }
-  .hero-hierarchy .sep{color:var(--muted);margin:0 6px;}
-  .hero-tagline{
-    font-family:'Anton',sans-serif;
-    text-transform:uppercase;
-    font-size:clamp(1.15rem,3vw,1.6rem);
-    line-height:1.18;
-    margin-top:6px;
-  }
-  .tl-mask{display:inline-block;overflow:hidden;vertical-align:top;}
-  .tl-word{
-    display:inline-block;
-    transform:translateY(115%);
-    animation:tl-reveal 750ms cubic-bezier(.22,1,.36,1) forwards;
-    animation-delay:120ms;
-  }
-  .tl-mask + .tl-mask .tl-word{animation-delay:320ms;}
-  .tl-word.p{color:var(--pink);}
-  @keyframes tl-reveal{to{transform:translateY(0);}}
-  @media (prefers-reduced-motion: reduce){
-    .tl-word{animation:none;transform:none;}
-  }
-  .hero-actions{margin-top:12px;}
-  .btn{
-    font-family:'Space Mono',monospace;
-    font-weight:700;
-    font-size:0.82rem;
-    letter-spacing:0.05em;
-    text-transform:uppercase;
-    text-decoration:none;
-    padding:16px 26px;
-    border:2px solid var(--ink);
-    display:inline-block;
-    transition:transform .12s ease, box-shadow .12s ease;
-    cursor:pointer;
-  }
-  .btn:hover, .btn:focus-visible{transform:translate(-2px,-2px);outline:none;}
-  .btn-solid{background:var(--ink);color:var(--white);box-shadow:5px 5px 0 var(--pink);}
-  .btn-solid:hover{box-shadow:7px 7px 0 var(--pink);}
-  .btn-outline{background:transparent;color:var(--white);border-color:var(--white);}
-  .btn-outline:hover{background:var(--white);color:var(--ink);}
-
-  .hero-art{
-    position:relative;
-    background:var(--ink);
-    min-height:440px;
-    overflow:hidden;
-    border:2px solid var(--ink);
-  }
-  .hero-art .circle-pink{
-    position:absolute;
-    width:64%;
-    aspect-ratio:1;
-    border-radius:50%;
-    background:var(--pink);
-    top:4%;
-    left:14%;
-  }
-  .hero-art .circle-teal{
-    position:absolute;
-    width:36%;
-    aspect-ratio:1;
-    border-radius:50%;
-    background:var(--teal);
-    bottom:-12%;
-    right:-8%;
-  }
-  .hero-art .bird{
-    position:absolute;
-    width:80%;
-    left:19%;
-    bottom:-2%;
-    color:var(--white);
-  }
-  .hero-stamp{
-    position:absolute;
-    top:18px;
-    right:18px;
-    width:70px;
-    height:70px;
-    border-radius:50%;
-    border:2px solid var(--white);
-    color:var(--white);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    transform:rotate(-9deg);
-    font-family:'Space Mono',monospace;
-    font-weight:700;
-    font-size:0.6rem;
-    letter-spacing:0.08em;
-    line-height:1.3;
-    text-align:center;
-  }
-
-  @media (max-width:900px){
-    .hero-grid{grid-template-columns:1fr;}
-    .hero-art{min-height:340px;order:-1;}
-  }
-
-  /* ---------- MARQUEE ---------- */
-  .marquee-band{
-    overflow:hidden;
-    border-top:2px solid var(--ink);
-    border-bottom:2px solid var(--ink);
-    transform:rotate(-1.4deg);
-    margin:48px -4px;
-    background:var(--teal);
-  }
-  .marquee-track{
-    display:flex;
-    width:max-content;
-    animation:scroll 26s linear infinite;
-  }
-  .marquee-item{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    font-family:'Anton',sans-serif;
-    font-size:clamp(1.1rem,2.6vw,1.7rem);
-    letter-spacing:0.02em;
-    padding:16px 22px;
-    white-space:nowrap;
-    color:var(--ink);
-  }
-  .marquee-item .dot{color:var(--ink);opacity:0.55;font-size:0.9em;}
-  @keyframes scroll{from{transform:translateX(0);} to{transform:translateX(-50%);}}
-  @media (prefers-reduced-motion: reduce){.marquee-track{animation:none;}}
-
-  /* ---------- REBELS ---------- */
-  .rebel-head{margin-bottom:36px;}
-  .rebel-head h2{font-size:clamp(2.2rem,5.6vw,3.6rem);margin:12px 0 10px;}
-  .rebel-index{
-    font-family:'Space Mono',monospace;
-    font-weight:700;
-    font-size:0.85rem;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--ink-2);
-  }
-  .rebel-index .sep{color:var(--muted);margin:0 10px;}
-
-  .rebel-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:26px;
-  }
-  @media (max-width:900px){.rebel-grid{grid-template-columns:1fr;}}
-
-  .rebel-card{
-    background:var(--ink);
-    border:2px solid var(--ink);
-    display:flex;
-    flex-direction:column;
-  }
-  .rebel-bar{height:12px;}
-  .rebel-card.c1 .rebel-bar{background:var(--orange);}
-  .rebel-card.c2 .rebel-bar{background:var(--teal);}
-  .rebel-card.c3 .rebel-bar{background:var(--pink);}
-
-  .rebel-body{
-    padding:20px 22px 4px;
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-  }
-  .rebel-num{
-    font-family:'Space Mono',monospace;
-    font-weight:700;
-    font-size:0.8rem;
-    background:var(--cream);
-    color:var(--ink);
-    padding:4px 8px;
-  }
-  .rebel-id{
-    display:flex;
-    align-items:center;
-    gap:8px;
-  }
-  .rebel-symbol{width:18px;height:18px;flex-shrink:0;}
-  .rebel-card.c1 .rebel-symbol{color:var(--orange);}
-  .rebel-card.c2 .rebel-symbol{color:var(--teal);}
-  .rebel-card.c3 .rebel-symbol{color:var(--pink-2);}
-  .rebel-name{
-    font-family:'Anton',sans-serif;
-    color:var(--white);
-    text-align:right;
-    font-size:1rem;
-    letter-spacing:0.02em;
-  }
-  .rebel-scarcity{
-    padding:0 22px;
-    font-family:'Space Mono',monospace;
-    font-size:0.68rem;
-    letter-spacing:0.05em;
-    text-transform:uppercase;
-    color:#9c9686;
-    text-align:right;
-    margin-top:2px;
-  }
-
-  .rebel-art{padding:0 18px;color:var(--white);}
-  .rebel-card.c1 .rebel-art{color:var(--orange);}
-  .rebel-card.c2 .rebel-art{color:var(--teal);}
-  .rebel-card.c3 .rebel-art .bird{transform:scaleX(-1);}
-  .rebel-card.c3 .rebel-art{color:var(--pink-2);}
-
-  .rebel-caption{
-    font-family:'Anton',sans-serif;
-    color:var(--white);
-    text-align:center;
-    font-size:clamp(1.05rem,2.2vw,1.3rem);
-    line-height:1.15;
-    padding:6px 14px 22px;
-  }
-  .rebel-card.c1 .rebel-caption{color:var(--orange);}
-  .rebel-card.c2 .rebel-caption{color:var(--teal);}
-  .rebel-card.c3 .rebel-caption{color:var(--pink-2);}
-
-  .rebel-shop{
-    border-top:1px solid rgba(253,251,246,0.2);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:14px 22px;
-    gap:10px;
-  }
-  .rebel-price{
-    font-family:'Space Mono',monospace;
-    color:var(--white);
-    font-weight:700;
-    font-size:0.8rem;
-  }
-  .rebel-shop a{
-    font-family:'Space Mono',monospace;
-    font-weight:700;
-    font-size:0.72rem;
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    text-decoration:none;
-    color:var(--ink);
-    background:var(--white);
-    padding:9px 14px;
-    white-space:nowrap;
-  }
-  .rebel-card.c1 .rebel-shop a:hover{background:var(--orange);color:var(--white);}
-  .rebel-card.c2 .rebel-shop a:hover{background:var(--teal);color:var(--ink);}
-  .rebel-card.c3 .rebel-shop a:hover{background:var(--pink);color:var(--white);}
-
-  /* ---------- INSIDE THE DROP ---------- */
-  .unbox{padding:76px 0 0;}
-  .unbox-head{max-width:56ch;margin-bottom:36px;}
-  .unbox-head h2{font-size:clamp(2rem,5vw,3rem);margin:12px 0 0;}
-  .unbox-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:2px;
-    background:var(--ink);
-    border:2px solid var(--ink);
-  }
-  @media (max-width:900px){.unbox-grid{grid-template-columns:repeat(2,1fr);}}
-  .unbox-tile{
-    background:var(--cream);
-    padding:28px 20px 26px;
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-  }
-  .unbox-icon{width:38px;height:38px;color:var(--ink);}
-  .unbox-tile h3{
-    font-family:'Anton',sans-serif;
-    text-transform:uppercase;
-    font-size:1rem;
-    letter-spacing:0.02em;
-    margin:0;
-  }
-  .unbox-tile p{
-    font-size:0.9rem;
-    line-height:1.5;
-    color:var(--ink-2);
-    margin:0;
-  }
-
-  /* ---------- LEDGER ---------- */
-  .ledger{padding:clamp(64px,9vw,100px) 0;}
-  .ledger-head{max-width:60ch;}
-  .ledger-head h2{font-size:clamp(2rem,5vw,3.2rem);margin:12px 0 0;}
-  .ledger-wrap{
-    display:flex;
-    justify-content:center;
-    margin-top:44px;
-  }
-  .ledger-receipt{
-    width:min(100%,480px);
-    background:var(--white);
-    border:2px dashed var(--ink);
-    padding:26px 26px 22px;
-  }
-  .ledger-row{
-    display:flex;
-    justify-content:space-between;
-    gap:16px;
-    font-family:'Space Mono',monospace;
-    font-size:0.8rem;
-    letter-spacing:0.03em;
-    text-transform:uppercase;
-    padding:9px 0;
-    border-bottom:1px dashed rgba(20,19,17,0.2);
-  }
-  .ledger-row:last-child{border-bottom:none;}
-  .ledger-row .k{color:var(--ink-2);}
-  .ledger-row .v{color:var(--muted);text-align:right;}
-  .ledger-row.status .v{color:var(--pink);font-weight:700;}
-  .ledger-note{
-    text-align:center;
-    max-width:44ch;
-    margin:22px auto 0;
-    font-size:0.92rem;
-    color:var(--ink-2);
-    line-height:1.5;
-  }
-
-  /* ---------- MANIFESTO ---------- */
-  .manifesto{
-    background:var(--ink);
-    color:var(--white);
-    padding:clamp(60px,9vw,96px) 0;
-    text-align:center;
-  }
-  .manifesto blockquote{
-    margin:0 auto;
-    max-width:20ch;
-    font-family:'Anton',sans-serif;
-    font-size:clamp(2.1rem,7vw,4rem);
-    line-height:1.04;
-    text-wrap:balance;
-  }
-  .manifesto blockquote .glow{color:var(--teal);}
-  .manifesto .positioning{
-    margin:26px 0 0;
-    font-family:'Space Mono',monospace;
-    font-size:0.76rem;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-    color:#a49e90;
-  }
-
-  /* ---------- FOOTER / JOIN ---------- */
-  .site-footer{
-    background:var(--ink);
-    color:var(--white);
-    padding:clamp(48px,7vw,68px) 0 24px;
-  }
-  .flock-counter{
-    text-align:center;
-    padding-bottom:40px;
-    margin-bottom:40px;
-    border-bottom:1px solid rgba(253,251,246,0.16);
-  }
-  .flock-counter .n{
-    font-family:'Anton',sans-serif;
-    font-size:clamp(2.4rem,7vw,3.6rem);
-    color:var(--teal);
-  }
-  .flock-counter .l{
-    font-family:'Space Mono',monospace;
-    font-size:0.78rem;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-    color:#a49e90;
-    margin-top:6px;
-  }
-
-  .footer-top{
-    display:grid;
-    grid-template-columns:1.3fr 0.7fr 0.7fr;
-    gap:40px;
-    padding-bottom:44px;
-    border-bottom:1px solid rgba(253,251,246,0.16);
-  }
-  @media (max-width:800px){.footer-top{grid-template-columns:1fr;}}
-  .footer-top h3{
-    font-family:'Anton',sans-serif;
-    font-size:clamp(1.6rem,3.4vw,2.1rem);
-    margin:10px 0 6px;
-    text-wrap:balance;
-  }
-  .footer-top .sub{
-    font-size:0.9rem;
-    color:#a49e90;
-    margin:0 0 16px;
-  }
-  .signup{display:flex;gap:0;max-width:420px;border:2px solid var(--white);}
-  .signup input{
-    flex:1;
-    background:transparent;
-    border:none;
-    padding:14px 16px;
-    color:var(--white);
-    font-family:'Archivo',sans-serif;
-    font-size:0.95rem;
-  }
-  .signup input::placeholder{color:#9c9686;}
-  .signup input:focus{outline:2px solid var(--teal);outline-offset:-2px;}
-  .signup button{
-    border:none;
-    border-left:2px solid var(--white);
-    background:var(--teal);
-    color:var(--ink);
-    font-family:'Space Mono',monospace;
-    font-weight:700;
-    font-size:0.78rem;
-    letter-spacing:0.05em;
-    text-transform:uppercase;
-    padding:0 20px;
-    cursor:pointer;
-  }
-  .signup button:hover, .signup button:focus-visible{background:var(--pink-2);outline:none;}
-  .signup button:disabled{opacity:0.6;cursor:not-allowed;}
-  .signup-status{
-    min-height:1.2em;
-    margin:10px 0 0;
-    font-size:0.72rem;
-    letter-spacing:0.04em;
-    color:var(--teal);
-  }
-  .signup-status.is-error{color:var(--pink-2);}
-
-  .footer-col h4{
-    font-family:'Space Mono',monospace;
-    font-size:0.78rem;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:#9c9686;
-    margin:0 0 16px;
-  }
-  .footer-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;}
-  .footer-col a{text-decoration:none;font-size:0.95rem;color:var(--white);border-bottom:1px solid transparent;}
-  .footer-col a:hover, .footer-col a:focus-visible{border-color:var(--teal);outline:none;}
-
-  .footer-bottom{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:12px;
-    padding-top:24px;
-    font-family:'Space Mono',monospace;
-    font-size:0.76rem;
-    letter-spacing:0.03em;
-    color:#9c9686;
-  }
-  .mark-trigger{
-    background:none;
-    border:none;
-    color:#9c9686;
-    cursor:pointer;
-    font-size:0.9rem;
-    padding:2px 6px;
-    line-height:1;
-  }
-  .mark-trigger:hover, .mark-trigger:focus-visible{color:var(--pink-2);outline:none;}
-
-  /* ---------- RECRUIT DIALOG (easter egg) ---------- */
-  .recruit-overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(20,19,17,0.72);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    z-index:80;
-    padding:20px;
-  }
-  .recruit-overlay.open{display:flex;}
-  .recruit-card{
-    width:min(92vw,380px);
-    background:var(--cream);
-    border:2px solid var(--ink);
-    padding:30px 26px;
-    text-align:center;
-    position:relative;
-  }
-  .recruit-symbol{width:44px;height:44px;margin:0 auto 14px;color:var(--pink);}
-  .recruit-card h3{
-    font-family:'Anton',sans-serif;
-    font-size:1.5rem;
-    margin:0 0 8px;
-    text-wrap:balance;
-  }
-  .recruit-id{
-    font-family:'Space Mono',monospace;
-    font-weight:700;
-    letter-spacing:0.08em;
-    color:var(--pink);
-    margin:0 0 14px;
-  }
-  .recruit-card p{font-size:0.9rem;line-height:1.5;color:var(--ink-2);margin:0;}
-  .recruit-close{
-    position:absolute;
-    top:10px;
-    right:10px;
-    background:none;
-    border:none;
-    font-family:'Space Mono',monospace;
-    font-weight:700;
-    font-size:0.9rem;
-    cursor:pointer;
-    color:var(--ink-2);
-    padding:6px;
-  }
-  .recruit-close:hover, .recruit-close:focus-visible{color:var(--pink);outline:none;}
-
-  /* ---------- SEND LOVE trigger ---------- */
-  .love-btn{
-    position:fixed;
-    right:clamp(16px,3vw,28px);
-    bottom:clamp(16px,3vw,28px);
-    z-index:50;
-    display:flex;
-    align-items:center;
-    gap:10px;
-    background:var(--ink);
-    color:var(--white);
-    border:2px solid var(--ink);
-    border-radius:999px;
-    padding:15px 20px;
-    font-family:'Space Mono',monospace;
-    font-weight:700;
-    font-size:0.78rem;
-    letter-spacing:0.05em;
-    text-transform:uppercase;
-    cursor:pointer;
-    box-shadow:4px 4px 0 var(--pink);
-    transition:transform .12s ease, box-shadow .12s ease;
-  }
-  .love-btn:hover, .love-btn:focus-visible{
-    transform:translate(-2px,-2px);
-    box-shadow:6px 6px 0 var(--pink);
-    outline:none;
-  }
-  .love-btn:active{transform:translate(0,0);box-shadow:2px 2px 0 var(--pink);}
-  .love-btn .heart-icon{width:16px;height:16px;flex-shrink:0;color:var(--pink-2);}
-  @media (max-width:520px){
-    .love-btn .love-label{display:none;}
-    .love-btn{padding:15px;}
-  }
-
-  /* ---------- LOVE COUNTER (homepage) ---------- */
-  .love-counter{
-    text-align:center;
-    padding:clamp(60px,9vw,96px) 0;
-  }
-  .lc-n{
-    font-family:'Anton',sans-serif;
-    font-size:clamp(3rem,11vw,5.6rem);
-    color:var(--pink);
-    line-height:1;
-  }
-  .lc-label{
-    font-family:'Space Mono',monospace;
-    font-size:0.82rem;
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-    color:var(--ink-2);
-    margin-top:8px;
-  }
-  .lc-sub{
-    font-family:'Anton',sans-serif;
-    text-transform:uppercase;
-    font-size:clamp(1rem,2.6vw,1.3rem);
-    line-height:1.35;
-    max-width:26ch;
-    margin:24px auto 30px;
-    text-wrap:balance;
-  }
-  .lc-sub .p{color:var(--pink);}
-
-  /* ---------- SEND A FLOCK overlay ---------- */
-  .flock-overlay{
-    position:fixed;
-    inset:0;
-    z-index:100;
-    background:var(--ink);
-    color:var(--white);
-    overflow-y:auto;
-    padding:64px 20px 40px;
-    display:none;
-  }
-  .flock-overlay.open{display:block;}
-  .flock-close{
-    position:fixed;
-    top:16px;
-    right:16px;
-    z-index:101;
-    width:42px;
-    height:42px;
-    background:none;
-    border:2px solid var(--white);
-    color:var(--white);
-    font-family:'Space Mono',monospace;
-    font-size:1rem;
-    cursor:pointer;
-  }
-  .flock-close:hover, .flock-close:focus-visible{background:var(--pink);border-color:var(--pink);outline:none;}
-
-  .flock-screen{
-    display:none;
-    flex-direction:column;
-    align-items:center;
-    gap:18px;
-    max-width:640px;
-    margin:0 auto;
-    text-align:center;
-    padding:16px 0 60px;
-  }
-  .flock-screen.active{display:flex;}
-  .flock-screen h2{font-size:clamp(2rem,7vw,3rem);}
-  .flock-lede{font-size:1rem;line-height:1.5;color:#cfc9bd;max-width:44ch;}
-
-  .flock-rebels{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:14px;
-    width:100%;
-    margin:8px 0;
-  }
-  @media (max-width:720px){.flock-rebels{grid-template-columns:1fr;}}
-  .flock-rebel-card{
-    background:var(--ink-2);
-    border:2px solid rgba(253,251,246,0.22);
-    padding:20px 14px 18px;
-    cursor:pointer;
-    color:var(--white);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:10px;
-    transition:transform .18s ease, border-color .18s ease, opacity .18s ease;
-    font:inherit;
-  }
-  .flock-rebel-card:hover, .flock-rebel-card:focus-visible{
-    transform:translateY(-4px) rotate(-1deg);
-    border-color:var(--pink-2);
-    outline:none;
-  }
-  .flock-rebel-card:hover .frc-art, .flock-rebel-card:focus-visible .frc-art{animation:wiggle 550ms ease-in-out infinite;}
-  @keyframes wiggle{0%,100%{transform:rotate(0deg);}25%{transform:rotate(-4deg);}75%{transform:rotate(4deg);}}
-  .flock-rebel-card.selected{border-color:var(--pink-2);background:rgba(239,47,116,0.16);}
-  .flock-rebels.has-selection .flock-rebel-card:not(.selected){opacity:0.45;}
-  .frc-art{width:60%;color:var(--white);}
-  .flock-rebel-card.c1 .frc-art{color:var(--orange);}
-  .flock-rebel-card.c2 .frc-art{color:var(--teal);}
-  .flock-rebel-card.c3 .frc-art{color:var(--pink-2);}
-  .frc-num{font-family:'Space Mono',monospace;font-size:0.7rem;opacity:0.7;}
-  .frc-name{font-family:'Anton',sans-serif;font-size:1rem;letter-spacing:0.02em;}
-  .frc-line{font-size:0.84rem;color:#cfc9bd;}
-  @media (prefers-reduced-motion: reduce){
-    .flock-rebel-card:hover .frc-art, .flock-rebel-card:focus-visible .frc-art{animation:none;}
-  }
-
-  .flock-field{width:100%;text-align:left;display:flex;flex-direction:column;gap:6px;}
-  .flock-label{
-    font-family:'Space Mono',monospace;
-    font-size:0.72rem;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:#cfc9bd;
-  }
-  .flock-input, .flock-textarea{
-    width:100%;
-    background:var(--ink-2);
-    border:2px solid rgba(253,251,246,0.22);
-    color:var(--white);
-    padding:14px 16px;
-    font-family:'Archivo',sans-serif;
-    font-size:1rem;
-  }
-  .flock-input:focus, .flock-textarea:focus{outline:2px solid var(--teal);outline-offset:-2px;}
-  .flock-textarea{min-height:88px;resize:vertical;}
-  .flock-charcount{align-self:flex-end;font-family:'Space Mono',monospace;font-size:0.72rem;color:var(--muted);}
-  .flock-quick{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
-  .flock-quick button{
-    background:none;
-    border:1.5px solid rgba(253,251,246,0.3);
-    color:#cfc9bd;
-    font-family:'Space Mono',monospace;
-    font-size:0.72rem;
-    padding:9px 13px;
-    border-radius:999px;
-    cursor:pointer;
-  }
-  .flock-quick button:hover, .flock-quick button:focus-visible{border-color:var(--pink-2);color:var(--white);outline:none;}
-  .flock-error{color:var(--pink-2);font-size:0.85rem;min-height:1.2em;}
-
-  .btn[disabled]{opacity:0.4;cursor:not-allowed;}
-  .btn[disabled]:hover, .btn[disabled]:focus-visible{transform:none;box-shadow:5px 5px 0 var(--pink);}
-
-  .flock-release-stage{position:relative;width:100%;height:220px;overflow:hidden;}
-  .release-bird{
-    position:absolute;
-    width:150px;
-    top:50%;
-    left:50%;
-    color:var(--pink-2);
-    animation:crash 1.9s ease-in forwards;
-  }
-  @keyframes crash{
-    0%{transform:translate(-220%,-50%) rotate(-20deg) scale(0.8);opacity:0;}
-    35%{opacity:1;}
-    60%{transform:translate(-50%,-50%) rotate(6deg) scale(1.18);}
-    100%{transform:translate(120%,-50%) rotate(24deg) scale(0.9);opacity:0;}
-  }
-  .release-heart{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%) scale(0.4);
-    font-size:2.6rem;
-    color:var(--pink-2);
-    opacity:0;
-    animation:heart-pop 900ms ease-out 950ms forwards;
-  }
-  @keyframes heart-pop{
-    0%{opacity:0;transform:translate(-50%,-50%) scale(0.4);}
-    60%{opacity:1;transform:translate(-50%,-50%) scale(1.3);}
-    100%{opacity:1;transform:translate(-50%,-50%) scale(1);}
-  }
-  .release-text{font-size:clamp(1.3rem,4vw,1.9rem);animation:glitch 1.4s steps(2,end) infinite;}
-  @keyframes glitch{0%,100%{opacity:1;}45%{opacity:0.35;}50%{opacity:1;}52%{opacity:0.6;}}
-  @media (prefers-reduced-motion: reduce){
-    .release-bird{animation:none;left:50%;transform:translate(-50%,-50%);opacity:1;}
-    .release-heart{animation:none;opacity:1;transform:translate(-50%,-50%) scale(1);}
-    .release-text{animation:none;}
-  }
-
-  .flock-card{
-    background:var(--cream);
-    color:var(--ink);
-    border:2px solid var(--white);
-    padding:26px 22px 22px;
-    width:100%;
-    max-width:340px;
-    text-align:center;
-  }
-  .fc-brand{font-family:'Anton',sans-serif;font-size:1.1rem;letter-spacing:0.03em;}
-  .fc-brand span{color:var(--pink);}
-  .fc-sub{font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-2);margin-top:2px;}
-  .fc-art{width:44%;margin:14px auto;}
-  .fc-headline{font-family:'Anton',sans-serif;font-size:1.3rem;color:var(--pink);margin:6px 0 14px;}
-  .fc-recipient{font-family:'Anton',sans-serif;font-size:1.15rem;text-transform:uppercase;margin:0 0 4px;}
-  .fc-lede{font-size:0.86rem;color:var(--ink-2);margin:0 0 14px;}
-  .fc-message{font-size:1rem;line-height:1.5;font-weight:600;margin:0 0 18px;text-wrap:balance;}
-  .fc-foot{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    border-top:1px dashed rgba(20,19,17,0.25);
-    padding-top:14px;
-    font-family:'Space Mono',monospace;
-    font-size:0.68rem;
-    letter-spacing:0.05em;
-    text-transform:uppercase;
-  }
-  .fc-num{font-weight:700;}
-  .fc-ratio{color:var(--pink);font-weight:700;}
-
-  .flock-reveal-actions{display:flex;flex-direction:column;gap:12px;width:100%;max-width:340px;}
-
-  /* ---------- TALK TO A REBEL (chat) ---------- */
-  .chat-btn{
-    position:fixed;
-    left:clamp(16px,3vw,28px);
-    bottom:clamp(16px,3vw,28px);
-    z-index:50;
-    display:flex;
-    align-items:center;
-    gap:10px;
-    background:var(--ink);
-    color:var(--white);
-    border:2px solid var(--ink);
-    border-radius:999px;
-    padding:15px 20px;
-    font-family:'Space Mono',monospace;
-    font-weight:700;
-    font-size:0.78rem;
-    letter-spacing:0.05em;
-    text-transform:uppercase;
-    cursor:pointer;
-    box-shadow:4px 4px 0 var(--teal);
-    transition:transform .12s ease, box-shadow .12s ease;
-  }
-  .chat-btn:hover, .chat-btn:focus-visible{transform:translate(2px,-2px);box-shadow:6px 6px 0 var(--teal);outline:none;}
-  .chat-btn:active{transform:translate(0,0);box-shadow:2px 2px 0 var(--teal);}
-  .chat-btn .chat-icon{width:16px;height:16px;flex-shrink:0;color:var(--teal);}
-  @media (max-width:520px){
-    .chat-btn .chat-label{display:none;}
-    .chat-btn{padding:15px;}
-  }
-
-  .chat-panel{
-    position:fixed;
-    left:clamp(16px,3vw,28px);
-    bottom:clamp(80px,10vw,96px);
-    z-index:90;
-    width:min(92vw,360px);
-    max-height:min(72vh,560px);
-    background:var(--ink);
-    color:var(--white);
-    border:2px solid var(--white);
-    display:none;
-    flex-direction:column;
-    overflow:hidden;
-  }
-  .chat-panel.open{display:flex;}
-
-  .chat-head{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:12px 12px 12px 16px;
-    border-bottom:1px solid rgba(253,251,246,0.18);
-  }
-  .chat-head-title{font-family:'Anton',sans-serif;font-size:1rem;letter-spacing:0.02em;}
-  .chat-head-title span{color:var(--teal);}
-  .chat-close{
-    background:none;
-    border:2px solid var(--white);
-    color:var(--white);
-    width:30px;
-    height:30px;
-    font-family:'Space Mono',monospace;
-    font-size:0.8rem;
-    cursor:pointer;
-  }
-  .chat-close:hover, .chat-close:focus-visible{background:var(--pink);border-color:var(--pink);outline:none;}
-
-  .chat-tabs{display:flex;gap:6px;padding:10px 12px;border-bottom:1px solid rgba(253,251,246,0.18);}
-  .chat-tab{
-    flex:1;
-    background:var(--ink-2);
-    border:1.5px solid rgba(253,251,246,0.22);
-    color:#cfc9bd;
-    font-family:'Space Mono',monospace;
-    font-size:0.62rem;
-    letter-spacing:0.04em;
-    text-transform:uppercase;
-    padding:8px 4px;
-    cursor:pointer;
-  }
-  .chat-tab.active{color:var(--white);border-color:var(--teal);background:rgba(34,211,181,0.14);}
-  .chat-tab:hover, .chat-tab:focus-visible{outline:none;border-color:var(--teal);}
-
-  .chat-messages{
-    flex:1;
-    overflow-y:auto;
-    padding:14px 14px 6px;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-  }
-  .chat-msg{
-    max-width:82%;
-    padding:9px 12px;
-    font-size:0.9rem;
-    line-height:1.42;
-    border:1.5px solid transparent;
-  }
-  .chat-msg.model{
-    align-self:flex-start;
-    background:var(--ink-2);
-    border-color:rgba(253,251,246,0.18);
-  }
-  .chat-msg.user{
-    align-self:flex-end;
-    background:var(--pink);
-    color:var(--white);
-  }
-  .chat-msg.error{
-    align-self:flex-start;
-    background:transparent;
-    border-color:var(--pink-2);
-    color:var(--pink-2);
-    font-family:'Space Mono',monospace;
-    font-size:0.78rem;
-  }
-  .chat-typing{align-self:flex-start;padding:9px 12px;}
-  .chat-typing span{
-    display:inline-block;
-    width:6px;
-    height:6px;
-    margin-right:3px;
-    border-radius:50%;
-    background:var(--teal);
-    animation:chat-bounce 1s infinite ease-in-out;
-  }
-  .chat-typing span:nth-child(2){animation-delay:0.15s;}
-  .chat-typing span:nth-child(3){animation-delay:0.3s;}
-  @keyframes chat-bounce{0%,80%,100%{transform:translateY(0);opacity:0.5;}40%{transform:translateY(-4px);opacity:1;}}
-  @media (prefers-reduced-motion: reduce){.chat-typing span{animation:none;opacity:1;}}
-
-  .chat-form{
-    display:flex;
-    border-top:1px solid rgba(253,251,246,0.18);
-  }
-  .chat-input{
-    flex:1;
-    background:transparent;
-    border:none;
-    padding:12px 14px;
-    color:var(--white);
-    font-family:'Archivo',sans-serif;
-    font-size:0.92rem;
-  }
-  .chat-input:focus{outline:none;}
-  .chat-input::placeholder{color:#9c9686;}
-  .chat-send{
-    border:none;
-    border-left:1px solid rgba(253,251,246,0.18);
-    background:var(--teal);
-    color:var(--ink);
-    font-family:'Space Mono',monospace;
-    font-weight:700;
-    font-size:0.74rem;
-    letter-spacing:0.04em;
-    text-transform:uppercase;
-    padding:0 16px;
-    cursor:pointer;
-  }
-  .chat-send:hover, .chat-send:focus-visible{background:var(--pink-2);color:var(--white);outline:none;}
-  .chat-send:disabled{opacity:0.5;cursor:not-allowed;}
-</style>
-
-<nav class="nav">
-  <div class="wrap">
-    <a class="nav-mark" href="#top">A305X<span>.</span></a>
-    <ul class="nav-links">
-      <li><a href="#rebels">Drops</a></li>
-      <li><a href="#ledger">Ledger</a></li>
-      <li><a href="#join">Flock</a></li>
-    </ul>
-    <a class="nav-cta" href="#rebels">Enter Drop 001</a>
-  </div>
-</nav>
-
-<header class="hero" id="top">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <span class="eyebrow">A305X Presents</span>
-      <h1 class="display hero-headline">FLUCK <span class="accent">WAR.</span></h1>
-      <p class="hero-hierarchy mono">The Antiwar Flock <span class="sep">—</span> Drop 001</p>
-      <p class="hero-tagline display"><span class="tl-mask"><span class="tl-word">WEAR THE NOISE.</span></span> <span class="tl-mask"><span class="tl-word p">FUND THE PEACE.</span></span></p>
-      <div class="hero-actions">
-        <a class="btn btn-solid" href="#rebels">Enter Drop 001 ↓</a>
-      </div>
-    </div>
-
-    <div class="hero-art" role="img" aria-label="Giant line-art illustration of a punk bird playing guitar in cowboy boots, raising a middle finger, in front of a pink circle on a black background">
-      <div class="circle-pink"></div>
-      <div class="circle-teal"></div>
-      <div class="hero-stamp">DROP<br>001</div>
-      <svg class="bird" viewBox="0 0 220 340" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M150 40 C142 16 138 8 130 -2"/>
-        <path d="M158 38 C156 12 158 2 156 -8"/>
-        <path d="M166 42 C170 20 176 12 182 4"/>
-        <circle cx="158" cy="58" r="21"/>
-        <path d="M150 52 C147 49 147 45 150 43 C153 45 153 49 150 52 Z"/>
-        <path d="M176 60 L196 66 L176 76"/>
-        <path d="M141 74 C118 96 158 116 118 148"/>
-        <path d="M78 178 C55 178 46 200 58 222 C46 244 58 268 90 268 C122 268 138 244 128 222 C142 200 118 178 96 178 C90 178 84 178 78 178 Z"/>
-        <circle cx="92" cy="222" r="13"/>
-        <path d="M132 196 L196 108"/>
-        <path d="M188 118 L200 100"/>
-        <path d="M178 130 L190 112"/>
-        <circle cx="204" cy="96" r="4"/>
-        <circle cx="196" cy="88" r="4"/>
-        <circle cx="188" cy="100" r="4"/>
-        <path d="M100 200 C118 188 128 180 138 168"/>
-        <path d="M118 150 C96 132 78 116 66 96"/>
-        <circle cx="60" cy="86" r="9"/>
-        <path d="M58 78 L52 40"/>
-        <path d="M48 40 L52 40 L56 40"/>
-        <path d="M84 262 C80 276 74 286 66 296"/>
-        <path d="M118 262 C126 276 138 284 150 288"/>
-        <path d="M66 296 L44 300 L40 312 L78 310 L78 298 Z"/>
-        <path d="M150 288 L176 282 L182 292 L148 302 L146 290 Z"/>
-        <path d="M30 210 L14 206" stroke-width="3.5"/>
-        <path d="M26 232 L8 232" stroke-width="3.5"/>
-        <path d="M34 254 L16 260" stroke-width="3.5"/>
-        <g stroke-width="3.5">
-          <circle cx="26" cy="150" r="6"/>
-          <path d="M32 150 L32 122 L44 118"/>
-          <circle cx="60" cy="130" r="5"/>
-          <path d="M65 130 L65 108"/>
-        </g>
-      </svg>
-    </div>
-  </div>
-</header>
-
-<div class="marquee-band">
-  <div class="marquee-track">
-    <div class="marquee-item">WEAR THE NOISE <span class="dot">✦</span> FUND THE PEACE <span class="dot">✦</span> WEAR THE NOISE <span class="dot">✦</span> FUND THE PEACE <span class="dot">✦</span></div>
-    <div class="marquee-item">WEAR THE NOISE <span class="dot">✦</span> FUND THE PEACE <span class="dot">✦</span> WEAR THE NOISE <span class="dot">✦</span> FUND THE PEACE <span class="dot">✦</span></div>
-  </div>
-</div>
-
-<main>
-  <section id="rebels" class="wrap">
-    <div class="rebel-head">
-      <h2 class="display">CHOOSE YOUR<br>REBEL.</h2>
-      <p class="rebel-index mono">01 INSTIGATOR<span class="sep">·</span>02 LOOKOUT<span class="sep">·</span>03 HEADLINER</p>
-    </div>
-
-    <div class="rebel-grid">
-      <article class="rebel-card c1">
-        <div class="rebel-bar"></div>
-        <div class="rebel-body">
-          <span class="rebel-num">01</span>
-          <span class="rebel-id">
-            <svg class="rebel-symbol" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h7l-2 8 11-13h-7l2-7Z"/></svg>
-            <span class="rebel-name">The Instigator</span>
-          </span>
-        </div>
-        <div class="rebel-scarcity mono">100 pieces · Archived when gone</div>
-        <div class="rebel-art">
-          <svg class="bird" viewBox="0 0 220 340" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M150 40 C142 16 138 8 130 -2"/>
-            <path d="M158 38 C156 12 158 2 156 -8"/>
-            <path d="M166 42 C170 20 176 12 182 4"/>
-            <circle cx="158" cy="58" r="21"/>
-            <path d="M150 52 C147 49 147 45 150 43 C153 45 153 49 150 52 Z"/>
-            <path d="M176 60 L196 66 L176 76"/>
-            <path d="M141 74 C118 96 158 116 118 148"/>
-            <path d="M78 178 C55 178 46 200 58 222 C46 244 58 268 90 268 C122 268 138 244 128 222 C142 200 118 178 96 178 C90 178 84 178 78 178 Z"/>
-            <circle cx="92" cy="222" r="13"/>
-            <path d="M132 196 L196 108"/>
-            <path d="M188 118 L200 100"/>
-            <path d="M178 130 L190 112"/>
-            <circle cx="204" cy="96" r="4"/>
-            <circle cx="196" cy="88" r="4"/>
-            <circle cx="188" cy="100" r="4"/>
-            <path d="M100 200 C118 188 128 180 138 168"/>
-            <path d="M118 150 C96 132 78 116 66 96"/>
-            <circle cx="60" cy="86" r="9"/>
-            <path d="M58 78 L52 40"/>
-            <path d="M48 40 L52 40 L56 40"/>
-            <path d="M84 262 C80 276 74 286 66 296"/>
-            <path d="M118 262 C126 276 138 284 150 288"/>
-            <path d="M66 296 L44 300 L40 312 L78 310 L78 298 Z"/>
-            <path d="M150 288 L176 282 L182 292 L148 302 L146 290 Z"/>
-            <path d="M30 210 L14 206" stroke-width="3.5"/>
-            <path d="M26 232 L8 232" stroke-width="3.5"/>
-            <path d="M34 254 L16 260" stroke-width="3.5"/>
-            <g stroke-width="3.5">
-              <circle cx="26" cy="150" r="6"/>
-              <path d="M32 150 L32 122 L44 118"/>
-              <circle cx="60" cy="130" r="5"/>
-              <path d="M65 130 L65 108"/>
-            </g>
-          </svg>
-        </div>
-        <div class="rebel-caption">STARTS NOISE.<br>NOT WARS.</div>
-        <div class="rebel-shop">
-          <span class="rebel-price mono tnum">037/100 · $46</span>
-          <a href="#">Join the Drop</a>
-        </div>
-      </article>
-
-      <article class="rebel-card c2">
-        <div class="rebel-bar"></div>
-        <div class="rebel-body">
-          <span class="rebel-num">02</span>
-          <span class="rebel-id">
-            <svg class="rebel-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/></svg>
-            <span class="rebel-name">The Lookout</span>
-          </span>
-        </div>
-        <div class="rebel-scarcity mono">100 pieces · Archived when gone</div>
-        <div class="rebel-art">
-          <svg class="bird" viewBox="0 0 220 340" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M150 40 C142 16 138 8 130 -2"/>
-            <path d="M158 38 C156 12 158 2 156 -8"/>
-            <path d="M166 42 C170 20 176 12 182 4"/>
-            <circle cx="158" cy="58" r="21"/>
-            <path d="M150 52 C147 49 147 45 150 43 C153 45 153 49 150 52 Z"/>
-            <path d="M176 60 L196 66 L176 76"/>
-            <path d="M141 74 C118 96 158 116 118 148"/>
-            <path d="M118 150 C96 132 78 116 66 96"/>
-            <circle cx="60" cy="86" r="9"/>
-            <path d="M58 78 L52 40"/>
-            <path d="M48 40 L52 40 L56 40"/>
-            <path d="M96 180 L96 268" stroke-width="4.5"/>
-            <path d="M60 224 L132 224"/>
-            <circle cx="96" cy="200" r="4"/>
-            <path d="M84 268 C80 278 76 286 70 296"/>
-            <path d="M108 268 C112 278 116 286 122 296"/>
-            <path d="M70 296 L48 300 L44 312 L82 310 L82 298 Z"/>
-            <path d="M122 296 L144 300 L148 312 L110 310 L110 298 Z"/>
-          </svg>
-        </div>
-        <div class="rebel-caption">STANDS WATCH.<br>NEVER STANDS DOWN.</div>
-        <div class="rebel-shop">
-          <span class="rebel-price mono tnum">058/100 · $46</span>
-          <a href="#">Join the Drop</a>
-        </div>
-      </article>
-
-      <article class="rebel-card c3">
-        <div class="rebel-bar"></div>
-        <div class="rebel-body">
-          <span class="rebel-num">03</span>
-          <span class="rebel-id">
-            <svg class="rebel-symbol" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1 14.4 8.9 22 12 14.4 15.1 12 23 9.6 15.1 2 12 9.6 8.9Z"/></svg>
-            <span class="rebel-name">The Headliner</span>
-          </span>
-        </div>
-        <div class="rebel-scarcity mono">50 pieces · Archived when gone</div>
-        <div class="rebel-art">
-          <svg class="bird" viewBox="0 0 220 340" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M150 40 C142 16 138 8 130 -2"/>
-            <path d="M158 38 C156 12 158 2 156 -8"/>
-            <path d="M166 42 C170 20 176 12 182 4"/>
-            <circle cx="158" cy="58" r="21"/>
-            <path d="M150 52 C147 49 147 45 150 43 C153 45 153 49 150 52 Z"/>
-            <path d="M180 66 L184 50"/>
-            <path d="M141 74 C118 96 158 116 118 148"/>
-            <path d="M78 178 C55 178 46 200 58 222 C46 244 58 268 90 268 C122 268 138 244 128 222 C142 200 118 178 96 178 C90 178 84 178 78 178 Z"/>
-            <circle cx="92" cy="222" r="13"/>
-            <path d="M132 196 L196 108"/>
-            <path d="M188 118 L200 100"/>
-            <path d="M178 130 L190 112"/>
-            <circle cx="204" cy="96" r="4"/>
-            <circle cx="196" cy="88" r="4"/>
-            <circle cx="188" cy="100" r="4"/>
-            <path d="M118 150 C96 132 78 116 66 96"/>
-            <circle cx="60" cy="86" r="9"/>
-            <path d="M58 78 L52 40"/>
-            <path d="M48 40 L52 40 L56 40"/>
-            <path d="M96 260 L60 250 L28 260"/>
-            <path d="M118 258 L160 300 L188 296"/>
-            <path d="M20 254 L28 260 L24 274 L4 268 Z"/>
-            <path d="M160 300 L188 296 L196 306 L164 314 Z"/>
-          </svg>
-        </div>
-        <div class="rebel-caption">MAKES NOISE THEY<br>CAN'T CENSOR.</div>
-        <div class="rebel-shop">
-          <span class="rebel-price mono tnum">012/50 · $52</span>
-          <a href="#">Join the Drop</a>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="wrap unbox">
-    <div class="unbox-head">
-      <span class="eyebrow">Inside the Drop</span>
-      <h2 class="display">EVERY PIECE ARRIVES<br>LIKE EVIDENCE.</h2>
-    </div>
-    <div class="unbox-grid">
-      <div class="unbox-tile">
-        <svg class="unbox-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M8 18 20 6l12 4 4 12-12 12L8 18Z"/>
-          <circle cx="14" cy="12" r="2.5"/>
-        </svg>
-        <h3>Numbered Tag</h3>
-        <p>037/100 — stitched into the tag, not printed.</p>
-      </div>
-      <div class="unbox-tile">
-        <svg class="unbox-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <rect x="5" y="9" width="30" height="22" rx="2.5"/>
-          <circle cx="13" cy="17" r="3.5"/>
-          <path d="M9 26 L31 26 M9 21 L20 21"/>
-        </svg>
-        <h3>Collector Card</h3>
-        <p>Same number on the card. Scan the back.</p>
-      </div>
-      <div class="unbox-tile">
-        <svg class="unbox-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M4 12 20 22 36 12"/>
-          <rect x="4" y="9" width="32" height="22" rx="1.5"/>
-          <circle cx="29" cy="26" r="5" stroke-dasharray="1.5 3"/>
-        </svg>
-        <h3>Black Mailer</h3>
-        <p>Stamped: YOU HAVE BEEN RECRUITED.</p>
-      </div>
-      <div class="unbox-tile">
-        <svg class="unbox-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-          <rect x="6" y="6" width="28" height="28" rx="2"/>
-          <path d="M6 14 L34 14 M6 22 L34 22 M6 30 L34 30 M14 6 L14 34 M22 6 L22 34 M30 6 L30 34"/>
-        </svg>
-        <h3>Heavyweight Print</h3>
-        <p>240gsm cotton, puff-ink. Built to outlast the headline.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="ledger" class="wrap ledger">
-    <div class="ledger-head">
-      <span class="eyebrow">The Impact Ledger</span>
-      <h2 class="display">EVERY PIECE HAS A NUMBER.<br>EVERY DROP LEAVES A RECEIPT.</h2>
-    </div>
-    <div class="ledger-wrap">
-      <div class="ledger-receipt">
-        <div class="ledger-row status"><span class="k">Drop 001</span><span class="v">Open</span></div>
-        <div class="ledger-row"><span class="k">Revenue</span><span class="v">Publishes at close</span></div>
-        <div class="ledger-row"><span class="k">Production cost</span><span class="v">Publishes at close</span></div>
-        <div class="ledger-row"><span class="k">Net profit</span><span class="v">Publishes at close</span></div>
-        <div class="ledger-row"><span class="k">Donation</span><span class="v">Publishes at close</span></div>
-        <div class="ledger-row"><span class="k">Receipt</span><span class="v">Publishes at close</span></div>
-      </div>
-    </div>
-    <p class="ledger-note">No estimates. No rounded-up percentages. The first public receipt goes live the day Drop 001 closes.</p>
-  </section>
-
-  <section id="manifesto" class="manifesto">
-    <div class="wrap">
-      <blockquote>WE DON'T SELL PEACE.<br><span class="glow">WE FUND IT.</span></blockquote>
-      <p class="positioning">Humanity over war. Creativity over division. Love over tribalism.</p>
-    </div>
-  </section>
-
-  <section id="love" class="wrap love-counter">
-    <div class="lc-n mono tnum" id="lc-count">0</div>
-    <div class="lc-label">Flocks of Love Released</div>
-    <p class="lc-sub">War has enough numbers.<br><span class="p">Let's count something better.</span></p>
-    <button class="btn btn-solid" id="open-flock-counter" type="button">SEND LOVE &hearts;</button>
-  </section>
-</main>
-
-<footer id="join" class="site-footer">
-  <div class="wrap flock-counter">
-    <div class="n mono tnum" id="flock-n">0</div>
-    <div class="l">Rebels in the Flock</div>
-  </div>
-  <div class="wrap footer-top">
-    <div>
-      <span class="eyebrow on-dark">Join the Flock</span>
-      <h3>Get recruited first.</h3>
-      <p class="sub">First to know when Drop 001 goes live. No spam, just birds.</p>
-      <form class="signup" id="join-form">
-        <input type="email" id="join-email" placeholder="you@email.com" aria-label="Email address" required>
-        <button type="submit">Join</button>
-      </form>
-      <p class="signup-status mono" id="join-status" role="status"></p>
-    </div>
-    <div class="footer-col">
-      <h4>Rebels</h4>
-      <ul>
-        <li><a href="#rebels">01 Instigator</a></li>
-        <li><a href="#rebels">02 Lookout</a></li>
-        <li><a href="#rebels">03 Headliner</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>The Flock</h4>
-      <ul>
-        <li><a href="#manifesto">Manifesto</a></li>
-        <li><a href="#ledger">Impact Ledger</a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">TikTok</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="wrap footer-bottom">
-    <span>&copy; 2026 A305X. WEAR THE NOISE. FUND THE PEACE.</span>
-    <span>
-      Privacy &nbsp;·&nbsp; Terms &nbsp;·&nbsp; Archive &nbsp;·&nbsp;
-      <button type="button" class="mark-trigger" id="mark-trigger" aria-haspopup="dialog">◆</button>
-    </span>
-  </div>
-</footer>
-
-<div class="recruit-overlay" id="recruit-overlay" role="dialog" aria-modal="true" aria-labelledby="recruit-title">
-  <div class="recruit-card">
-    <button type="button" class="recruit-close" id="recruit-close" aria-label="Close">✕</button>
-    <svg class="recruit-symbol" id="recruit-symbol" viewBox="0 0 24 24" aria-hidden="true"></svg>
-    <h3 id="recruit-title">YOU HAVE BEEN RECRUITED.</h3>
-    <p class="recruit-id mono" id="recruit-id"></p>
-    <p>You found the mark. Every Rebel gets an ID the moment they find it — yours is permanent, tied to this browser.</p>
-  </div>
-</div>
-
-<button id="chat-btn" class="chat-btn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="chat-panel">
-  <svg class="chat-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M4 4h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H9l-4.4 3.3A1 1 0 0 1 3 19.5V6a2 2 0 0 1 1-2Z"/>
-  </svg>
-  <span class="chat-label">Talk to a Rebel</span>
-</button>
-
-<div class="chat-panel" id="chat-panel" role="dialog" aria-label="Talk to a Rebel">
-  <div class="chat-head">
-    <span class="chat-head-title">REBEL <span id="chat-active-name">01 · INSTIGATOR</span></span>
-    <button type="button" class="chat-close" id="chat-close" aria-label="Close">&#10005;</button>
-  </div>
-  <div class="chat-tabs" role="tablist">
-    <button type="button" class="chat-tab active" data-rebel="1" role="tab" aria-selected="true">01 INSTIGATOR</button>
-    <button type="button" class="chat-tab" data-rebel="2" role="tab" aria-selected="false">02 LOOKOUT</button>
-    <button type="button" class="chat-tab" data-rebel="3" role="tab" aria-selected="false">03 HEADLINER</button>
-  </div>
-  <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
-  <form class="chat-form" id="chat-form">
-    <input class="chat-input" id="chat-input" type="text" maxlength="500" placeholder="Say something..." autocomplete="off">
-    <button class="chat-send" type="submit" id="chat-send">Send</button>
-  </form>
-</div>
-
-<button id="love-btn" class="love-btn" type="button" aria-haspopup="dialog">
-  <svg class="heart-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M12 21s-7.5-4.6-10.2-9.1C0 9.1 1.1 5.5 4.6 4.6c2-.5 3.9.3 5.4 2 1.5-1.7 3.4-2.5 5.4-2 3.5.9 4.6 4.5 2.8 7.3C19.5 16.4 12 21 12 21z"/>
-  </svg>
-  <span class="love-label">Send Love</span>
-</button>
-
-<div class="flock-overlay" id="flock-overlay" role="dialog" aria-modal="true" aria-label="Send a Flock">
-  <button type="button" class="flock-close" id="flock-close" aria-label="Close">&#10005;</button>
-
-  <div class="flock-screen active" data-screen="intro">
-    <span class="eyebrow on-dark">A305X Presents</span>
-    <h2 class="display">SEND A FLOCK.<br>SEND SOME LOVE.</h2>
-    <p class="flock-lede">Wars spread fear. Let's see how far we can spread something else.</p>
-    <button class="btn btn-solid" type="button" data-goto="choose">CHOOSE YOUR REBEL &darr;</button>
-  </div>
-
-  <div class="flock-screen" data-screen="choose">
-    <span class="eyebrow on-dark">Step 1</span>
-    <h2 class="display">CHOOSE A REBEL.</h2>
-    <div class="flock-rebels" id="flock-rebels">
-      <button type="button" class="flock-rebel-card c1" data-rebel="1">
-        <span class="frc-num mono">01</span>
-        <span class="frc-art">
-          <svg class="bird" viewBox="0 0 220 340" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M150 40 C142 16 138 8 130 -2"/><path d="M158 38 C156 12 158 2 156 -8"/><path d="M166 42 C170 20 176 12 182 4"/><circle cx="158" cy="58" r="21"/><path d="M150 52 C147 49 147 45 150 43 C153 45 153 49 150 52 Z"/><path d="M176 60 L196 66 L176 76"/><path d="M141 74 C118 96 158 116 118 148"/><path d="M78 178 C55 178 46 200 58 222 C46 244 58 268 90 268 C122 268 138 244 128 222 C142 200 118 178 96 178 C90 178 84 178 78 178 Z"/><circle cx="92" cy="222" r="13"/><path d="M132 196 L196 108"/><path d="M188 118 L200 100"/><path d="M178 130 L190 112"/><circle cx="204" cy="96" r="4"/><circle cx="196" cy="88" r="4"/><circle cx="188" cy="100" r="4"/><path d="M100 200 C118 188 128 180 138 168"/><path d="M118 150 C96 132 78 116 66 96"/><circle cx="60" cy="86" r="9"/><path d="M58 78 L52 40"/><path d="M48 40 L52 40 L56 40"/><path d="M84 262 C80 276 74 286 66 296"/><path d="M118 262 C126 276 138 284 150 288"/><path d="M66 296 L44 300 L40 312 L78 310 L78 298 Z"/><path d="M150 288 L176 282 L182 292 L148 302 L146 290 Z"/>
-          </svg>
-        </span>
-        <span class="frc-name">THE INSTIGATOR</span>
-        <span class="frc-line">Starts love riots.</span>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">Open menu</span>
+        <span></span><span></span>
       </button>
-      <button type="button" class="flock-rebel-card c2" data-rebel="2">
-        <span class="frc-num mono">02</span>
-        <span class="frc-art">
-          <svg class="bird" viewBox="0 0 220 340" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M150 40 C142 16 138 8 130 -2"/><path d="M158 38 C156 12 158 2 156 -8"/><path d="M166 42 C170 20 176 12 182 4"/><circle cx="158" cy="58" r="21"/><path d="M150 52 C147 49 147 45 150 43 C153 45 153 49 150 52 Z"/><path d="M176 60 L196 66 L176 76"/><path d="M141 74 C118 96 158 116 118 148"/><path d="M118 150 C96 132 78 116 66 96"/><circle cx="60" cy="86" r="9"/><path d="M58 78 L52 40"/><path d="M48 40 L52 40 L56 40"/><path d="M96 180 L96 268" stroke-width="4.5"/><path d="M60 224 L132 224"/><circle cx="96" cy="200" r="4"/><path d="M84 268 C80 278 76 286 70 296"/><path d="M108 268 C112 278 116 286 122 296"/><path d="M70 296 L48 300 L44 312 L82 310 L82 298 Z"/><path d="M122 296 L144 300 L148 312 L110 310 L110 298 Z"/>
-          </svg>
-        </span>
-        <span class="frc-name">THE LOOKOUT</span>
-        <span class="frc-line">Still looking for the good in humans.</span>
-      </button>
-      <button type="button" class="flock-rebel-card c3" data-rebel="3">
-        <span class="frc-num mono">03</span>
-        <span class="frc-art">
-          <svg class="bird" viewBox="0 0 220 340" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M150 40 C142 16 138 8 130 -2"/><path d="M158 38 C156 12 158 2 156 -8"/><path d="M166 42 C170 20 176 12 182 4"/><circle cx="158" cy="58" r="21"/><path d="M150 52 C147 49 147 45 150 43 C153 45 153 49 150 52 Z"/><path d="M180 66 L184 50"/><path d="M141 74 C118 96 158 116 118 148"/><path d="M78 178 C55 178 46 200 58 222 C46 244 58 268 90 268 C122 268 138 244 128 222 C142 200 118 178 96 178 C90 178 84 178 78 178 Z"/><circle cx="92" cy="222" r="13"/><path d="M132 196 L196 108"/><path d="M188 118 L200 100"/><path d="M178 130 L190 112"/><circle cx="204" cy="96" r="4"/><circle cx="196" cy="88" r="4"/><circle cx="188" cy="100" r="4"/><path d="M118 150 C96 132 78 116 66 96"/><circle cx="60" cy="86" r="9"/><path d="M58 78 L52 40"/><path d="M48 40 L52 40 L56 40"/><path d="M96 260 L60 250 L28 260"/><path d="M118 258 L160 300 L188 296"/><path d="M20 254 L28 260 L24 274 L4 268 Z"/><path d="M160 300 L188 296 L196 306 L164 314 Z"/>
-          </svg>
-        </span>
-        <span class="frc-name">THE HEADLINER</span>
-        <span class="frc-line">Makes love louder than war.</span>
-      </button>
-    </div>
-    <button class="btn btn-solid" type="button" id="flock-to-message" disabled>THIS ONE &rarr;</button>
-  </div>
 
-  <div class="flock-screen" data-screen="message">
-    <span class="eyebrow on-dark">Step 2</span>
-    <h2 class="display">WHO NEEDS A<br>LITTLE LOVE?</h2>
-    <div class="flock-field">
-      <label class="flock-label" for="flock-name">Recipient name</label>
-      <input class="flock-input" id="flock-name" type="text" maxlength="40" placeholder="Anna" autocomplete="off">
-    </div>
-    <div class="flock-field">
-      <label class="flock-label" for="flock-message">Message</label>
-      <textarea class="flock-textarea" id="flock-message" maxlength="150" placeholder="Say something..."></textarea>
-      <span class="flock-charcount mono" id="flock-charcount">150 left</span>
-    </div>
-    <div class="flock-quick" id="flock-quick">
-      <button type="button" data-text="Thinking of you.">Thinking of you.</button>
-      <button type="button" data-text="Love is louder.">Love is louder.</button>
-      <button type="button" data-text="You're one of the good ones.">You're one of the good ones.</button>
-      <button type="button" data-text="Fuck war. Choose love.">Fuck war. Choose love.</button>
-      <button type="button" data-text="No reason. Just sending love.">No reason. Just sending love.</button>
-    </div>
-    <p class="flock-error" id="flock-error" role="alert"></p>
-    <button class="btn btn-solid" type="button" id="flock-release-btn" disabled>RELEASE THE FLOCK &rarr;</button>
-  </div>
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a href="#manifesto">Manifesto</a>
+        <a href="#drop">The Drop</a>
+        <a href="#department">D.O.S.</a>
+        <a class="nav-cta" href="#flock">Join the flock</a>
+      </nav>
+    </header>
 
-  <div class="flock-screen" data-screen="release">
-    <div class="flock-release-stage">
-      <span class="release-bird" id="release-bird"></span>
-      <span class="release-heart">&hearts;</span>
-    </div>
-    <p class="release-text display">RELEASING&hellip;</p>
-  </div>
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-grid hero-grid-top" aria-hidden="true">
+          <span>FILE NO. A305X</span>
+          <span>UNAUTHORIZED SIGNAL</span>
+          <span>EST. MIAMI</span>
+        </div>
 
-  <div class="flock-screen" data-screen="reveal">
-    <h2 class="display">YOUR FLOCK<br>IS FREE.</h2>
-    <p class="mono" id="reveal-num" style="letter-spacing:0.08em;color:#cfc9bd;"></p>
-    <p class="flock-lede">One more little piece of love released into the world.</p>
+        <div class="hero-copy">
+          <p class="kicker"><span></span> Anti-war. Anti-obedience. Pro-human.</p>
+          <h1 id="hero-title">
+            <span>Error 305:</span>
+            <em>Reality</em>
+            <span>not found.</span>
+          </h1>
+          <p class="hero-intro">
+            A free, crazy flamingo escaped the system. Now it makes clothes, coffee,
+            strange objects, and classified ideas for everyone still awake.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#drop">Enter drop 0001</a>
+            <a class="text-link" href="#manifesto">Read the manifesto <span>↘</span></a>
+          </div>
+        </div>
 
-    <div class="flock-card">
-      <div class="fc-brand">A305X<span>.</span></div>
-      <div class="fc-sub mono">The Antiwar Flock</div>
-      <div class="fc-art" id="reveal-art"></div>
-      <div class="fc-headline">A FLOCK FOUND YOU. &hearts;</div>
-      <div class="fc-recipient" id="reveal-recipient"></div>
-      <p class="fc-lede">Somebody sent a little love your way.</p>
-      <p class="fc-message" id="reveal-message"></p>
-      <div class="fc-foot">
-        <span class="fc-num mono" id="reveal-card-num"></span>
-        <span class="fc-ratio">LOVE &gt; WAR</span>
+        <figure class="hero-art" data-tilt>
+          <div class="art-stamp" aria-hidden="true">BORN TO<br />DISOBEY</div>
+          <img
+            src="./assets/a305x-flamingo.webp"
+            alt="The A305X black flamingo mascot with a hypnotic eye, pink tongue, raised middle feather, and combat boot"
+            width="1122"
+            height="1402"
+          />
+          <figcaption>
+            <span>SPECIMEN 305</span>
+            <span>STATUS: UNGOVERNABLE</span>
+          </figcaption>
+        </figure>
+
+        <div class="hero-number" aria-hidden="true">305</div>
+        <div class="hero-grid hero-grid-bottom" aria-hidden="true">
+          <span>WEAR THE NOISE.</span>
+          <span>FUND THE PEACE.</span>
+          <span>DO NOT NORMALIZE.</span>
+        </div>
+      </section>
+
+      <div class="ticker" aria-label="A305X statements">
+        <div class="ticker-track">
+          <span>I DON'T GIVE A FLYING FLUCK</span><i>✦</i>
+          <span>WAKE UP FROM THE MATRIX</span><i>✦</i>
+          <span>BORN TO DISOBEY</span><i>✦</i>
+          <span>I DON'T GIVE A FLYING FLUCK</span><i>✦</i>
+          <span>WAKE UP FROM THE MATRIX</span><i>✦</i>
+          <span>BORN TO DISOBEY</span><i>✦</i>
+        </div>
       </div>
-    </div>
 
-    <div class="flock-reveal-actions">
-      <button class="btn btn-solid" type="button" id="flock-pass-it-on">PASS IT ON &rarr;</button>
-      <button class="btn btn-outline" type="button" id="flock-release-another">RELEASE ANOTHER</button>
-    </div>
-  </div>
-</div>
+      <section class="manifesto section" id="manifesto" aria-labelledby="manifesto-title">
+        <div class="section-label reveal">
+          <span>01</span>
+          <p>Manifesto for the beautifully unmanageable</p>
+        </div>
 
-<script>
-function animateCount(el, target, opts){
-  opts = opts || {};
-  var duration = opts.duration || 1200;
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        <div class="manifesto-copy reveal">
+          <h2 id="manifesto-title">The system has enough beige.</h2>
+          <p>
+            A305X is not here to fight machines. It is here to interrupt automatic living.
+            We believe peace can be loud, humor can be armor, and a ridiculous bird can
+            tell the truth better than another serious man in a serious suit.
+          </p>
+        </div>
 
-  function setFinal(){ el.textContent = target.toLocaleString('en-US'); }
+        <div class="manifesto-rules">
+          <article class="rule reveal">
+            <span>RULE 01</span>
+            <h3>Question the default.</h3>
+            <p>If everybody is marching in one direction, check who printed the map.</p>
+          </article>
+          <article class="rule reveal">
+            <span>RULE 02</span>
+            <h3>Keep your humor.</h3>
+            <p>The moment power becomes ridiculous, it loses half its costume.</p>
+          </article>
+          <article class="rule reveal">
+            <span>RULE 03</span>
+            <h3>Make peace visible.</h3>
+            <p>Wear what you believe. Leave a bright signal in a gray room.</p>
+          </article>
+        </div>
+      </section>
 
-  if (reduceMotion || !('IntersectionObserver' in window)){
-    setFinal();
-    return;
-  }
+      <section class="drop section" id="drop" aria-labelledby="drop-title">
+        <div class="drop-heading reveal">
+          <div class="section-label section-label-light">
+            <span>02</span>
+            <p>First transmission / limited concepts</p>
+          </div>
+          <h2 id="drop-title">Drop 0001:<br /><em>Wake up.</em></h2>
+          <p class="drop-intro">Three ways to interrupt an ordinary morning.</p>
+        </div>
 
-  var done = false;
-  var observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if (entry.isIntersecting && !done){
-        done = true;
-        var start = null;
-        function step(ts){
-          if (!start) start = ts;
-          var progress = Math.min((ts - start) / duration, 1);
-          var eased = 1 - Math.pow(1 - progress, 3);
-          el.textContent = Math.round(target * eased).toLocaleString('en-US');
-          if (progress < 1) requestAnimationFrame(step);
-          else setFinal();
-        }
-        requestAnimationFrame(step);
-        observer.disconnect();
-      }
-    });
-  }, { threshold: 0.4 });
-  observer.observe(el);
-}
+        <div class="product-grid">
+          <article class="product product-shirt reveal">
+            <div class="product-meta">
+              <span>THE UNIFORM</span>
+              <span>01 / APPAREL</span>
+            </div>
+            <div class="product-visual visual-shirt" aria-hidden="true">
+              <span class="shirt-line shirt-line-one">BORN</span>
+              <span class="shirt-line shirt-line-two">TO</span>
+              <span class="shirt-line shirt-line-three">DISOBEY</span>
+              <i>A305X</i>
+            </div>
+            <div class="product-copy">
+              <h3>Signal Tee 01</h3>
+              <p>Small mark in front. Full-volume truth on the back.</p>
+              <span class="status">Limited concept</span>
+            </div>
+          </article>
 
-(function(){
-  var el = document.getElementById('lc-count');
-  fetch('/api/flock-count')
-    .then(function(r){ return r.ok ? r.json() : { count: 0 }; })
-    .then(function(data){ animateCount(el, data.count || 0); })
-    .catch(function(){ animateCount(el, 0); });
-})();
+          <article class="product product-coffee reveal">
+            <div class="product-meta">
+              <span>THE FUEL</span>
+              <span>02 / COFFEE</span>
+            </div>
+            <div class="product-visual visual-coffee" aria-hidden="true">
+              <span class="matrix">WAKE<br />UP</span>
+              <span class="coffee-code">SYSTEM<br />OVERRIDE</span>
+              <i>305 mg<br />of attitude*</i>
+            </div>
+            <div class="product-copy">
+              <h3>Rebellion Roast</h3>
+              <p>You keep the system. I keep the coffee.</p>
+              <span class="status">Roast in development</span>
+            </div>
+          </article>
 
-(function(){
-  var el = document.getElementById('flock-n');
-  animateCount(el, 2417);
-})();
+          <article class="product product-scent reveal">
+            <div class="product-meta">
+              <span>THE DISTURBANCE</span>
+              <span>03 / SCENT</span>
+            </div>
+            <div class="product-visual visual-scent" aria-hidden="true">
+              <div class="bottle">
+                <span>A305X</span>
+                <strong>UN/<br />RESIST</strong>
+                <small>PHEROMONE-INSPIRED<br />EAU DE PARFUM</small>
+              </div>
+              <span class="orbit orbit-one"></span>
+              <span class="orbit orbit-two"></span>
+            </div>
+            <div class="product-copy">
+              <h3>Un/Resist</h3>
+              <p>A pheromone-inspired scent. No magic claims—just unforgettable design.</p>
+              <span class="status">Formula in development</span>
+            </div>
+          </article>
+        </div>
 
-(function(){
-  var trigger = document.getElementById('mark-trigger');
-  var overlay = document.getElementById('recruit-overlay');
-  var closeBtn = document.getElementById('recruit-close');
-  var idEl = document.getElementById('recruit-id');
-  var symbolEl = document.getElementById('recruit-symbol');
-  var ID_KEY = 'a305x-rebel-id';
+        <p class="fine-print">*Attitude is not a measured ingredient. Obviously.</p>
+      </section>
 
-  var symbols = [
-    { path: 'M13 2 4 14h7l-2 8 11-13h-7l2-7Z', fill: true, color: 'var(--orange)' },
-    { path: 'M12 1 14.4 8.9 22 12 14.4 15.1 12 23 9.6 15.1 2 12 9.6 8.9Z', fill: true, color: 'var(--pink-2)' },
-    { circle: true, color: 'var(--teal)' }
-  ];
+      <section class="declaration" aria-label="A305X declaration">
+        <div class="declaration-noise" aria-hidden="true"></div>
+        <p class="reveal">You were not born<br />to become a barcode.</p>
+        <span class="reveal">THE GREAT ESCAPE FROM NORMAL STARTS HERE.</span>
+      </section>
 
-  function getRebelId(){
-    var stored = localStorage.getItem(ID_KEY);
-    if (stored) return parseInt(stored, 10);
-    var id = 10000 + Math.floor(Math.random() * 89999);
-    localStorage.setItem(ID_KEY, id);
-    return id;
-  }
+      <section class="department section" id="department" aria-labelledby="department-title">
+        <div class="department-file reveal">
+          <div class="file-tab">CLASSIFIED / PUBLIC COPY</div>
+          <div class="file-code">DOS—0001</div>
+          <div class="file-door" aria-hidden="true">
+            <span>EXIT</span>
+            <i></i>
+          </div>
+          <p>NOTICE OF RECOVERY</p>
+        </div>
 
-  function open(){
-    var id = getRebelId();
-    var sym = symbols[id % symbols.length];
-    idEl.textContent = 'REBEL #' + id;
-    symbolEl.style.color = sym.color;
-    if (sym.circle){
-      symbolEl.setAttribute('fill', 'none');
-      symbolEl.setAttribute('stroke', 'currentColor');
-      symbolEl.setAttribute('stroke-width', '2');
-      symbolEl.innerHTML = '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/>';
-    } else {
-      symbolEl.setAttribute('fill', 'currentColor');
-      symbolEl.removeAttribute('stroke');
-      symbolEl.innerHTML = '<path d="' + sym.path + '"/>';
-    }
-    overlay.classList.add('open');
-    closeBtn.focus();
-  }
+        <div class="department-copy reveal">
+          <div class="section-label">
+            <span>03</span>
+            <p>The expanded universe</p>
+          </div>
+          <h2 id="department-title">Department<br />of Surrender</h2>
+          <p>
+            A fictional ministry for real human problems: overthinking, obedient fear,
+            borrowed identities, and doors that only open inward. Case files, books,
+            strange evidence—and one flamingo who refuses to fill out the form.
+          </p>
+          <a class="button button-pink" href="https://departmentofsurrender.com" target="_blank" rel="noreferrer">
+            Enter the department <span>↗</span>
+          </a>
+        </div>
+      </section>
 
-  function close(){
-    overlay.classList.remove('open');
-    trigger.focus();
-  }
+      <section class="flock section" id="flock" aria-labelledby="flock-title">
+        <div class="flock-code reveal" aria-hidden="true">
+          <span>30</span><span>5</span><span>X</span>
+        </div>
+        <div class="flock-copy reveal">
+          <p class="kicker kicker-light"><span></span> This is not an audience</p>
+          <h2 id="flock-title">It’s a flock.</h2>
+          <p>
+            Artists. Drivers. Builders. Beautiful misfits. People who still laugh at the
+            wrong moment and care about the right things. A305X belongs to anyone brave
+            enough to remain human in public.
+          </p>
+          <a class="text-link text-link-light" href="#top">Return to the signal <span>↑</span></a>
+        </div>
+      </section>
+    </main>
 
-  trigger.addEventListener('click', open);
-  closeBtn.addEventListener('click', close);
-  overlay.addEventListener('click', function(e){ if (e.target === overlay) close(); });
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && overlay.classList.contains('open')) close();
-  });
-})();
-
-(function(){
-  var BIRD_PATHS = {
-    1: '<path d="M150 40 C142 16 138 8 130 -2"/><path d="M158 38 C156 12 158 2 156 -8"/><path d="M166 42 C170 20 176 12 182 4"/><circle cx="158" cy="58" r="21"/><path d="M150 52 C147 49 147 45 150 43 C153 45 153 49 150 52 Z"/><path d="M176 60 L196 66 L176 76"/><path d="M141 74 C118 96 158 116 118 148"/><path d="M78 178 C55 178 46 200 58 222 C46 244 58 268 90 268 C122 268 138 244 128 222 C142 200 118 178 96 178 C90 178 84 178 78 178 Z"/><circle cx="92" cy="222" r="13"/><path d="M132 196 L196 108"/><path d="M188 118 L200 100"/><path d="M178 130 L190 112"/><circle cx="204" cy="96" r="4"/><circle cx="196" cy="88" r="4"/><circle cx="188" cy="100" r="4"/><path d="M100 200 C118 188 128 180 138 168"/><path d="M118 150 C96 132 78 116 66 96"/><circle cx="60" cy="86" r="9"/><path d="M58 78 L52 40"/><path d="M48 40 L52 40 L56 40"/><path d="M84 262 C80 276 74 286 66 296"/><path d="M118 262 C126 276 138 284 150 288"/><path d="M66 296 L44 300 L40 312 L78 310 L78 298 Z"/><path d="M150 288 L176 282 L182 292 L148 302 L146 290 Z"/>',
-    2: '<path d="M150 40 C142 16 138 8 130 -2"/><path d="M158 38 C156 12 158 2 156 -8"/><path d="M166 42 C170 20 176 12 182 4"/><circle cx="158" cy="58" r="21"/><path d="M150 52 C147 49 147 45 150 43 C153 45 153 49 150 52 Z"/><path d="M176 60 L196 66 L176 76"/><path d="M141 74 C118 96 158 116 118 148"/><path d="M118 150 C96 132 78 116 66 96"/><circle cx="60" cy="86" r="9"/><path d="M58 78 L52 40"/><path d="M48 40 L52 40 L56 40"/><path d="M96 180 L96 268" stroke-width="4.5"/><path d="M60 224 L132 224"/><circle cx="96" cy="200" r="4"/><path d="M84 268 C80 278 76 286 70 296"/><path d="M108 268 C112 278 116 286 122 296"/><path d="M70 296 L48 300 L44 312 L82 310 L82 298 Z"/><path d="M122 296 L144 300 L148 312 L110 310 L110 298 Z"/>',
-    3: '<path d="M150 40 C142 16 138 8 130 -2"/><path d="M158 38 C156 12 158 2 156 -8"/><path d="M166 42 C170 20 176 12 182 4"/><circle cx="158" cy="58" r="21"/><path d="M150 52 C147 49 147 45 150 43 C153 45 153 49 150 52 Z"/><path d="M180 66 L184 50"/><path d="M141 74 C118 96 158 116 118 148"/><path d="M78 178 C55 178 46 200 58 222 C46 244 58 268 90 268 C122 268 138 244 128 222 C142 200 118 178 96 178 C90 178 84 178 78 178 Z"/><circle cx="92" cy="222" r="13"/><path d="M132 196 L196 108"/><path d="M188 118 L200 100"/><path d="M178 130 L190 112"/><circle cx="204" cy="96" r="4"/><circle cx="196" cy="88" r="4"/><circle cx="188" cy="100" r="4"/><path d="M118 150 C96 132 78 116 66 96"/><circle cx="60" cy="86" r="9"/><path d="M58 78 L52 40"/><path d="M48 40 L52 40 L56 40"/><path d="M96 260 L60 250 L28 260"/><path d="M118 258 L160 300 L188 296"/><path d="M20 254 L28 260 L24 274 L4 268 Z"/><path d="M160 300 L188 296 L196 306 L164 314 Z"/>'
-  };
-  var REBEL_META = {
-    1: { color: 'var(--orange)' },
-    2: { color: 'var(--teal)' },
-    3: { color: 'var(--pink-2)' }
-  };
-
-  function birdSvg(rebel){
-    return '<svg class="bird" viewBox="0 0 220 340" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">' + BIRD_PATHS[rebel] + '</svg>';
-  }
-  function pad(n){
-    n = String(n);
-    while (n.length < 5) n = '0' + n;
-    return n;
-  }
-
-  var overlay = document.getElementById('flock-overlay');
-  var closeBtn = document.getElementById('flock-close');
-  var screens = overlay.querySelectorAll('.flock-screen');
-  var rebelsWrap = document.getElementById('flock-rebels');
-  var rebelCards = overlay.querySelectorAll('.flock-rebel-card');
-  var toMessageBtn = document.getElementById('flock-to-message');
-  var nameInput = document.getElementById('flock-name');
-  var messageInput = document.getElementById('flock-message');
-  var charCountEl = document.getElementById('flock-charcount');
-  var errorEl = document.getElementById('flock-error');
-  var releaseBtn = document.getElementById('flock-release-btn');
-  var releaseBirdEl = document.getElementById('release-bird');
-  var passItOnBtn = document.getElementById('flock-pass-it-on');
-  var releaseAnotherBtn = document.getElementById('flock-release-another');
-
-  var selectedRebel = null;
-  var lastFlock = null;
-  var lastFocus = null;
-
-  function showScreen(name){
-    screens.forEach(function(s){ s.classList.toggle('active', s.dataset.screen === name); });
-  }
-
-  function resetFlow(){
-    selectedRebel = null;
-    rebelCards.forEach(function(c){ c.classList.remove('selected'); });
-    rebelsWrap.classList.remove('has-selection');
-    toMessageBtn.disabled = true;
-    nameInput.value = '';
-    messageInput.value = '';
-    charCountEl.textContent = '150 left';
-    errorEl.textContent = '';
-    releaseBtn.disabled = true;
-    releaseBtn.textContent = 'RELEASE THE FLOCK →';
-  }
-
-  function openOverlay(startScreen){
-    lastFocus = document.activeElement;
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    showScreen(startScreen || 'intro');
-    closeBtn.focus();
-  }
-
-  function closeOverlay(){
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-    if (lastFocus && lastFocus.focus) lastFocus.focus();
-  }
-
-  overlay.querySelectorAll('[data-goto]').forEach(function(el){
-    el.addEventListener('click', function(){ showScreen(el.dataset.goto); });
-  });
-
-  rebelCards.forEach(function(card){
-    card.addEventListener('click', function(){
-      selectedRebel = Number(card.dataset.rebel);
-      rebelCards.forEach(function(c){ c.classList.toggle('selected', c === card); });
-      rebelsWrap.classList.add('has-selection');
-      toMessageBtn.disabled = false;
-    });
-  });
-
-  toMessageBtn.addEventListener('click', function(){ showScreen('message'); });
-
-  function validateMessage(){
-    var remaining = 150 - messageInput.value.length;
-    charCountEl.textContent = remaining + ' left';
-    var ok = nameInput.value.trim().length > 0 && messageInput.value.trim().length > 0;
-    releaseBtn.disabled = !ok;
-  }
-  nameInput.addEventListener('input', validateMessage);
-  messageInput.addEventListener('input', validateMessage);
-
-  overlay.querySelectorAll('.flock-quick button').forEach(function(b){
-    b.addEventListener('click', function(){
-      messageInput.value = b.dataset.text;
-      validateMessage();
-      messageInput.focus();
-    });
-  });
-
-  function runRelease(){
-    showScreen('release');
-    releaseBirdEl.innerHTML = birdSvg(lastFlock.rebel);
-    releaseBirdEl.style.color = REBEL_META[lastFlock.rebel].color;
-    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    setTimeout(function(){
-      populateReveal();
-      showScreen('reveal');
-    }, reduceMotion ? 400 : 2000);
-  }
-
-  function populateReveal(){
-    var meta = REBEL_META[lastFlock.rebel];
-    document.getElementById('reveal-num').textContent = 'FLOCK #' + pad(lastFlock.flockNumber);
-    var art = document.getElementById('reveal-art');
-    art.innerHTML = birdSvg(lastFlock.rebel);
-    art.style.color = meta.color;
-    document.getElementById('reveal-recipient').textContent = lastFlock.recipientName.toUpperCase() + ',';
-    document.getElementById('reveal-message').textContent = '“' + lastFlock.message + '”';
-    document.getElementById('reveal-card-num').textContent = 'FLOCK #' + pad(lastFlock.flockNumber);
-  }
-
-  releaseBtn.addEventListener('click', function(){
-    errorEl.textContent = '';
-    releaseBtn.disabled = true;
-    releaseBtn.textContent = 'RELEASING…';
-
-    fetch('/api/flock-create', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        rebel: selectedRebel,
-        recipientName: nameInput.value.trim(),
-        message: messageInput.value.trim()
-      })
-    })
-      .then(function(r){ return r.json().then(function(data){ return { ok: r.ok, data: data }; }); })
-      .then(function(res){
-        if (!res.ok) {
-          errorEl.textContent = res.data.error || 'Something went wrong.';
-          releaseBtn.disabled = false;
-          releaseBtn.textContent = 'RELEASE THE FLOCK →';
-          return;
-        }
-        lastFlock = {
-          shareId: res.data.shareId,
-          flockNumber: res.data.flockNumber,
-          rebel: selectedRebel,
-          recipientName: nameInput.value.trim(),
-          message: messageInput.value.trim()
-        };
-        runRelease();
-      })
-      .catch(function(){
-        errorEl.textContent = 'Network hiccup. Try again.';
-        releaseBtn.disabled = false;
-        releaseBtn.textContent = 'RELEASE THE FLOCK →';
-      });
-  });
-
-  passItOnBtn.addEventListener('click', function(){
-    if (!lastFlock) return;
-    var url = location.origin + '/f/' + lastFlock.shareId;
-    var text = 'I just sent a little love into the world — no reason, just love.';
-    if (navigator.share) {
-      navigator.share({ title: 'A Flock Found You', text: text, url: url }).catch(function(){});
-    } else if (navigator.clipboard) {
-      navigator.clipboard.writeText(url).then(function(){
-        var original = passItOnBtn.textContent;
-        passItOnBtn.textContent = 'LINK COPIED';
-        setTimeout(function(){ passItOnBtn.textContent = original; }, 1800);
-      });
-    }
-  });
-
-  releaseAnotherBtn.addEventListener('click', function(){
-    resetFlow();
-    showScreen('choose');
-  });
-
-  closeBtn.addEventListener('click', closeOverlay);
-  overlay.addEventListener('click', function(e){ if (e.target === overlay) closeOverlay(); });
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && overlay.classList.contains('open')) closeOverlay();
-  });
-
-  document.getElementById('love-btn').addEventListener('click', function(){
-    resetFlow();
-    openOverlay('intro');
-  });
-  document.getElementById('open-flock-counter').addEventListener('click', function(){
-    resetFlow();
-    openOverlay('intro');
-  });
-
-  var params = new URLSearchParams(location.search);
-  if (params.get('send') === '1') {
-    resetFlow();
-    openOverlay('choose');
-    history.replaceState(null, '', location.pathname);
-  }
-})();
-
-(function(){
-  var form = document.getElementById('join-form');
-  var emailInput = document.getElementById('join-email');
-  var status = document.getElementById('join-status');
-  var button = form.querySelector('button');
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    status.textContent = '';
-    status.classList.remove('is-error');
-    button.disabled = true;
-    button.textContent = 'Joining…';
-
-    fetch('/api/join', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: emailInput.value.trim() })
-    })
-      .then(function(r){ return r.json().then(function(data){ return { ok: r.ok, data: data }; }); })
-      .then(function(res){
-        button.disabled = false;
-        button.textContent = 'Join';
-        if (!res.ok) {
-          status.textContent = res.data.error || 'Something went wrong.';
-          status.classList.add('is-error');
-          return;
-        }
-        status.textContent = res.data.alreadyJoined ? "You're already in the Flock." : "You're in. Welcome to the Flock.";
-        emailInput.value = '';
-      })
-      .catch(function(){
-        button.disabled = false;
-        button.textContent = 'Join';
-        status.textContent = 'Network hiccup. Try again.';
-        status.classList.add('is-error');
-      });
-  });
-})();
-
-(function(){
-  var REBEL_META = {
-    1: { label: '01 · INSTIGATOR', greeting: "Yeah? Say something worth hearing." },
-    2: { label: '02 · LOOKOUT', greeting: "I'm watching. What do you need?" },
-    3: { label: '03 · HEADLINER', greeting: "You're live. Ask me anything — make it good." }
-  };
-
-  var btn = document.getElementById('chat-btn');
-  var panel = document.getElementById('chat-panel');
-  var closeBtn = document.getElementById('chat-close');
-  var tabs = panel.querySelectorAll('.chat-tab');
-  var activeNameEl = document.getElementById('chat-active-name');
-  var messagesEl = document.getElementById('chat-messages');
-  var form = document.getElementById('chat-form');
-  var input = document.getElementById('chat-input');
-  var sendBtn = document.getElementById('chat-send');
-
-  var currentRebel = 1;
-  var histories = { 1: [], 2: [], 3: [] };
-  var sending = false;
-
-  function addBubble(role, text, container){
-    var el = document.createElement('div');
-    el.className = 'chat-msg ' + role;
-    el.textContent = text;
-    (container || messagesEl).appendChild(el);
-    messagesEl.scrollTop = messagesEl.scrollHeight;
-    return el;
-  }
-
-  function renderHistory(rebel){
-    messagesEl.innerHTML = '';
-    if (!histories[rebel].length) {
-      addBubble('model', REBEL_META[rebel].greeting);
-    } else {
-      histories[rebel].forEach(function(m){ addBubble(m.role, m.text); });
-    }
-  }
-
-  function switchRebel(rebel){
-    currentRebel = rebel;
-    activeNameEl.textContent = REBEL_META[rebel].label;
-    tabs.forEach(function(t){
-      var isActive = Number(t.dataset.rebel) === rebel;
-      t.classList.toggle('active', isActive);
-      t.setAttribute('aria-selected', isActive ? 'true' : 'false');
-    });
-    renderHistory(rebel);
-  }
-
-  function openPanel(){
-    panel.classList.add('open');
-    btn.setAttribute('aria-expanded', 'true');
-    if (!histories[currentRebel].length) renderHistory(currentRebel);
-    input.focus();
-  }
-
-  function closePanel(){
-    panel.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false');
-    btn.focus();
-  }
-
-  btn.addEventListener('click', function(){
-    if (panel.classList.contains('open')) { closePanel(); } else { openPanel(); }
-  });
-  closeBtn.addEventListener('click', closePanel);
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && panel.classList.contains('open')) closePanel();
-  });
-
-  tabs.forEach(function(tab){
-    tab.addEventListener('click', function(){ switchRebel(Number(tab.dataset.rebel)); });
-  });
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var text = input.value.trim();
-    if (!text || sending) return;
-
-    histories[currentRebel].push({ role: 'user', text: text });
-    addBubble('user', text);
-    input.value = '';
-    sending = true;
-    sendBtn.disabled = true;
-
-    var typing = document.createElement('div');
-    typing.className = 'chat-typing';
-    typing.innerHTML = '<span></span><span></span><span></span>';
-    messagesEl.appendChild(typing);
-    messagesEl.scrollTop = messagesEl.scrollHeight;
-
-    fetch('/api/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ rebel: currentRebel, messages: histories[currentRebel] })
-    })
-      .then(function(r){ return r.json().then(function(data){ return { ok: r.ok, data: data }; }); })
-      .then(function(res){
-        typing.remove();
-        sending = false;
-        sendBtn.disabled = false;
-        if (!res.ok) {
-          addBubble('error', res.data.error || 'Something went wrong.');
-          return;
-        }
-        histories[currentRebel].push({ role: 'model', text: res.data.reply });
-        addBubble('model', res.data.reply);
-      })
-      .catch(function(){
-        typing.remove();
-        sending = false;
-        sendBtn.disabled = false;
-        addBubble('error', 'Network hiccup. Try again.');
-      });
-  });
-})();
-</script>
+    <footer class="site-footer">
+      <div class="footer-mark">A305X</div>
+      <div>
+        <p>WEAR THE NOISE. FUND THE PEACE.</p>
+        <p>Born in Miami. Broadcasting everywhere.</p>
+      </div>
+      <div>
+        <p>© <span data-year></span> A305X</p>
+        <p>Reality remains under review.</p>
+      </div>
+    </footer>
+  </body>
+</html>

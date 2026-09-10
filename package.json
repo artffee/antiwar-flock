@@ -1,8 +1,11 @@
 {
-  "name": "antiwar-flock",
+  "name": "a305x-rebellion",
+  "version": "1.0.0",
   "private": true,
+  "description": "A305X retro-futurist Miami rebellion brand site",
   "type": "module",
   "dependencies": {
     "@vercel/blob": "^2.8.0"
   }
 }
+
