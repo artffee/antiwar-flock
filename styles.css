@@ -1574,3 +1574,131 @@ a {
     transform: none;
   }
 }
+
+
+/* A305X game transmission */
+.game-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: center;
+  border-top: 2px solid var(--ink);
+  background: #1c191d;
+  color: var(--paper);
+  overflow: hidden;
+}
+.game-feature > .section-label {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+}
+.game-feature-copy { max-width: 39rem; }
+.game-kicker {
+  margin: 0 0 1.2rem;
+  color: var(--acid);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+.game-kicker span { margin-right: 0.4rem; color: var(--pink); font-size: 1.3rem; }
+.game-feature-copy h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(3.6rem, 7.2vw, 8.2rem);
+  font-weight: 950;
+  line-height: 0.78;
+  letter-spacing: -0.09em;
+  text-transform: uppercase;
+}
+.game-feature-copy h2 em { color: var(--pink); font-style: normal; }
+.game-feature-copy > p:not(.game-kicker) {
+  max-width: 32rem;
+  margin: 2.1rem 0;
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 1.65vw, 1.55rem);
+  line-height: 1.42;
+}
+.game-facts { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.game-facts span {
+  padding: 0.45rem 0.6rem;
+  border: 1px solid rgba(244, 237, 220, 0.45);
+  color: var(--acid);
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+.game-play-button {
+  background: var(--acid);
+  color: var(--ink);
+  border-color: var(--paper);
+  box-shadow: 6px 6px 0 var(--pink);
+}
+.game-play-button:hover { background: var(--paper); box-shadow: 1px 1px 0 var(--pink); }
+.game-feature-copy > small {
+  display: block;
+  margin-top: 1.3rem;
+  color: rgba(244, 237, 220, 0.62);
+  font-size: 0.8rem;
+}
+.game-feature-art {
+  position: relative;
+  min-height: clamp(30rem, 44vw, 39rem);
+  border: 1px solid rgba(244, 237, 220, 0.34);
+  background:
+    linear-gradient(rgba(232, 255, 56, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 255, 56, 0.055) 1px, transparent 1px),
+    #242026;
+  background-size: 2.7rem 2.7rem;
+  isolation: isolate;
+}
+.game-art-orbit {
+  position: absolute;
+  width: 72%;
+  aspect-ratio: 1;
+  border: 3px solid var(--pink);
+  border-radius: 50%;
+  top: 11%;
+  left: 14%;
+  box-shadow: 0 0 0 17px rgba(255, 47, 139, 0.09);
+}
+.game-art-signal,.game-art-bottom {
+  position: absolute;
+  z-index: 4;
+  left: 1rem;
+  font-family: var(--display);
+  font-size: 0.75rem;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+}
+.game-art-signal { top: 1rem; color: var(--acid); }
+.game-art-bottom { bottom: 1rem; right: 1rem; display: flex; justify-content: space-between; color: var(--paper); }
+.game-art-bottom span { color: var(--pink); }
+.game-card-preview {
+  position: absolute;
+  aspect-ratio: 5 / 7;
+  overflow: hidden;
+  border: 1px solid #b6afa4;
+  background: var(--paper);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.45);
+  transition: transform 230ms ease;
+}
+.game-card-preview img { position: absolute; max-width: none; width: 340%; height: auto; }
+.game-preview-law { width: 33%; left: 6%; top: 24%; transform: rotate(-13deg); }
+.game-preview-law img { left: -120%; top: -7.142857%; }
+.game-preview-rebel { width: 37%; left: 32%; top: 13%; z-index: 2; transform: rotate(5deg); }
+.game-preview-rebel img { left: -120%; top: -207.142857%; }
+.game-preview-glitch { width: 32%; right: 4%; top: 27%; transform: rotate(13deg); }
+.game-preview-glitch img { left: -120%; top: -107.142857%; }
+.game-feature-art:hover .game-preview-law { transform: rotate(-18deg) translateX(-0.5rem); }
+.game-feature-art:hover .game-preview-rebel { transform: rotate(1deg) translateY(-0.5rem); }
+.game-feature-art:hover .game-preview-glitch { transform: rotate(18deg) translateX(0.5rem); }
+@media (max-width: 820px) {
+  .game-feature { grid-template-columns: 1fr; }
+  .game-feature > .section-label { grid-column: 1; }
+  .game-feature-art { min-height: min(112vw, 34rem); }
+}
+@media (max-width: 520px) {
+  .game-feature-copy h2 { font-size: clamp(3.25rem, 15.5vw, 5rem); }
+  .game-feature-art { min-height: 105vw; }
+  .game-card-preview { box-shadow: 0 10px 18px rgba(0, 0, 0, 0.4); }
+  .game-facts span { font-size: 0.56rem; }
+}
