@@ -1702,3 +1702,118 @@ a {
   .game-card-preview { box-shadow: 0 10px 18px rgba(0, 0, 0, 0.4); }
   .game-facts span { font-size: 0.56rem; }
 }
+
+/* Surreal A305X hero artwork */
+.hero-art.hero-art-new {
+  background: #141216;
+}
+.hero-art.hero-art-new::before {
+  opacity: 0.65;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 47, 139, 0.26), transparent 57%),
+    linear-gradient(90deg, transparent 49.7%, rgba(255, 47, 139, 0.14) 50%, transparent 50.3%),
+    linear-gradient(0deg, transparent 49.7%, rgba(255, 47, 139, 0.14) 50%, transparent 50.3%);
+  background-size: auto, 4.7rem 4.7rem, 4.7rem 4.7rem;
+}
+.hero-art.hero-art-new img {
+  width: min(88%, 35rem);
+  max-height: min(62vh, 40rem);
+  margin-bottom: 2.8rem;
+  mix-blend-mode: normal;
+  filter: drop-shadow(0 0 1rem rgba(255, 47, 139, 0.2));
+  transform: none;
+}
+.hero-art.hero-art-new:hover img {
+  transform: rotate(-1deg) scale(1.015);
+}
+@media (max-width: 820px) {
+  .hero-art.hero-art-new img {
+    width: min(89%, 35rem);
+    max-height: min(32rem, calc(115vw - 3.5rem));
+    margin-bottom: 2.7rem;
+  }
+}
+
+/* Department of Surrender field manual */
+.department-notebook {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 5vw, 6rem);
+  align-items: center;
+  margin-top: clamp(1rem, 3vw, 3rem);
+  padding: clamp(1.4rem, 4vw, 4rem);
+  border: 2px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: 12px 12px 0 var(--pink);
+}
+.notebook-image {
+  min-height: 32rem;
+  padding: 1.5rem;
+  display: grid;
+  place-items: center;
+  background: #292421;
+  overflow: hidden;
+}
+.notebook-image img {
+  display: block;
+  width: min(80%, 22rem);
+  max-height: 30rem;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 9px 12px 0 rgba(255, 47, 139, 0.65);
+  transform: rotate(-3deg);
+}
+.notebook-index {
+  margin: 0 0 1.2rem;
+  color: var(--pink);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+}
+.notebook-copy h3 {
+  max-width: 10ch;
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(2.8rem, 5vw, 5.8rem);
+  font-weight: 950;
+  line-height: 0.88;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+}
+.notebook-edition {
+  margin: 1.4rem 0 0;
+  color: var(--pink);
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 2.3vw, 2.2rem);
+  font-style: italic;
+}
+.notebook-description {
+  max-width: 31rem;
+  margin: 1.5rem 0;
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.5;
+}
+.notebook-status {
+  display: inline-block;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid currentColor;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+@media (max-width: 820px) {
+  .department-notebook {
+    grid-template-columns: 1fr;
+  }
+  .notebook-image {
+    min-height: min(115vw, 32rem);
+  }
+  .notebook-image img {
+    width: auto;
+    max-width: 78%;
+    max-height: min(95vw, 27rem);
+  }
+}
