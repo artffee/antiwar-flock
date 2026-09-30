@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ff6b58" />
+    <meta name="description" content="Meet The Chill Pill by A305X: a rebellious flamingo art object and a free party game. Play 36 absurd challenges with friends or download the printable cards." />
+    <title>The Chill Pill — A305X</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23ff6b58' stroke='%2311100f' stroke-width='3'/%3E%3Cpath d='M19 39q13 15 26-2M22 20v8M42 20v8' fill='none' stroke='%2311100f' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./chill-pill.css" />
+    <script src="./script.js" defer></script>
+    <script src="./chill-pill.js" defer></script>
+  </head>
+  <body class="chill-page">
+    <a class="skip-link" href="#main">Skip to The Chill Pill</a>
+    <header class="site-header" data-header>
+      <a class="wordmark" href="./index.html" aria-label="A305X home"><span>A305X</span><small>MIAMI / EARTH</small></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">Open menu</span><span></span><span></span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a href="./index.html#manifesto">Manifesto</a>
+        <a href="./store.html">Store</a>
+        <a href="./chill-pill" aria-current="page">Chill Pill</a>
+        <a href="#play">Play</a>
+        <a class="nav-cta" href="./index.html#flock">Join the fluck</a>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="chill-hero section" aria-labelledby="pill-title">
+        <div class="chill-topline"><span>A305X / OBJECT 305</span><span>A LITTLE DOSE OF REBELLION</span></div>
+        <div class="chill-feature">
+          <div class="chill-feature-copy">
+            <p class="chill-eyebrow">PASS IT. PLAY IT. FLUCK IT.</p>
+            <h1 id="pill-title">THE<br /><em>CHILL PILL.</em></h1>
+            <p class="chill-lead">Keep your attitude.<br />Lose your composure.</p>
+            <p>Our crazy flamingo, one unapologetic middle finger, and a giant coral pill. A strange little object made for desks, gifts, and very unserious game nights.</p>
+            <div class="chill-actions">
+              <a class="button button-dark" href="#play">Play with friends <span aria-hidden="true">↘</span></a>
+              <a class="text-link" href="./assets/A305X_Pass_The_Chill_Pill.pdf" download>Get the cards · PDF <span aria-hidden="true">↓</span></a>
+            </div>
+            <p class="chill-caption">Handmade art-object concept · Design mockup</p>
+          </div>
+          <figure class="chill-feature-art">
+            <img src="./assets/a305x-chill-pill.webp" alt="The oversized coral Chill Pill with the black A305X punk flamingo raising its middle finger, beside its gift packaging and back design" width="1536" height="1024" fetchpriority="high" />
+            <figcaption><span>THE CHILL PILL</span><span>STATUS: UNBOTHERED</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="chill-object section" aria-labelledby="object-title">
+        <div><p class="chill-eyebrow">THE OBJECT / THE ATTITUDE</p><h2 id="object-title">Small object.<br /><em>Big fluck energy.</em></h2></div>
+        <div class="chill-object-copy">
+          <p>The handmade prototype plan: a round PVC body, a coral face, black flamingo artwork, and rounded edges.</p>
+          <dl><div><dt>PROPOSED SIZE</dt><dd>90 mm wide × 12 mm thick</dd></div><div><dt>FINISH</dt><dd>Layered PVC with a UV-DTF printed face</dd></div><div><dt>RELEASE</dt><dd>In development</dd></div></dl>
+          <p class="chill-caption">The Chill Pill is a decorative art object. The mockup shows the design concept.</p>
+        </div>
+      </section>
+
+      <section class="chill-game section" id="play" aria-labelledby="play-title">
+        <div class="chill-game-heading">
+          <div><p class="chill-eyebrow">FREE PARTY GAME / ONE PHONE</p><h2 id="play-title">PASS THE<br /><em>CHILL PILL.</em></h2></div>
+          <p>Draw a ridiculous role. Stay in character for 30 seconds. Your friends try to crack you. Keep it together to earn a point.</p>
+        </div>
+        <div class="chill-facts"><span>2–6 PLAYERS</span><span>36 CHALLENGES</span><span>AGES 16+</span></div>
+        <noscript><p class="chill-noscript">Enable JavaScript to play here, or <a href="./assets/A305X_Pass_The_Chill_Pill.pdf">download the printable game</a>.</p></noscript>
+
+        <div class="chill-game-layout">
+          <div class="chill-game-panel">
+            <form id="pill-setup">
+              <span class="chill-panel-label">ASSEMBLE YOUR BEAUTIFUL MISFITS</span>
+              <h3>Who’s playing?</h3>
+              <label class="chill-field" for="pill-count">Number of players<select id="pill-count" name="players"><option value="2">2 players</option><option value="3">3 players</option><option value="4">4 players</option><option value="5">5 players</option><option value="6">6 players</option></select></label>
+              <div class="chill-name-grid" id="pill-names">
+                <label class="chill-field">Player 1<input name="player-1" value="Player 1" maxlength="18" required autocomplete="off" /></label>
+                <label class="chill-field">Player 2<input name="player-2" value="Player 2" maxlength="18" required autocomplete="off" /></label>
+                <label class="chill-field" hidden>Player 3<input name="player-3" value="Player 3" maxlength="18" disabled autocomplete="off" /></label>
+                <label class="chill-field" hidden>Player 4<input name="player-4" value="Player 4" maxlength="18" disabled autocomplete="off" /></label>
+                <label class="chill-field" hidden>Player 5<input name="player-5" value="Player 5" maxlength="18" disabled autocomplete="off" /></label>
+                <label class="chill-field" hidden>Player 6<input name="player-6" value="Player 6" maxlength="18" disabled autocomplete="off" /></label>
+              </div>
+              <p id="pill-setup-error" class="chill-form-error" role="alert" hidden></p>
+              <button class="button button-dark" type="submit">Deal the nonsense <span aria-hidden="true">↗</span></button>
+              <p class="chill-caption">Pass one phone clockwise. Any small token can be your pill.</p>
+            </form>
+
+            <div id="pill-round" hidden>
+              <div class="chill-round-top"><span id="pill-round-label">ROUND 1</span><button class="chill-reset" type="button" data-pill-reset>New game</button></div>
+              <p class="chill-turn" id="pill-turn" tabindex="-1"></p>
+              <article class="chill-prompt-card">
+                <div class="chill-card-top"><span>A305X / CHALLENGE</span><span id="pill-card-number"></span></div>
+                <h3 id="pill-card-title"></h3>
+                <p id="pill-card-prompt"></p>
+                <div class="chill-question"><span>YOUR FRIENDS CAN ASK</span><p id="pill-card-question"></p></div>
+              </article>
+              <div class="chill-timer-row"><span id="pill-timer" role="timer" aria-label="30 seconds remaining">30</span><div><span class="chill-panel-label">SECONDS OF SERIOUS NONSENSE</span><p id="pill-timer-status" role="status">Read the card, then start the timer.</p></div></div>
+              <button class="button button-dark chill-timer-button" id="pill-start" type="button">Start 30 seconds</button>
+              <div class="chill-score-actions"><button id="pill-success" type="button" disabled>Held it together <strong>+1</strong></button><button id="pill-laugh" type="button">I laughed <strong>0</strong></button><button id="pill-pass" type="button">Pass this card <strong>0</strong></button></div>
+              <p class="chill-caption">An audible laugh scores 0. Smiling is allowed. Each friend gets one silly question.</p>
+              <div id="pill-scoreboard" class="chill-scoreboard" aria-label="Player scores"></div>
+            </div>
+
+            <div class="chill-result" id="pill-result" hidden>
+              <span class="chill-panel-label">COMPOSURE: QUESTIONABLE / VICTORY: YOURS</span>
+              <h3 id="pill-winner" tabindex="-1"></h3>
+              <p id="pill-result-copy"></p>
+              <div id="pill-final-scores" class="chill-scoreboard"></div>
+              <button class="button button-dark" type="button" data-pill-reset>Play again <span aria-hidden="true">↗</span></button>
+            </div>
+          </div>
+
+          <aside class="chill-play-guide">
+            <p class="chill-eyebrow">THE ONLY RULE: KEEP IT TOGETHER</p>
+            <ol><li><strong>Draw + read.</strong> Get into character before the timer starts.</li><li><strong>Commit to the bit.</strong> Perform for the full 30 seconds while your friends ask silly questions.</li><li><strong>Score + pass.</strong> No laugh: 1 point. Laugh or pass: 0. Pass the phone and the pill clockwise.</li></ol>
+            <details><summary>How do we win?</summary><p>First to 5 points triggers the final round. Finish that round so everyone gets equal turns. Highest score wins. Tied leaders each take an extra turn; repeat until one leads.</p></details>
+            <details><summary>What if we run out of cards?</summary><p>The 36 challenges reshuffle after you play them all. You can pass any card for 0 points. Keep questions verbal and about the fictional scene.</p></details>
+            <a class="text-link" href="./assets/A305X_Pass_The_Chill_Pill.pdf" download>Print the rules + 36 cards <span aria-hidden="true">↓</span></a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="chill-cards section" aria-labelledby="cards-title">
+        <div class="chill-cards-heading"><p class="chill-eyebrow">MEET CARD 01</p><h2 id="cards-title">Coffee betrayal.</h2><p>Apologize to your coffee for cheating on it with tea. Try saying that with a straight face.</p></div>
+        <img src="./assets/a305x-chill-pill-playing-card.webp" alt="Front and back of an illustrated A305X Coffee Betrayal playing card with our crazy coral flamingo, an offended coffee cup, and The Chill Pill reverse" width="1499" height="1049" loading="lazy" />
+        <p class="chill-caption">Illustrated card design preview · The PDF includes 36 text challenge cards.</p>
+      </section>
+    </main>
+    <footer class="site-footer"><div class="footer-mark">A305X</div><div><p>PASS IT. PLAY IT. FLUCK IT.</p><p>Born in Miami. Broadcasting everywhere.</p></div><div><p>© <span data-year></span> A305X</p><p><a href="./index.html">Back to the signal ↑</a></p></div></footer>
+  </body>
+</html>
