@@ -11,6 +11,7 @@
 .chill-facts { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.6rem 0; }
 .chill-facts span { padding: .4rem .6rem; border: 1px solid currentColor; font-size: .69rem; font-weight: 900; letter-spacing: .045em; }
 .chill-actions { display: flex; flex-wrap: wrap; gap: 1.4rem; align-items: center; margin-top: 2rem; }
+.chill-actions .text-link { display: inline-flex; align-items: center; min-height: 2.75rem; gap: .7rem; }
 .chill-actions .button { box-shadow: 5px 5px 0 var(--paper); }
 .chill-feature-art { min-width: 0; margin: 0; border: 2px solid var(--ink); background: #f6f1e7; box-shadow: 10px 10px 0 var(--ink); }
 .chill-feature-art img { width: 100%; height: auto; }
@@ -79,7 +80,8 @@
 .chill-cards { border-top: 2px solid var(--ink); }
 .chill-cards-heading { max-width: 40rem; margin-bottom: 2rem; }
 .chill-cards h2 { font-family: var(--display); font-size: clamp(2.5rem, 5vw, 5rem); line-height: 1; letter-spacing: -.06em; margin: 0 0 1rem; }
-.chill-cards > img { width: min(100%, 72rem); margin: 0 auto; border: 2px solid var(--ink); }
+.chill-cards > img { width: min(100%, 72rem); height: auto; margin: 0 auto; border: 2px solid var(--ink); }
+.chill-card-zoom { display: table; min-height: 2.75rem; margin: 1.4rem auto; font-size: .8rem; }
 .chill-cards > .chill-caption { text-align: center; }
 .chill-noscript { padding: 1rem; border: 2px solid var(--ink); }
 .chill-noscript a { text-decoration: underline; }
