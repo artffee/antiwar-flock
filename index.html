@@ -6,14 +6,20 @@
     <meta name="theme-color" content="#ff2f8b" />
     <meta
       name="description"
-      content="A305X is a retro-futurist Miami rebellion brand making apparel, coffee, objects, and classified ideas for people who refuse the default."
+      content="A305X is an independent Miami art and merchandise brand. Explore original flamingo apparel, art-object concepts, notebooks, and free party games."
     />
     <title>A305X — Born to Disobey</title>
+    <link rel="canonical" href="https://antiwar-flock.vercel.app/" />
+    <meta property="og:site_name" content="A305X" />
+    <meta property="og:type" content="website" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23111111'/%3E%3Cpath d='M13 49 27 14h10l14 35H40l-2-7H25l-2 7H13Zm15-16h7l-3-10-4 10Z' fill='%23ff2f8b'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./store.css" />
     <link rel="stylesheet" href="./chill-pill.css" />
+    <link rel="stylesheet" href="./customer.css" />
     <script src="./script.js" defer></script>
+    <script src="./store-config.js" defer></script>
+    <script src="./store.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to the signal</a>
@@ -35,7 +41,7 @@
         <a href="./store.html">Store</a>
         <a href="#chill-pill">Chill Pill</a>
         <a href="#game">Games</a>
-        <a href="#department">D.O.S.</a>
+        <a href="/about">About</a>
         <a class="nav-cta" href="#flock">Join the flock</a>
       </nav>
     </header>
@@ -56,8 +62,8 @@
             <span>not found.</span>
           </h1>
           <p class="hero-intro">
-            A free, crazy flamingo escaped the system. Now it makes clothes, coffee,
-            strange objects, and classified ideas for everyone still awake.
+            Independent art and merchandise from Miami. Original flamingo designs,
+            anti-war apparel, strange objects, and games for people who refuse the default.
           </p>
           <div class="hero-actions">
             <a class="button button-dark" href="./store.html">Explore the store</a>
@@ -85,6 +91,10 @@
           <span>DO NOT NORMALIZE.</span>
         </div>
       </section>
+
+      <aside class="home-brand-note" aria-label="Store availability">
+        <p>Explore the designs. Play the games. <span data-store-prelaunch>Physical products are in development; ordering is not open yet.</span><span data-store-open hidden>See the store for current product availability.</span> <a href="/store">See the collection</a>.</p>
+      </aside>
 
       <div class="ticker" aria-label="A305X statements">
         <div class="ticker-track">
@@ -138,7 +148,7 @@
             <p>First transmission / limited concepts</p>
           </div>
           <h2 id="drop-title">Drop 0001:<br /><em>Wake up.</em></h2>
-          <p class="drop-intro">Three ways to interrupt an ordinary morning.</p>
+          <p class="drop-intro">Apparel and experimental ideas. Availability is listed on each item.</p>
         </div>
 
         <div class="product-grid">
@@ -355,6 +365,13 @@
       <div>
         <p>© <span data-year></span> A305X</p>
         <p>Reality remains under review.</p>
+      </div>
+
+      <div class="footer-service">
+        <nav class="footer-links" aria-label="Customer information">
+          <a href="/store">Store</a><a href="/about">About A305X</a><a href="/store-info#support">Customer support</a><a href="/store-info#shipping">Shipping &amp; returns</a><a href="/privacy">Privacy</a>
+        </nav>
+        <p>Independent art &amp; merchandise. Miami, Florida.</p>
       </div>
     </footer>
   </body>

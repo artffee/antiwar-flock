@@ -4,13 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f4eddc" />
-    <meta name="description" content="A305X store: anti-war apparel and objects from the first unauthorized drop." />
+    <meta name="description" content="A305X store: original flamingo apparel, art-object concepts, notebooks, and free games. View product status and ordering information." />
     <title>Store — A305X</title>
+    <link rel="canonical" href="https://antiwar-flock.vercel.app/store" />
+    <meta property="og:site_name" content="A305X" />
+    <meta property="og:type" content="website" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23111111'/%3E%3Cpath d='M13 49 27 14h10l14 35H40l-2-7H25l-2 7H13Zm15-16h7l-3-10-4 10Z' fill='%23ff2f8b'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./store.css" />
     <link rel="stylesheet" href="./chill-pill.css" />
+    <link rel="stylesheet" href="./customer.css" />
     <script src="./script.js" defer></script>
+    <script src="./store-config.js" defer></script>
+    <script src="./store.js" defer></script>
   </head>
   <body class="store-page">
     <a class="skip-link" href="#main">Skip to the store</a>
@@ -26,7 +32,7 @@
         <a href="./index.html#drop">The Drop</a>
         <a href="./store.html" aria-current="page">Store</a>
         <a href="./index.html#game">Play</a>
-        <a href="./index.html#department">D.O.S.</a>
+        <a href="/about">About</a>
         <a class="nav-cta" href="./index.html#flock">Join the fluck</a>
       </nav>
     </header>
@@ -36,27 +42,47 @@
         <div class="store-intro-main">
           <div>
             <p class="store-kicker">FIRST TRANSMISSION / MIAMI, EARTH</p>
-            <h1 id="store-title">THE<br /><em>STORE.</em></h1>
-            <p>Wear the message. Carry the signal.</p>
+            <h1 id="store-title">THE <em>STORE.</em></h1>
+            <p>Original flamingo artwork. Clothing with a point of view. Strange objects with a sense of humor.</p>
           </div>
           <div class="store-intro-mark" aria-hidden="true">A305X</div>
         </div>
       </section>
 
-      <section class="store-feature section" id="wear-the-message" aria-labelledby="store-feature-title">
+      <nav class="store-summary" aria-label="Browse the collection">
+        <a href="#wear-the-message"><strong>Wear the Message Tee</strong><span>Apparel</span></a>
+        <a href="#chill-pill"><strong>The Chill Pill</strong><span>Art object &amp; free game</span></a>
+        <a href="#field-manual"><strong>Field Manual 01</strong><span>Notebook concept</span></a>
+      </nav>
+      <section class="store-information" aria-labelledby="availability-title">
+        <h2 id="availability-title">A little noise. Clear details.</h2>
+        <p data-store-prelaunch>The physical collection is in development. We are not accepting orders or preorders yet. Our online party games and the Chill Pill print-and-play are free to use now.</p>
+        <p data-store-open hidden>Availability is shown on each product. Listed prices are in US dollars (USD). Review shipping and return information before paying through Stripe.</p>
+        <div class="store-information-links"><a href="/store-info">Ordering, shipping &amp; returns</a><a href="/about">Meet A305X</a><a href="/store-info#support">Customer support</a></div>
+      </section>
+
+      <section class="store-feature section" id="wear-the-message" data-product="tee" aria-labelledby="store-feature-title">
         <div class="store-feature-art">
           <img src="./assets/a305x-wear-the-message-tee.webp" alt="A model wearing a black A305X tee with a small guitarist flamingo and Fuck War Fuck Politics lettering" width="1024" height="1536" fetchpriority="high" />
-          <span class="store-art-tag">01 / THE SIGNAL</span>
+          <span class="store-art-tag">01 / DESIGN MOCKUP</span>
         </div>
         <div class="store-feature-copy">
           <div class="section-label"><span>01</span><p>Apparel / A305X signal wear</p></div>
           <h2 id="store-feature-title">WEAR THE<br /><em>MESSAGE.</em></h2>
           <p class="store-feature-lead">A black tee. A small flamingo over the heart. A very clear position against war and political theater.</p>
           <p class="store-feature-note">The illustrated campaign image shows the front design: “FUCK WAR. FUCK POLITICS.”</p>
-          <div class="store-release" role="status">
-            <strong>Release pending</strong>
-            <span>Product details and ordering are being prepared.</span>
+          <dl class="product-specs">
+            <div><dt>Design</dt><dd>Original A305X guitarist flamingo artwork with anti-war lettering.</dd></div>
+            <div><dt>Color</dt><dd>Black, as shown in the design mockup.</dd></div>
+            <div><dt>Details</dt><dd data-product-details>Final fabric, fit, and size options will be published before ordering opens.</dd></div>
+            <div><dt>Price</dt><dd data-product-price>To be announced in USD.</dd></div>
+          </dl>
+          <div class="store-release">
+            <strong data-product-status>In development</strong>
+            <span data-product-pending>No orders or preorders are being accepted.</span>
+            <a href="/store-info">Read ordering information</a>
           </div>
+          <a class="button button-dark" data-checkout hidden>Buy with Stripe</a>
         </div>
       </section>
 
@@ -79,7 +105,7 @@
         </figure>
       </section>
 
-      <section class="store-next section" aria-labelledby="store-next-title">
+      <section class="store-next section" id="field-manual" aria-labelledby="store-next-title">
         <div class="store-next-copy">
           <p class="store-kicker">NEXT FILE / DEPARTMENT OF SURRENDER</p>
           <h2 id="store-next-title">FIELD<br />MANUAL 01.</h2>
@@ -95,6 +121,13 @@
       <div class="footer-mark">A305X</div>
       <div><p>WEAR THE NOISE. FUND THE PEACE.</p><p>Born in Miami. Broadcasting everywhere.</p></div>
       <div><p>© <span data-year></span> A305X</p><p><a href="./index.html">Back to the signal ↑</a></p></div>
+
+      <div class="footer-service">
+        <nav class="footer-links" aria-label="Customer information">
+          <a href="/store">Store</a><a href="/about">About A305X</a><a href="/store-info#support">Customer support</a><a href="/store-info#shipping">Shipping &amp; returns</a><a href="/privacy">Privacy</a>
+        </nav>
+        <p>Independent art &amp; merchandise. Miami, Florida.</p>
+      </div>
     </footer>
   </body>
 </html>
