@@ -73,12 +73,35 @@ export async function loadFlock(shareId) {
   return readJsonBlob(`flocks/${shareId}.json`);
 }
 
-export async function saveEmail(email) {
+export async function checkSignupStorage() {
+  // A private read checks the connection without creating records or exposing data.
+  await get('meta/signup-readiness.json', { access: 'private', useCache: false });
+}
+
+async function readEmailRecord(pathname) {
+  const result = await get(pathname, { access: 'private', useCache: false });
+  if (!result) return null;
+  return JSON.parse(await new Response(result.stream).text());
+}
+
+export async function saveEmail(email, action = 'subscribe') {
   const normalized = String(email).trim().toLowerCase();
   const key = crypto.createHash('sha256').update(normalized).digest('hex');
   const pathname = `emails/${key}.json`;
-  const existing = await readJsonBlob(pathname, false);
-  if (existing) return { alreadyJoined: true };
-  await writeJsonBlob(pathname, { email: normalized, joinedAt: new Date().toISOString() });
-  return { alreadyJoined: false };
+  const existing = await readEmailRecord(pathname);
+  if (action === 'unsubscribe') {
+    if (existing) await writeJsonBlob(pathname, { ...existing, status: 'unsubscribed', unsubscribedAt: new Date().toISOString() });
+    return;
+  }
+  if (existing?.status === 'subscribed' && existing?.consentVersion === '2026-10-01') return;
+  await writeJsonBlob(pathname, {
+    email: normalized,
+    joinedAt: existing?.joinedAt || new Date().toISOString(),
+    status: 'subscribed',
+    emailVerified: false,
+    consentAt: new Date().toISOString(),
+    consentVersion: '2026-10-01',
+    consentText: 'I would like A305X product-launch and art updates by email.',
+    source: '/signup',
+  });
 }
