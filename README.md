@@ -21,6 +21,7 @@ The storefront intentionally keeps checkout closed if a product or any required 
 - `/about`: artist/brand description and current anti-war/fundraising clarification.
 - `/store-info`: ordering, support, shipping, returns, and product FAQs. Contact and policies are populated from the public store config when confirmed.
 - `/privacy`: current technical data practices, optional submissions, and browser storage. Update when collection or service providers change.
+- `/terms`: website-use terms, artwork and printable permissions, submitted content, current order status, and consumer-rights preservation. Review and update before opening sales; it does not replace the final shipping, returns, and cancellation policies.
 
 Support details and final commerce policies are not yet supplied. Do not describe this prelaunch state as fully Stripe-ready or approved by Stripe.
 
