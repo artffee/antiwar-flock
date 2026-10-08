@@ -21,6 +21,7 @@
     <script src="./script.js" defer></script>
     <script src="./store-config.js" defer></script>
     <script src="./store.js" defer></script>
+    <script src="./wall-art.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to the signal</a>
@@ -236,7 +237,14 @@
             <h2 id="wall-art-title">WALL ART.<br /><em>Zero obedience.</em></h2>
             <p>A wild pink flamingo. A wired little accomplice. Two ways to give your walls a voice.</p>
           </div>
-          <a class="button button-dark" href="/store#wall-art">Explore wall art</a>
+          <div class="wall-art-actions">
+            <div class="wall-art-controls" data-wall-controls hidden>
+              <button class="button wall-art-glitch" type="button" data-wall-glitch>Fluck the gravity</button>
+              <button class="wall-art-motion" type="button" data-wall-motion>Pause motion</button>
+              <p class="wall-art-signal" data-wall-signal role="status" aria-live="polite" aria-atomic="true">REALITY: SLIGHTLY UNSTABLE</p>
+            </div>
+            <a class="button button-dark" href="/store#wall-art">Explore wall art</a>
+          </div>
         </div>
         <div class="wall-art-grid">
           <article class="wall-art-card">
