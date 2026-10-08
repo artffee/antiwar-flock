@@ -1,0 +1,132 @@
+/* Wall-art concepts: preserve the complete supplied images at their own ratios. */
+.wall-art {
+  background: var(--paper);
+  border-top: 2px solid var(--ink);
+}
+.wall-art[id],
+.wall-art-card[id] {
+  scroll-margin-top: calc(var(--header-height) + 1.5rem);
+}
+.wall-art .section-label p {
+  font-size: .875rem;
+}
+.wall-art-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: clamp(2.5rem, 5vw, 5rem);
+}
+.wall-art-heading > div {
+  min-width: 0;
+}
+.wall-art-heading h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 5.8vw, 6.5rem);
+  font-weight: 950;
+  line-height: 1;
+  letter-spacing: -.055em;
+}
+.wall-art-heading h2 em {
+  color: #ac1454;
+  font-family: var(--serif);
+  font-weight: 400;
+}
+.wall-art-heading p {
+  max-width: 42rem;
+  margin: 1.5rem 0 0;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+}
+.wall-art-heading .button {
+  flex-shrink: 0;
+}
+.wall-art-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  align-items: start;
+  gap: clamp(1.25rem, 3vw, 3rem);
+}
+.wall-art-card {
+  min-width: 0;
+  border: 2px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+.wall-art-card-wide {
+  margin-top: clamp(2rem, 5vw, 5rem);
+}
+.wall-art-card-link,
+.wall-art-image-link {
+  display: block;
+}
+.wall-art-card img {
+  width: 100%;
+  height: auto;
+  background: #e9d9c5;
+}
+.wall-art-card-copy {
+  padding: clamp(1.25rem, 2.5vw, 2.5rem);
+}
+.wall-art-file {
+  margin: 0 0 1rem;
+  color: var(--cyan);
+  font-size: .875rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+}
+.wall-art-card h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(1.6rem, 2.5vw, 2.8rem);
+  font-weight: 950;
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+.wall-art-card-copy > p:not(.wall-art-file) {
+  margin: 1rem 0 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.wall-art-status {
+  display: block;
+  padding-top: .9rem;
+  border-top: 1px solid rgba(244, 237, 220, .4);
+  font-size: .875rem;
+}
+.wall-art-card-link:hover h3,
+.wall-art-card-link:focus-visible h3 {
+  color: var(--pink);
+}
+.wall-art-note {
+  max-width: 52rem;
+  margin: 2rem 0 1.5rem;
+  font-size: 1rem;
+}
+.store-page .store-summary {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+@media (max-width: 820px) {
+  .wall-art-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .wall-art-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .wall-art-card-wide {
+    margin-top: 0;
+  }
+  .store-page .store-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 520px) {
+  .wall-art-heading h2 {
+    font-size: clamp(2rem, 8.5vw, 2.75rem);
+  }
+  .store-page .store-summary {
+    grid-template-columns: 1fr;
+  }
+}
