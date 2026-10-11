@@ -86,6 +86,61 @@
 .break-note { margin: .4rem 0 0; font-size: .78rem; color: #61564e; }
 .break-board { width: 100%; margin: 0; scroll-margin-top: 1rem; }
 .break-art { position: relative; }
+.flamingo-motion-control {
+  display: block;
+  min-height: 44px;
+  margin: .75rem 0 0;
+  padding: .5rem 0;
+  border: 0;
+  background: transparent;
+  font-size: .75rem !important;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.flamingo-motion-control:disabled { opacity: .65; text-decoration: none; }
+.flamingo-stage { position: absolute; inset: 0; pointer-events: none; }
+.flamingo-stage .flamingo-scenery {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* Retain the original headline and ticket lettering, pixel for pixel. */
+  clip-path: inset(39% 0 33.5% 0);
+}
+.flamingo-character { position: absolute; overflow: visible; pointer-events: none; }
+.flamingo-body, .flamingo-part { transform-box: view-box; transform-origin: center; }
+[data-flamingo="do-nothing"] .flamingo-body { transform-origin: 50% 12%; animation: hammock-swing 5.6s ease-in-out infinite; }
+[data-flamingo="sip-slow"] .flamingo-body { animation: flamingo-sip-idle 7s ease-in-out infinite; }
+.flamingo-sunhat { transform-origin: 60% 80%; animation: sunhat-bob 7s ease-in-out infinite; }
+.flamingo-coconut { transform-origin: 12% 85%; animation: coconut-sip 7s ease-in-out infinite; }
+[data-flamingo="brain-off"] .flamingo-body { transform-origin: 50% 85%; animation: yoga-float 6.7s ease-in-out infinite; }
+.flamingo-blink { opacity: 0; animation: sleepy-blink 8s step-end infinite; }
+[data-flamingo="zero-flucks"] .flamingo-body { animation: pool-ring-float 5.2s ease-in-out infinite; }
+[data-flamingo="leave-earth"] .flamingo-body { transform-origin: 50% 95%; animation: bye-flamingo-idle 6.5s ease-in-out infinite; }
+.flamingo-bye-wave { transform-origin: 15% 80%; animation: bye-sign-wave 4.8s ease-in-out infinite; }
+[data-flamingo="ufo"] .flamingo-body { animation: ufo-hover 5.8s ease-in-out infinite; }
+.flamingo-stage.flamingos-paused * { animation-play-state: paused !important; }
+.flamingo-character.is-cheering .flamingo-body { animation: flamingo-ticket-cheer 900ms ease-in-out both; }
+[data-flamingo="do-nothing"].is-cheering .flamingo-body { animation-name: hammock-ticket-cheer; }
+[data-flamingo="brain-off"].is-cheering .flamingo-body { animation-name: yoga-ticket-cheer; }
+[data-flamingo="leave-earth"].is-cheering .flamingo-bye-wave { animation: bye-ticket-cheer 900ms ease-in-out both; }
+[data-flamingo="ufo"].is-cheering .flamingo-body { animation-name: ufo-ticket-cheer; }
+.break-ticket { z-index: 2; }
+@keyframes hammock-swing { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+@keyframes flamingo-sip-idle { 0%, 100% { transform: rotate(-.6deg); } 50% { transform: rotate(.6deg); } }
+@keyframes sunhat-bob { 0%, 65%, 100% { transform: rotate(0); } 76%, 88% { transform: rotate(2deg) translateY(-1%); } }
+@keyframes coconut-sip { 0%, 65%, 100% { transform: rotate(0); } 78%, 88% { transform: rotate(-8deg) translate(-3%, -4%); } }
+@keyframes yoga-float { 0%, 100% { transform: translateY(0) rotate(-.5deg); } 50% { transform: translateY(-2%) rotate(1deg); } }
+@keyframes sleepy-blink { 0%, 48%, 54%, 100% { opacity: 0; } 49%, 53% { opacity: 1; } }
+@keyframes pool-ring-float { 0%, 100% { transform: translateY(0) rotate(-1.2deg); } 50% { transform: translateY(-2.8%) rotate(1.2deg); } }
+@keyframes bye-flamingo-idle { 0%, 100% { transform: rotate(-.6deg); } 50% { transform: rotate(.6deg); } }
+@keyframes bye-sign-wave { 0%, 65%, 100% { transform: rotate(-2deg); } 75%, 90% { transform: rotate(5deg); } }
+@keyframes ufo-hover { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-6%) rotate(3deg); } }
+@keyframes flamingo-ticket-cheer { 0%, 100% { transform: translateY(0) rotate(0); } 30% { transform: translateY(-6%) rotate(-5deg); } 65% { transform: translateY(-2%) rotate(5deg); } }
+@keyframes hammock-ticket-cheer { 0%, 100% { transform: rotate(0); } 28% { transform: rotate(-7deg); } 66% { transform: rotate(6deg); } }
+@keyframes yoga-ticket-cheer { 0%, 100% { transform: translateY(0) rotate(0); } 35% { transform: translateY(-5%) rotate(-3deg); } 70% { transform: translateY(-3%) rotate(3deg); } }
+@keyframes bye-ticket-cheer { 0%, 100% { transform: rotate(0); } 25%, 65% { transform: rotate(13deg); } 45%, 85% { transform: rotate(-7deg); } }
+@keyframes ufo-ticket-cheer { 0%, 100% { transform: translateY(0) rotate(0); } 35% { transform: translateY(-18%) rotate(-10deg); } 70% { transform: translateY(-8%) rotate(8deg); } }
 .break-art > img { width: 100%; height: auto; border-radius: 48% 48% 1rem 1rem / 32% 32% 1rem 1rem; }
 .break-ticket {
   position: absolute;
@@ -219,6 +274,7 @@
   .break-header-status { display: none; }
   .break-stage { width: min(100% - 2rem, 560px); grid-template-columns: 1fr; gap: 1.8rem; margin-top: 2rem; }
   .break-intro { text-align: center; }
+  .flamingo-motion-control { margin-left: auto; margin-right: auto; }
   .break-intro h1 { font-size: clamp(2.8rem, 10vw, 4.5rem); }
   .break-intro h1 br:first-child { display: none; }
   .break-eyebrow { margin-bottom: 1.1rem; font-size: .58rem; }

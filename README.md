@@ -31,6 +31,8 @@ The confirmed support email is `orionmind@gmail.com`. Final commerce policies ar
 
 Run `node --test tests/take-a-break.test.mjs` for timer-state and ticket-deck checks.
 
+The game board has separate paper-art flamingos and a UFO, with individual idle movement and a brief reaction for the chosen ticket. `flamingo-motion.js` clips the shared transparent atlas into character and prop layers; the original title and tickets remain visible beneath the scenery band. Visitors can pause the flamingos. Motion also stops offscreen, while a ticket dialog is open, when the tab is hidden, and for reduced-motion preferences. The complete original board is the fallback if animation assets cannot load.
+
 ## Deployment
 
 No build step. Existing Vercel clean URLs are configured in `vercel.json`. Push the verified changes through the existing repository deployment pipeline. The connected production domain is `www.a305x.com`; `a305x.com` redirects to it. Vercel reported Valid Configuration for both on October 1, 2026.

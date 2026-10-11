@@ -30,6 +30,7 @@
         <p class="break-lead">Pick a ticket.<br />The flamingos have a plan.</p>
         <p class="break-instruction"><span aria-hidden="true">↗</span> Tap a hanging ticket to tear off your break.</p>
         <button class="break-button" id="break-surprise" type="button" disabled>Surprise me <span aria-hidden="true">✳</span></button>
+        <button class="flamingo-motion-control" type="button" data-flamingo-motion aria-pressed="false" hidden>Pause flamingos</button>
         <div class="break-mini"><span>1 HUMAN</span><span>5 TICKETS</span><span>20 TINY ESCAPES</span></div>
         <div class="break-counter"><span>TINY BREAKS TAKEN</span><b id="break-count">00</b></div>
         <p class="break-note">No productivity required. You can take another.</p>
@@ -37,6 +38,7 @@
       <figure class="break-board" id="tickets" tabindex="-1" aria-labelledby="board-caption">
         <div class="break-art">
           <img src="./assets/a305x-take-a-break-board.webp" alt="A peach and turquoise paper-art board with five goofy pink flamingos, palm trees, a UFO, and hanging tickets: Do Nothing, Sip Slow, Brain Off, Zero Flucks, and Leave Earth." width="1024" height="1536" fetchpriority="high" draggable="false" />
+          <div class="flamingo-stage" data-flamingo-stage aria-hidden="true" hidden></div>
           <div class="break-ticket-buttons" role="group" aria-label="Choose your break ticket">
             <button class="break-ticket" type="button" data-ticket="do-nothing" style="--ticket-left:7.5%;--art-x:8.72%" aria-label="Choose Do Nothing ticket" aria-haspopup="dialog" aria-controls="break-dialog" disabled><span class="ticket-face" aria-hidden="true"></span><span class="ticket-hint" aria-hidden="true">TAKE ME ↙</span></button>
             <button class="break-ticket" type="button" data-ticket="sip-slow" style="--ticket-left:26.1%;--art-x:30.35%" aria-label="Choose Sip Slow ticket" aria-haspopup="dialog" aria-controls="break-dialog" disabled><span class="ticket-face" aria-hidden="true"></span><span class="ticket-hint" aria-hidden="true">TAKE ME ↙</span></button>

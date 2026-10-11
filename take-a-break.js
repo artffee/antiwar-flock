@@ -1,3 +1,5 @@
+import { setupFlamingoMotion } from "./flamingo-motion.js";
+
 export const BREAK_TICKETS = [
   {
     id: "do-nothing", label: "DO NOTHING", seconds: 60,
@@ -89,6 +91,7 @@ function bootBreakGame() {
   const stamp = dialog.querySelector(".slip-stamp");
   const count = document.getElementById("break-count");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const flamingos = setupFlamingoMotion(reducedMotion);
   let clock = null;
   let interval = null;
   let revealing = false;
@@ -139,6 +142,7 @@ function bootBreakGame() {
     buttons.forEach((button) => { button.disabled = true; });
     surprise.disabled = true;
     selectedButton.classList.add("is-peeling");
+    const reactionDelay = flamingos.react(category.id);
     const previous = lastChallenges.get(category.id);
     const choices = category.challenges.map((_, index) => index).filter((index) => index !== previous);
     const choice = choices[Math.floor(Math.random() * choices.length)];
@@ -160,12 +164,13 @@ function bootBreakGame() {
     status.textContent = "Your timer is optional. Your break is yours.";
     paintClock();
     window.setTimeout(() => {
+      flamingos.setDialogOpen(true);
       dialog.showModal();
       title.focus();
       revealing = false;
       buttons.forEach((button) => { button.disabled = false; });
       surprise.disabled = false;
-    }, reducedMotion.matches ? 0 : 420);
+    }, reducedMotion.matches ? 0 : Math.max(420, reactionDelay));
   }
 
   buttons.forEach((button) => {
@@ -205,6 +210,7 @@ function bootBreakGame() {
   again.addEventListener("click", () => dialog.close());
   dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
   dialog.addEventListener("close", () => {
+    flamingos.setDialogOpen(false);
     pauseTimer("Paused.");
     stopTicking();
     selectedButton?.classList.remove("is-peeling");
