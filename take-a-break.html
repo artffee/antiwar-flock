@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f4ae98" />
+    <meta name="description" content="Take a Flucking Break with A305X. Pick one of five flamingo tickets, reveal a tiny escape, and let your chaos wait. A free, playful break game." />
+    <title>Take a Flucking Break — A305X</title>
+    <link rel="canonical" href="https://www.a305x.com/take-a-break" />
+    <meta property="og:title" content="Take a Flucking Break — A305X" />
+    <meta property="og:description" content="One human. Five tickets. Twenty tiny escapes. Your chaos can wait." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.a305x.com/assets/a305x-take-a-break-board.webp" />
+    <link rel="icon" href="./assets/a305x-flamingo.webp" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./take-a-break.css" />
+    <script type="module" src="./take-a-break.js"></script>
+  </head>
+  <body class="break-page">
+    <a class="skip-link" href="#tickets">Skip to the tickets</a>
+    <header class="break-header">
+      <a class="wordmark" href="/" aria-label="A305X home"><span>A305X</span><small>MIAMI / EARTH</small></a>
+      <span class="break-header-status"><i aria-hidden="true"></i> SYSTEM: ON A BREAK</span>
+      <a class="break-back" href="/#game">Back to A305X <span aria-hidden="true">↗</span></a>
+    </header>
+    <main class="break-stage" data-break-game>
+      <div class="break-intro">
+        <p class="break-eyebrow">A305X / DEPARTMENT OF DOING LESS</p>
+        <h1>YOUR <br />CHAOS<br />CAN <em>WAIT.</em></h1>
+        <p class="break-lead">Pick a ticket.<br />The flamingos have a plan.</p>
+        <p class="break-instruction"><span aria-hidden="true">↗</span> Tap a hanging ticket to tear off your break.</p>
+        <button class="break-button" id="break-surprise" type="button" disabled>Surprise me <span aria-hidden="true">✳</span></button>
+        <div class="break-mini"><span>1 HUMAN</span><span>5 TICKETS</span><span>20 TINY ESCAPES</span></div>
+        <div class="break-counter"><span>TINY BREAKS TAKEN</span><b id="break-count">00</b></div>
+        <p class="break-note">No productivity required. You can take another.</p>
+      </div>
+      <figure class="break-board" id="tickets" tabindex="-1" aria-labelledby="board-caption">
+        <div class="break-art">
+          <img src="./assets/a305x-take-a-break-board.webp" alt="A peach and turquoise paper-art board with five goofy pink flamingos, palm trees, a UFO, and hanging tickets: Do Nothing, Sip Slow, Brain Off, Zero Flucks, and Leave Earth." width="1024" height="1536" fetchpriority="high" draggable="false" />
+          <div class="break-ticket-buttons" role="group" aria-label="Choose your break ticket">
+            <button class="break-ticket" type="button" data-ticket="do-nothing" style="--ticket-left:7.5%;--art-x:8.72%" aria-label="Choose Do Nothing ticket" aria-haspopup="dialog" aria-controls="break-dialog" disabled><span class="ticket-face" aria-hidden="true"></span><span class="ticket-hint" aria-hidden="true">TAKE ME ↙</span></button>
+            <button class="break-ticket" type="button" data-ticket="sip-slow" style="--ticket-left:26.1%;--art-x:30.35%" aria-label="Choose Sip Slow ticket" aria-haspopup="dialog" aria-controls="break-dialog" disabled><span class="ticket-face" aria-hidden="true"></span><span class="ticket-hint" aria-hidden="true">TAKE ME ↙</span></button>
+            <button class="break-ticket" type="button" data-ticket="brain-off" style="--ticket-left:44.2%;--art-x:51.4%" aria-label="Choose Brain Off ticket" aria-haspopup="dialog" aria-controls="break-dialog" disabled><span class="ticket-face" aria-hidden="true"></span><span class="ticket-hint" aria-hidden="true">TAKE ME ↙</span></button>
+            <button class="break-ticket" type="button" data-ticket="zero-flucks" style="--ticket-left:61.9%;--art-x:71.97%" aria-label="Choose Zero Flucks ticket" aria-haspopup="dialog" aria-controls="break-dialog" disabled><span class="ticket-face" aria-hidden="true"></span><span class="ticket-hint" aria-hidden="true">TAKE ME ↙</span></button>
+            <button class="break-ticket" type="button" data-ticket="leave-earth" style="--ticket-left:79.8%;--art-x:92.79%" aria-label="Choose Leave Earth ticket" aria-haspopup="dialog" aria-controls="break-dialog" disabled><span class="ticket-face" aria-hidden="true"></span><span class="ticket-hint" aria-hidden="true">TAKE ME ↙</span></button>
+          </div>
+        </div>
+        <figcaption id="board-caption"><span>TAKE A FLUCKING BREAK</span><span>YOUR TICKET IS WAITING ↑</span></figcaption>
+      </figure>
+      <noscript><p class="break-noscript">Turn on JavaScript to choose a ticket and use the timer. Or pick one from the picture and give yourself a quiet minute.</p></noscript>
+    </main>
+    <footer class="break-footer"><span>A305X × LEX / BORN TO DISOBEY</span><span>EVEN YOUR FLAMINGO CLOCKS OUT.</span></footer>
+
+    <dialog class="break-dialog" id="break-dialog" aria-labelledby="slip-title" aria-describedby="slip-challenge">
+      <article class="permission-slip" data-phase="ready">
+        <div class="slip-top"><span>A305X / PERMISSION SLIP</span><button class="slip-close" type="button" aria-label="Close ticket">×</button></div>
+        <p class="slip-number" id="slip-number"></p>
+        <h2 id="slip-title" tabindex="-1"></h2>
+        <h3 id="slip-prompt"></h3>
+        <p class="slip-challenge" id="slip-challenge"></p>
+        <div class="slip-timer"><span id="break-timer" role="timer" aria-live="off">1:00</span><span>SECONDS OF<br />BEAUTIFUL NONSENSE</span></div>
+        <progress id="break-progress" value="0" max="60000" aria-label="Break timer progress"></progress>
+        <p class="slip-status" id="break-status" role="status" aria-live="polite">Your timer is optional. Your break is yours.</p>
+        <div class="slip-stamp" hidden>BREAK TAKEN.<br />SYSTEM IGNORED.</div>
+        <div class="slip-actions">
+          <button class="break-button" id="break-start" type="button">Start my break</button>
+          <button class="break-button break-button-light" id="break-done" type="button">I took my break ✓</button>
+          <button class="slip-again" id="break-again" type="button">Choose a different ticket</button>
+        </div>
+        <p class="slip-bottom">VALID FOR ONE BEAUTIFULLY UNMANAGEABLE HUMAN.</p>
+      </article>
+    </dialog>
+  </body>
+</html>

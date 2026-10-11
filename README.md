@@ -25,6 +25,12 @@ The storefront intentionally keeps checkout closed if a product or any required 
 
 The confirmed support email is `orionmind@gmail.com`. Final commerce policies are not yet supplied. Do not describe this prelaunch state as fully Stripe-ready or approved by Stripe.
 
+## Take a Flucking Break
+
+`/take-a-break` turns the original A305X flamingo ticket artwork into an interactive board. The five hanging tickets reveal 20 short, replayable challenges, with an optional 45–90 second timer, pause/resume, and a completion stamp. The timer pauses when the page is hidden. Ticket animations honor reduced-motion preferences; the completion count is only for the current page session. No signup or server storage is needed.
+
+Run `node --test tests/take-a-break.test.mjs` for timer-state and ticket-deck checks.
+
 ## Deployment
 
 No build step. Existing Vercel clean URLs are configured in `vercel.json`. Push the verified changes through the existing repository deployment pipeline. The connected production domain is `www.a305x.com`; `a305x.com` redirects to it. Vercel reported Valid Configuration for both on October 1, 2026.
