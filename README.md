@@ -37,6 +37,10 @@ The game board has separate paper-art flamingos and a UFO, with individual idle 
 
 No build step. Existing Vercel clean URLs are configured in `vercel.json`. Push the verified changes through the existing repository deployment pipeline. The connected production domain is `www.a305x.com`; `a305x.com` redirects to it. Vercel reported Valid Configuration for both on October 1, 2026.
 
+## Flying Fluck journal
+
+The approved “I Don’t Give a Flying Fluck” campaign appears on the homepage and store. `/flying-fluck` shows both covers, the 192-page PDF specifications, four journal themes, and a public 10-page preview at `/downloads/a305x-flying-fluck-preview.pdf`. The ad uses responsive WebP images and real links beneath the artwork. Release details are coming soon; the full notebook and companion are not public downloads. Keep them in the eventual digital delivery system until pricing, release availability, and fulfillment are confirmed.
+
 ## Email sign-up
 
 `/signup` collects requests for product-launch and art updates through `/api/join`. The public support email is separate from this list. No customer accounts, passwords, or outgoing email delivery are added.
