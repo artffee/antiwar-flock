@@ -106,6 +106,36 @@
 }
 .journal-release { max-width: 33rem; margin: 1.4rem 0 0; font-size: .9rem; line-height: 1.6; }
 .journal-release strong { display: block; }
+.journal-prelaunch {
+  margin: 0 0 1.25rem;
+  padding: .65rem .8rem;
+  width: fit-content;
+  border: 1px solid #7b4f38;
+  background: #f6ead8;
+  color: #4d3123;
+  font-size: .8rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.journal-promo-status {
+  max-width: 90rem;
+  margin: 1rem auto 0;
+  font-size: .85rem;
+  line-height: 1.6;
+}
+.journal-print-status {
+  padding: clamp(2.5rem, 5vw, 5rem) var(--gutter);
+  border-top: 1px solid var(--ink);
+  background: #f6ead8;
+}
+.journal-print-inner { max-width: 90rem; margin-inline: auto; }
+.journal-print-status h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.8rem, 3.2vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -.05em;
+}
+.journal-print-status p { max-width: 44rem; line-height: 1.7; }
 .journal-gallery {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -1,0 +1,1731 @@
+{
+  "source": "October 13 digital notebook; prompt wording retained, interior layout rebuilt for readable text and mirrored margins. Section labels replace Field Manual product labels.",
+  "instructions": [
+    [
+      "01 / PICK THE PRIORITY",
+      "Choose what gets your energy and what is officially not your problem."
+    ],
+    [
+      "02 / LOG THE VIBE",
+      "Mark energy and mood at day's end. No essay. No performance."
+    ],
+    [
+      "03 / SPOT THE PATTERN",
+      "Use the tracker and dashboard. Trust the receipts, not the spiral."
+    ],
+    [
+      "04 / LET IT GO",
+      "Release one expired story per section. Keep the lesson; delete the loop."
+    ]
+  ],
+  "sections": [
+    {
+      "name": "Energy",
+      "title": "PROTECT YOUR\nENERGY.",
+      "tagline": "Guard the fuel. Starve the noise.",
+      "entries": [
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT EARNS MY ENERGY TODAY?",
+            "WHAT CAN FLY PAST ME?",
+            "MY ONE MOVE THAT MATTERS"
+          ],
+          "source_digital_page": 7
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "SIGNAL - WHAT PULLS ME FORWARD?",
+            "DRAIN - WHAT STEALS MY CHARGE?",
+            "DECISION - WHERE DOES THE ENERGY GO?"
+          ],
+          "source_digital_page": 8
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT EARNS MY ENERGY TODAY?",
+            "WHAT CAN FLY PAST ME?",
+            "MY ONE MOVE THAT MATTERS"
+          ],
+          "source_digital_page": 9
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "SIGNAL - WHAT PULLS ME FORWARD?",
+            "DRAIN - WHAT STEALS MY CHARGE?",
+            "DECISION - WHERE DOES THE ENERGY GO?"
+          ],
+          "source_digital_page": 10
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT EARNS MY ENERGY TODAY?",
+            "WHAT CAN FLY PAST ME?",
+            "MY ONE MOVE THAT MATTERS"
+          ],
+          "source_digital_page": 11
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "SIGNAL - WHAT PULLS ME FORWARD?",
+            "DRAIN - WHAT STEALS MY CHARGE?",
+            "DECISION - WHERE DOES THE ENERGY GO?"
+          ],
+          "source_digital_page": 12
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHAT GAVE ME ENERGY THIS WEEK?",
+            "WHAT KEPT TAXING ME?",
+            "WHAT GETS CUT NEXT WEEK?"
+          ],
+          "source_digital_page": 13
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "SIGNAL - WHAT PULLS ME FORWARD?",
+            "DRAIN - WHAT STEALS MY CHARGE?",
+            "DECISION - WHERE DOES THE ENERGY GO?"
+          ],
+          "source_digital_page": 14
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT EARNS MY ENERGY TODAY?",
+            "WHAT CAN FLY PAST ME?",
+            "MY ONE MOVE THAT MATTERS"
+          ],
+          "source_digital_page": 15
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "SIGNAL - WHAT PULLS ME FORWARD?",
+            "DRAIN - WHAT STEALS MY CHARGE?",
+            "DECISION - WHERE DOES THE ENERGY GO?"
+          ],
+          "source_digital_page": 16
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT EARNS MY ENERGY TODAY?",
+            "WHAT CAN FLY PAST ME?",
+            "MY ONE MOVE THAT MATTERS"
+          ],
+          "source_digital_page": 17
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "SIGNAL - WHAT PULLS ME FORWARD?",
+            "DRAIN - WHAT STEALS MY CHARGE?",
+            "DECISION - WHERE DOES THE ENERGY GO?"
+          ],
+          "source_digital_page": 18
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT EARNS MY ENERGY TODAY?",
+            "WHAT CAN FLY PAST ME?",
+            "MY ONE MOVE THAT MATTERS"
+          ],
+          "source_digital_page": 19
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHAT GAVE ME ENERGY THIS WEEK?",
+            "WHAT KEPT TAXING ME?",
+            "WHAT GETS CUT NEXT WEEK?"
+          ],
+          "source_digital_page": 20
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT EARNS MY ENERGY TODAY?",
+            "WHAT CAN FLY PAST ME?",
+            "MY ONE MOVE THAT MATTERS"
+          ],
+          "source_digital_page": 21
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "SIGNAL - WHAT PULLS ME FORWARD?",
+            "DRAIN - WHAT STEALS MY CHARGE?",
+            "DECISION - WHERE DOES THE ENERGY GO?"
+          ],
+          "source_digital_page": 22
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT EARNS MY ENERGY TODAY?",
+            "WHAT CAN FLY PAST ME?",
+            "MY ONE MOVE THAT MATTERS"
+          ],
+          "source_digital_page": 23
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "SIGNAL - WHAT PULLS ME FORWARD?",
+            "DRAIN - WHAT STEALS MY CHARGE?",
+            "DECISION - WHERE DOES THE ENERGY GO?"
+          ],
+          "source_digital_page": 24
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT EARNS MY ENERGY TODAY?",
+            "WHAT CAN FLY PAST ME?",
+            "MY ONE MOVE THAT MATTERS"
+          ],
+          "source_digital_page": 25
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "SIGNAL - WHAT PULLS ME FORWARD?",
+            "DRAIN - WHAT STEALS MY CHARGE?",
+            "DECISION - WHERE DOES THE ENERGY GO?"
+          ],
+          "source_digital_page": 26
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHAT GAVE ME ENERGY THIS WEEK?",
+            "WHAT KEPT TAXING ME?",
+            "WHAT GETS CUT NEXT WEEK?"
+          ],
+          "source_digital_page": 27
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "SIGNAL - WHAT PULLS ME FORWARD?",
+            "DRAIN - WHAT STEALS MY CHARGE?",
+            "DECISION - WHERE DOES THE ENERGY GO?"
+          ],
+          "source_digital_page": 28
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT EARNS MY ENERGY TODAY?",
+            "WHAT CAN FLY PAST ME?",
+            "MY ONE MOVE THAT MATTERS"
+          ],
+          "source_digital_page": 29
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "SIGNAL - WHAT PULLS ME FORWARD?",
+            "DRAIN - WHAT STEALS MY CHARGE?",
+            "DECISION - WHERE DOES THE ENERGY GO?"
+          ],
+          "source_digital_page": 30
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT EARNS MY ENERGY TODAY?",
+            "WHAT CAN FLY PAST ME?",
+            "MY ONE MOVE THAT MATTERS"
+          ],
+          "source_digital_page": 31
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "SIGNAL - WHAT PULLS ME FORWARD?",
+            "DRAIN - WHAT STEALS MY CHARGE?",
+            "DECISION - WHERE DOES THE ENERGY GO?"
+          ],
+          "source_digital_page": 32
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT EARNS MY ENERGY TODAY?",
+            "WHAT CAN FLY PAST ME?",
+            "MY ONE MOVE THAT MATTERS"
+          ],
+          "source_digital_page": 33
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHAT GAVE ME ENERGY THIS WEEK?",
+            "WHAT KEPT TAXING ME?",
+            "WHAT GETS CUT NEXT WEEK?"
+          ],
+          "source_digital_page": 34
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT EARNS MY ENERGY TODAY?",
+            "WHAT CAN FLY PAST ME?",
+            "MY ONE MOVE THAT MATTERS"
+          ],
+          "source_digital_page": 35
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "SIGNAL - WHAT PULLS ME FORWARD?",
+            "DRAIN - WHAT STEALS MY CHARGE?",
+            "DECISION - WHERE DOES THE ENERGY GO?"
+          ],
+          "source_digital_page": 36
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT EARNS MY ENERGY TODAY?",
+            "WHAT CAN FLY PAST ME?",
+            "MY ONE MOVE THAT MATTERS"
+          ],
+          "source_digital_page": 37
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "SIGNAL - WHAT PULLS ME FORWARD?",
+            "DRAIN - WHAT STEALS MY CHARGE?",
+            "DECISION - WHERE DOES THE ENERGY GO?"
+          ],
+          "source_digital_page": 38
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT EARNS MY ENERGY TODAY?",
+            "WHAT CAN FLY PAST ME?",
+            "MY ONE MOVE THAT MATTERS"
+          ],
+          "source_digital_page": 39
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "SIGNAL - WHAT PULLS ME FORWARD?",
+            "DRAIN - WHAT STEALS MY CHARGE?",
+            "DECISION - WHERE DOES THE ENERGY GO?"
+          ],
+          "source_digital_page": 40
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHAT GAVE ME ENERGY THIS WEEK?",
+            "WHAT KEPT TAXING ME?",
+            "WHAT GETS CUT NEXT WEEK?"
+          ],
+          "source_digital_page": 41
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "SIGNAL - WHAT PULLS ME FORWARD?",
+            "DRAIN - WHAT STEALS MY CHARGE?",
+            "DECISION - WHERE DOES THE ENERGY GO?"
+          ],
+          "source_digital_page": 42
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT EARNS MY ENERGY TODAY?",
+            "WHAT CAN FLY PAST ME?",
+            "MY ONE MOVE THAT MATTERS"
+          ],
+          "source_digital_page": 43
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "SIGNAL - WHAT PULLS ME FORWARD?",
+            "DRAIN - WHAT STEALS MY CHARGE?",
+            "DECISION - WHERE DOES THE ENERGY GO?"
+          ],
+          "source_digital_page": 44
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT EARNS MY ENERGY TODAY?",
+            "WHAT CAN FLY PAST ME?",
+            "MY ONE MOVE THAT MATTERS"
+          ],
+          "source_digital_page": 45
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "SIGNAL - WHAT PULLS ME FORWARD?",
+            "DRAIN - WHAT STEALS MY CHARGE?",
+            "DECISION - WHERE DOES THE ENERGY GO?"
+          ],
+          "source_digital_page": 46
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT EARNS MY ENERGY TODAY?",
+            "WHAT CAN FLY PAST ME?",
+            "MY ONE MOVE THAT MATTERS"
+          ],
+          "source_digital_page": 47
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHAT GAVE ME ENERGY THIS WEEK?",
+            "WHAT KEPT TAXING ME?",
+            "WHAT GETS CUT NEXT WEEK?"
+          ],
+          "source_digital_page": 48
+        }
+      ]
+    },
+    {
+      "name": "Boundaries",
+      "title": "GIVE YOUR NO\nSOME ROOM.",
+      "tagline": "Your energy. Your access. Your rules.",
+      "entries": [
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHO OR WHAT GETS ACCESS?",
+            "WHERE DOES THE GATE CLOSE?",
+            "THE SENTENCE I WILL ACTUALLY SAY"
+          ],
+          "source_digital_page": 54
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "YES - WHAT FEELS CLEAN?",
+            "NO - WHAT STOPS HERE?",
+            "NEXT - WHAT PROTECTS MY PEACE?"
+          ],
+          "source_digital_page": 55
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHO OR WHAT GETS ACCESS?",
+            "WHERE DOES THE GATE CLOSE?",
+            "THE SENTENCE I WILL ACTUALLY SAY"
+          ],
+          "source_digital_page": 56
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "YES - WHAT FEELS CLEAN?",
+            "NO - WHAT STOPS HERE?",
+            "NEXT - WHAT PROTECTS MY PEACE?"
+          ],
+          "source_digital_page": 57
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHO OR WHAT GETS ACCESS?",
+            "WHERE DOES THE GATE CLOSE?",
+            "THE SENTENCE I WILL ACTUALLY SAY"
+          ],
+          "source_digital_page": 58
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "YES - WHAT FEELS CLEAN?",
+            "NO - WHAT STOPS HERE?",
+            "NEXT - WHAT PROTECTS MY PEACE?"
+          ],
+          "source_digital_page": 59
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHERE DID I HOLD THE LINE?",
+            "WHERE DID I LEAK ENERGY?",
+            "ONE BOUNDARY I UPGRADE NEXT WEEK"
+          ],
+          "source_digital_page": 60
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "YES - WHAT FEELS CLEAN?",
+            "NO - WHAT STOPS HERE?",
+            "NEXT - WHAT PROTECTS MY PEACE?"
+          ],
+          "source_digital_page": 61
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHO OR WHAT GETS ACCESS?",
+            "WHERE DOES THE GATE CLOSE?",
+            "THE SENTENCE I WILL ACTUALLY SAY"
+          ],
+          "source_digital_page": 62
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "YES - WHAT FEELS CLEAN?",
+            "NO - WHAT STOPS HERE?",
+            "NEXT - WHAT PROTECTS MY PEACE?"
+          ],
+          "source_digital_page": 63
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHO OR WHAT GETS ACCESS?",
+            "WHERE DOES THE GATE CLOSE?",
+            "THE SENTENCE I WILL ACTUALLY SAY"
+          ],
+          "source_digital_page": 64
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "YES - WHAT FEELS CLEAN?",
+            "NO - WHAT STOPS HERE?",
+            "NEXT - WHAT PROTECTS MY PEACE?"
+          ],
+          "source_digital_page": 65
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHO OR WHAT GETS ACCESS?",
+            "WHERE DOES THE GATE CLOSE?",
+            "THE SENTENCE I WILL ACTUALLY SAY"
+          ],
+          "source_digital_page": 66
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHERE DID I HOLD THE LINE?",
+            "WHERE DID I LEAK ENERGY?",
+            "ONE BOUNDARY I UPGRADE NEXT WEEK"
+          ],
+          "source_digital_page": 67
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHO OR WHAT GETS ACCESS?",
+            "WHERE DOES THE GATE CLOSE?",
+            "THE SENTENCE I WILL ACTUALLY SAY"
+          ],
+          "source_digital_page": 68
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "YES - WHAT FEELS CLEAN?",
+            "NO - WHAT STOPS HERE?",
+            "NEXT - WHAT PROTECTS MY PEACE?"
+          ],
+          "source_digital_page": 69
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHO OR WHAT GETS ACCESS?",
+            "WHERE DOES THE GATE CLOSE?",
+            "THE SENTENCE I WILL ACTUALLY SAY"
+          ],
+          "source_digital_page": 70
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "YES - WHAT FEELS CLEAN?",
+            "NO - WHAT STOPS HERE?",
+            "NEXT - WHAT PROTECTS MY PEACE?"
+          ],
+          "source_digital_page": 71
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHO OR WHAT GETS ACCESS?",
+            "WHERE DOES THE GATE CLOSE?",
+            "THE SENTENCE I WILL ACTUALLY SAY"
+          ],
+          "source_digital_page": 72
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "YES - WHAT FEELS CLEAN?",
+            "NO - WHAT STOPS HERE?",
+            "NEXT - WHAT PROTECTS MY PEACE?"
+          ],
+          "source_digital_page": 73
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHERE DID I HOLD THE LINE?",
+            "WHERE DID I LEAK ENERGY?",
+            "ONE BOUNDARY I UPGRADE NEXT WEEK"
+          ],
+          "source_digital_page": 74
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "YES - WHAT FEELS CLEAN?",
+            "NO - WHAT STOPS HERE?",
+            "NEXT - WHAT PROTECTS MY PEACE?"
+          ],
+          "source_digital_page": 75
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHO OR WHAT GETS ACCESS?",
+            "WHERE DOES THE GATE CLOSE?",
+            "THE SENTENCE I WILL ACTUALLY SAY"
+          ],
+          "source_digital_page": 76
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "YES - WHAT FEELS CLEAN?",
+            "NO - WHAT STOPS HERE?",
+            "NEXT - WHAT PROTECTS MY PEACE?"
+          ],
+          "source_digital_page": 77
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHO OR WHAT GETS ACCESS?",
+            "WHERE DOES THE GATE CLOSE?",
+            "THE SENTENCE I WILL ACTUALLY SAY"
+          ],
+          "source_digital_page": 78
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "YES - WHAT FEELS CLEAN?",
+            "NO - WHAT STOPS HERE?",
+            "NEXT - WHAT PROTECTS MY PEACE?"
+          ],
+          "source_digital_page": 79
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHO OR WHAT GETS ACCESS?",
+            "WHERE DOES THE GATE CLOSE?",
+            "THE SENTENCE I WILL ACTUALLY SAY"
+          ],
+          "source_digital_page": 80
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHERE DID I HOLD THE LINE?",
+            "WHERE DID I LEAK ENERGY?",
+            "ONE BOUNDARY I UPGRADE NEXT WEEK"
+          ],
+          "source_digital_page": 81
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHO OR WHAT GETS ACCESS?",
+            "WHERE DOES THE GATE CLOSE?",
+            "THE SENTENCE I WILL ACTUALLY SAY"
+          ],
+          "source_digital_page": 82
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "YES - WHAT FEELS CLEAN?",
+            "NO - WHAT STOPS HERE?",
+            "NEXT - WHAT PROTECTS MY PEACE?"
+          ],
+          "source_digital_page": 83
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHO OR WHAT GETS ACCESS?",
+            "WHERE DOES THE GATE CLOSE?",
+            "THE SENTENCE I WILL ACTUALLY SAY"
+          ],
+          "source_digital_page": 84
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "YES - WHAT FEELS CLEAN?",
+            "NO - WHAT STOPS HERE?",
+            "NEXT - WHAT PROTECTS MY PEACE?"
+          ],
+          "source_digital_page": 85
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHO OR WHAT GETS ACCESS?",
+            "WHERE DOES THE GATE CLOSE?",
+            "THE SENTENCE I WILL ACTUALLY SAY"
+          ],
+          "source_digital_page": 86
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "YES - WHAT FEELS CLEAN?",
+            "NO - WHAT STOPS HERE?",
+            "NEXT - WHAT PROTECTS MY PEACE?"
+          ],
+          "source_digital_page": 87
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHERE DID I HOLD THE LINE?",
+            "WHERE DID I LEAK ENERGY?",
+            "ONE BOUNDARY I UPGRADE NEXT WEEK"
+          ],
+          "source_digital_page": 88
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "YES - WHAT FEELS CLEAN?",
+            "NO - WHAT STOPS HERE?",
+            "NEXT - WHAT PROTECTS MY PEACE?"
+          ],
+          "source_digital_page": 89
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHO OR WHAT GETS ACCESS?",
+            "WHERE DOES THE GATE CLOSE?",
+            "THE SENTENCE I WILL ACTUALLY SAY"
+          ],
+          "source_digital_page": 90
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "YES - WHAT FEELS CLEAN?",
+            "NO - WHAT STOPS HERE?",
+            "NEXT - WHAT PROTECTS MY PEACE?"
+          ],
+          "source_digital_page": 91
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHO OR WHAT GETS ACCESS?",
+            "WHERE DOES THE GATE CLOSE?",
+            "THE SENTENCE I WILL ACTUALLY SAY"
+          ],
+          "source_digital_page": 92
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "YES - WHAT FEELS CLEAN?",
+            "NO - WHAT STOPS HERE?",
+            "NEXT - WHAT PROTECTS MY PEACE?"
+          ],
+          "source_digital_page": 93
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHO OR WHAT GETS ACCESS?",
+            "WHERE DOES THE GATE CLOSE?",
+            "THE SENTENCE I WILL ACTUALLY SAY"
+          ],
+          "source_digital_page": 94
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHERE DID I HOLD THE LINE?",
+            "WHERE DID I LEAK ENERGY?",
+            "ONE BOUNDARY I UPGRADE NEXT WEEK"
+          ],
+          "source_digital_page": 95
+        }
+      ]
+    },
+    {
+      "name": "Clarity",
+      "title": "CLEAR THE\nSTATIC.",
+      "tagline": "Find the signal you want to keep.",
+      "entries": [
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT IS THE SIGNAL TODAY?",
+            "WHAT IS JUST STATIC?",
+            "THE NEXT CLEAN MOVE"
+          ],
+          "source_digital_page": 101
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "TRUE - WHAT DO I KNOW?",
+            "DISTRACTION - WHAT WANTS A REACTION?",
+            "FOCUS - WHAT GETS FINISHED?"
+          ],
+          "source_digital_page": 102
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT IS THE SIGNAL TODAY?",
+            "WHAT IS JUST STATIC?",
+            "THE NEXT CLEAN MOVE"
+          ],
+          "source_digital_page": 103
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "TRUE - WHAT DO I KNOW?",
+            "DISTRACTION - WHAT WANTS A REACTION?",
+            "FOCUS - WHAT GETS FINISHED?"
+          ],
+          "source_digital_page": 104
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT IS THE SIGNAL TODAY?",
+            "WHAT IS JUST STATIC?",
+            "THE NEXT CLEAN MOVE"
+          ],
+          "source_digital_page": 105
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "TRUE - WHAT DO I KNOW?",
+            "DISTRACTION - WHAT WANTS A REACTION?",
+            "FOCUS - WHAT GETS FINISHED?"
+          ],
+          "source_digital_page": 106
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHAT BECAME OBVIOUS?",
+            "WHAT WAS ONLY NOISE?",
+            "WHAT WILL I DO WITH THE TRUTH?"
+          ],
+          "source_digital_page": 107
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "TRUE - WHAT DO I KNOW?",
+            "DISTRACTION - WHAT WANTS A REACTION?",
+            "FOCUS - WHAT GETS FINISHED?"
+          ],
+          "source_digital_page": 108
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT IS THE SIGNAL TODAY?",
+            "WHAT IS JUST STATIC?",
+            "THE NEXT CLEAN MOVE"
+          ],
+          "source_digital_page": 109
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "TRUE - WHAT DO I KNOW?",
+            "DISTRACTION - WHAT WANTS A REACTION?",
+            "FOCUS - WHAT GETS FINISHED?"
+          ],
+          "source_digital_page": 110
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT IS THE SIGNAL TODAY?",
+            "WHAT IS JUST STATIC?",
+            "THE NEXT CLEAN MOVE"
+          ],
+          "source_digital_page": 111
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "TRUE - WHAT DO I KNOW?",
+            "DISTRACTION - WHAT WANTS A REACTION?",
+            "FOCUS - WHAT GETS FINISHED?"
+          ],
+          "source_digital_page": 112
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT IS THE SIGNAL TODAY?",
+            "WHAT IS JUST STATIC?",
+            "THE NEXT CLEAN MOVE"
+          ],
+          "source_digital_page": 113
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHAT BECAME OBVIOUS?",
+            "WHAT WAS ONLY NOISE?",
+            "WHAT WILL I DO WITH THE TRUTH?"
+          ],
+          "source_digital_page": 114
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT IS THE SIGNAL TODAY?",
+            "WHAT IS JUST STATIC?",
+            "THE NEXT CLEAN MOVE"
+          ],
+          "source_digital_page": 115
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "TRUE - WHAT DO I KNOW?",
+            "DISTRACTION - WHAT WANTS A REACTION?",
+            "FOCUS - WHAT GETS FINISHED?"
+          ],
+          "source_digital_page": 116
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT IS THE SIGNAL TODAY?",
+            "WHAT IS JUST STATIC?",
+            "THE NEXT CLEAN MOVE"
+          ],
+          "source_digital_page": 117
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "TRUE - WHAT DO I KNOW?",
+            "DISTRACTION - WHAT WANTS A REACTION?",
+            "FOCUS - WHAT GETS FINISHED?"
+          ],
+          "source_digital_page": 118
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT IS THE SIGNAL TODAY?",
+            "WHAT IS JUST STATIC?",
+            "THE NEXT CLEAN MOVE"
+          ],
+          "source_digital_page": 119
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "TRUE - WHAT DO I KNOW?",
+            "DISTRACTION - WHAT WANTS A REACTION?",
+            "FOCUS - WHAT GETS FINISHED?"
+          ],
+          "source_digital_page": 120
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHAT BECAME OBVIOUS?",
+            "WHAT WAS ONLY NOISE?",
+            "WHAT WILL I DO WITH THE TRUTH?"
+          ],
+          "source_digital_page": 121
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "TRUE - WHAT DO I KNOW?",
+            "DISTRACTION - WHAT WANTS A REACTION?",
+            "FOCUS - WHAT GETS FINISHED?"
+          ],
+          "source_digital_page": 122
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT IS THE SIGNAL TODAY?",
+            "WHAT IS JUST STATIC?",
+            "THE NEXT CLEAN MOVE"
+          ],
+          "source_digital_page": 123
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "TRUE - WHAT DO I KNOW?",
+            "DISTRACTION - WHAT WANTS A REACTION?",
+            "FOCUS - WHAT GETS FINISHED?"
+          ],
+          "source_digital_page": 124
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT IS THE SIGNAL TODAY?",
+            "WHAT IS JUST STATIC?",
+            "THE NEXT CLEAN MOVE"
+          ],
+          "source_digital_page": 125
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "TRUE - WHAT DO I KNOW?",
+            "DISTRACTION - WHAT WANTS A REACTION?",
+            "FOCUS - WHAT GETS FINISHED?"
+          ],
+          "source_digital_page": 126
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT IS THE SIGNAL TODAY?",
+            "WHAT IS JUST STATIC?",
+            "THE NEXT CLEAN MOVE"
+          ],
+          "source_digital_page": 127
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHAT BECAME OBVIOUS?",
+            "WHAT WAS ONLY NOISE?",
+            "WHAT WILL I DO WITH THE TRUTH?"
+          ],
+          "source_digital_page": 128
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT IS THE SIGNAL TODAY?",
+            "WHAT IS JUST STATIC?",
+            "THE NEXT CLEAN MOVE"
+          ],
+          "source_digital_page": 129
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "TRUE - WHAT DO I KNOW?",
+            "DISTRACTION - WHAT WANTS A REACTION?",
+            "FOCUS - WHAT GETS FINISHED?"
+          ],
+          "source_digital_page": 130
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT IS THE SIGNAL TODAY?",
+            "WHAT IS JUST STATIC?",
+            "THE NEXT CLEAN MOVE"
+          ],
+          "source_digital_page": 131
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "TRUE - WHAT DO I KNOW?",
+            "DISTRACTION - WHAT WANTS A REACTION?",
+            "FOCUS - WHAT GETS FINISHED?"
+          ],
+          "source_digital_page": 132
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT IS THE SIGNAL TODAY?",
+            "WHAT IS JUST STATIC?",
+            "THE NEXT CLEAN MOVE"
+          ],
+          "source_digital_page": 133
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "TRUE - WHAT DO I KNOW?",
+            "DISTRACTION - WHAT WANTS A REACTION?",
+            "FOCUS - WHAT GETS FINISHED?"
+          ],
+          "source_digital_page": 134
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHAT BECAME OBVIOUS?",
+            "WHAT WAS ONLY NOISE?",
+            "WHAT WILL I DO WITH THE TRUTH?"
+          ],
+          "source_digital_page": 135
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "TRUE - WHAT DO I KNOW?",
+            "DISTRACTION - WHAT WANTS A REACTION?",
+            "FOCUS - WHAT GETS FINISHED?"
+          ],
+          "source_digital_page": 136
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT IS THE SIGNAL TODAY?",
+            "WHAT IS JUST STATIC?",
+            "THE NEXT CLEAN MOVE"
+          ],
+          "source_digital_page": 137
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "TRUE - WHAT DO I KNOW?",
+            "DISTRACTION - WHAT WANTS A REACTION?",
+            "FOCUS - WHAT GETS FINISHED?"
+          ],
+          "source_digital_page": 138
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT IS THE SIGNAL TODAY?",
+            "WHAT IS JUST STATIC?",
+            "THE NEXT CLEAN MOVE"
+          ],
+          "source_digital_page": 139
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "TRUE - WHAT DO I KNOW?",
+            "DISTRACTION - WHAT WANTS A REACTION?",
+            "FOCUS - WHAT GETS FINISHED?"
+          ],
+          "source_digital_page": 140
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT IS THE SIGNAL TODAY?",
+            "WHAT IS JUST STATIC?",
+            "THE NEXT CLEAN MOVE"
+          ],
+          "source_digital_page": 141
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHAT BECAME OBVIOUS?",
+            "WHAT WAS ONLY NOISE?",
+            "WHAT WILL I DO WITH THE TRUTH?"
+          ],
+          "source_digital_page": 142
+        }
+      ]
+    },
+    {
+      "name": "Release",
+      "title": "LET THAT\nFLUCK FLY.",
+      "tagline": "Keep the wisdom. Let the weight take flight.",
+      "entries": [
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT AM I STILL CARRYING?",
+            "WHAT BELONGS TO SOMEONE ELSE?",
+            "WHAT I PUT DOWN TODAY"
+          ],
+          "source_digital_page": 148
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "KEEP - WHAT STILL SERVES ME?",
+            "RELEASE - WHAT HAS EXPIRED?",
+            "RESET - HOW DO I WALK ON?"
+          ],
+          "source_digital_page": 149
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT AM I STILL CARRYING?",
+            "WHAT BELONGS TO SOMEONE ELSE?",
+            "WHAT I PUT DOWN TODAY"
+          ],
+          "source_digital_page": 150
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "KEEP - WHAT STILL SERVES ME?",
+            "RELEASE - WHAT HAS EXPIRED?",
+            "RESET - HOW DO I WALK ON?"
+          ],
+          "source_digital_page": 151
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT AM I STILL CARRYING?",
+            "WHAT BELONGS TO SOMEONE ELSE?",
+            "WHAT I PUT DOWN TODAY"
+          ],
+          "source_digital_page": 152
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "KEEP - WHAT STILL SERVES ME?",
+            "RELEASE - WHAT HAS EXPIRED?",
+            "RESET - HOW DO I WALK ON?"
+          ],
+          "source_digital_page": 153
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHAT LEFT MY SYSTEM?",
+            "WHAT TRIED TO FOLLOW ME?",
+            "WHAT STAYS BEHIND NEXT WEEK?"
+          ],
+          "source_digital_page": 154
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "KEEP - WHAT STILL SERVES ME?",
+            "RELEASE - WHAT HAS EXPIRED?",
+            "RESET - HOW DO I WALK ON?"
+          ],
+          "source_digital_page": 155
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT AM I STILL CARRYING?",
+            "WHAT BELONGS TO SOMEONE ELSE?",
+            "WHAT I PUT DOWN TODAY"
+          ],
+          "source_digital_page": 156
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "KEEP - WHAT STILL SERVES ME?",
+            "RELEASE - WHAT HAS EXPIRED?",
+            "RESET - HOW DO I WALK ON?"
+          ],
+          "source_digital_page": 157
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT AM I STILL CARRYING?",
+            "WHAT BELONGS TO SOMEONE ELSE?",
+            "WHAT I PUT DOWN TODAY"
+          ],
+          "source_digital_page": 158
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "KEEP - WHAT STILL SERVES ME?",
+            "RELEASE - WHAT HAS EXPIRED?",
+            "RESET - HOW DO I WALK ON?"
+          ],
+          "source_digital_page": 159
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT AM I STILL CARRYING?",
+            "WHAT BELONGS TO SOMEONE ELSE?",
+            "WHAT I PUT DOWN TODAY"
+          ],
+          "source_digital_page": 160
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHAT LEFT MY SYSTEM?",
+            "WHAT TRIED TO FOLLOW ME?",
+            "WHAT STAYS BEHIND NEXT WEEK?"
+          ],
+          "source_digital_page": 161
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT AM I STILL CARRYING?",
+            "WHAT BELONGS TO SOMEONE ELSE?",
+            "WHAT I PUT DOWN TODAY"
+          ],
+          "source_digital_page": 162
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "KEEP - WHAT STILL SERVES ME?",
+            "RELEASE - WHAT HAS EXPIRED?",
+            "RESET - HOW DO I WALK ON?"
+          ],
+          "source_digital_page": 163
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT AM I STILL CARRYING?",
+            "WHAT BELONGS TO SOMEONE ELSE?",
+            "WHAT I PUT DOWN TODAY"
+          ],
+          "source_digital_page": 164
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "KEEP - WHAT STILL SERVES ME?",
+            "RELEASE - WHAT HAS EXPIRED?",
+            "RESET - HOW DO I WALK ON?"
+          ],
+          "source_digital_page": 165
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT AM I STILL CARRYING?",
+            "WHAT BELONGS TO SOMEONE ELSE?",
+            "WHAT I PUT DOWN TODAY"
+          ],
+          "source_digital_page": 166
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "KEEP - WHAT STILL SERVES ME?",
+            "RELEASE - WHAT HAS EXPIRED?",
+            "RESET - HOW DO I WALK ON?"
+          ],
+          "source_digital_page": 167
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHAT LEFT MY SYSTEM?",
+            "WHAT TRIED TO FOLLOW ME?",
+            "WHAT STAYS BEHIND NEXT WEEK?"
+          ],
+          "source_digital_page": 168
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "KEEP - WHAT STILL SERVES ME?",
+            "RELEASE - WHAT HAS EXPIRED?",
+            "RESET - HOW DO I WALK ON?"
+          ],
+          "source_digital_page": 169
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT AM I STILL CARRYING?",
+            "WHAT BELONGS TO SOMEONE ELSE?",
+            "WHAT I PUT DOWN TODAY"
+          ],
+          "source_digital_page": 170
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "KEEP - WHAT STILL SERVES ME?",
+            "RELEASE - WHAT HAS EXPIRED?",
+            "RESET - HOW DO I WALK ON?"
+          ],
+          "source_digital_page": 171
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT AM I STILL CARRYING?",
+            "WHAT BELONGS TO SOMEONE ELSE?",
+            "WHAT I PUT DOWN TODAY"
+          ],
+          "source_digital_page": 172
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "KEEP - WHAT STILL SERVES ME?",
+            "RELEASE - WHAT HAS EXPIRED?",
+            "RESET - HOW DO I WALK ON?"
+          ],
+          "source_digital_page": 173
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT AM I STILL CARRYING?",
+            "WHAT BELONGS TO SOMEONE ELSE?",
+            "WHAT I PUT DOWN TODAY"
+          ],
+          "source_digital_page": 174
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHAT LEFT MY SYSTEM?",
+            "WHAT TRIED TO FOLLOW ME?",
+            "WHAT STAYS BEHIND NEXT WEEK?"
+          ],
+          "source_digital_page": 175
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT AM I STILL CARRYING?",
+            "WHAT BELONGS TO SOMEONE ELSE?",
+            "WHAT I PUT DOWN TODAY"
+          ],
+          "source_digital_page": 176
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "KEEP - WHAT STILL SERVES ME?",
+            "RELEASE - WHAT HAS EXPIRED?",
+            "RESET - HOW DO I WALK ON?"
+          ],
+          "source_digital_page": 177
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT AM I STILL CARRYING?",
+            "WHAT BELONGS TO SOMEONE ELSE?",
+            "WHAT I PUT DOWN TODAY"
+          ],
+          "source_digital_page": 178
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "KEEP - WHAT STILL SERVES ME?",
+            "RELEASE - WHAT HAS EXPIRED?",
+            "RESET - HOW DO I WALK ON?"
+          ],
+          "source_digital_page": 179
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT AM I STILL CARRYING?",
+            "WHAT BELONGS TO SOMEONE ELSE?",
+            "WHAT I PUT DOWN TODAY"
+          ],
+          "source_digital_page": 180
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "KEEP - WHAT STILL SERVES ME?",
+            "RELEASE - WHAT HAS EXPIRED?",
+            "RESET - HOW DO I WALK ON?"
+          ],
+          "source_digital_page": 181
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHAT LEFT MY SYSTEM?",
+            "WHAT TRIED TO FOLLOW ME?",
+            "WHAT STAYS BEHIND NEXT WEEK?"
+          ],
+          "source_digital_page": 182
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "KEEP - WHAT STILL SERVES ME?",
+            "RELEASE - WHAT HAS EXPIRED?",
+            "RESET - HOW DO I WALK ON?"
+          ],
+          "source_digital_page": 183
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT AM I STILL CARRYING?",
+            "WHAT BELONGS TO SOMEONE ELSE?",
+            "WHAT I PUT DOWN TODAY"
+          ],
+          "source_digital_page": 184
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "KEEP - WHAT STILL SERVES ME?",
+            "RELEASE - WHAT HAS EXPIRED?",
+            "RESET - HOW DO I WALK ON?"
+          ],
+          "source_digital_page": 185
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT AM I STILL CARRYING?",
+            "WHAT BELONGS TO SOMEONE ELSE?",
+            "WHAT I PUT DOWN TODAY"
+          ],
+          "source_digital_page": 186
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "KEEP - WHAT STILL SERVES ME?",
+            "RELEASE - WHAT HAS EXPIRED?",
+            "RESET - HOW DO I WALK ON?"
+          ],
+          "source_digital_page": 187
+        },
+        {
+          "title": "THE FLUCK\nBUDGET",
+          "subtitle": "Your attention is the currency. Spend it on purpose.",
+          "prompts": [
+            "WHAT AM I STILL CARRYING?",
+            "WHAT BELONGS TO SOMEONE ELSE?",
+            "WHAT I PUT DOWN TODAY"
+          ],
+          "source_digital_page": 188
+        },
+        {
+          "title": "WEEKLY\nRESET",
+          "subtitle": "Seven days in. Keep the signal. Mute the static.",
+          "prompts": [
+            "WHAT LEFT MY SYSTEM?",
+            "WHAT TRIED TO FOLLOW ME?",
+            "WHAT STAYS BEHIND NEXT WEEK?"
+          ],
+          "source_digital_page": 189
+        }
+      ]
+    }
+  ]
+}

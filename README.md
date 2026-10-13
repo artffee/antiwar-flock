@@ -41,6 +41,17 @@ No build step. Existing Vercel clean URLs are configured in `vercel.json`. Push 
 
 The approved “I Don’t Give a Flying Fluck” campaign appears on the homepage and store. `/flying-fluck` shows both covers, the 192-page PDF specifications, four journal themes, and a public 10-page preview at `/downloads/a305x-flying-fluck-preview.pdf`. The ad uses responsive WebP images and real links beneath the artwork. Release details are coming soon; the full notebook and companion are not public downloads. Keep them in the eventual digital delivery system until pricing, release availability, and fulfillment are confirmed.
 
+The physical edition is explicitly in development. The digital page count includes
+the front and back covers; its separate interior has 190 pages. The ad is a concept
+mockup, not confirmation of a hardcover binding or finish. Printer, binding, stock,
+physical trim, spine, price and fulfillment remain unconfirmed. Editable proof
+sources, original artwork dimensions, and the printer release requirements are
+documented in [production/flying-fluck](production/flying-fluck/README.md). The
+sample now contains ten readable interior pages with mirrored margins and
+standard PDF fonts for a small mobile download. The full interior proof retains
+embedded DejaVu fonts. Covers are shown in the website gallery. Keep the full
+PDFs outside the public website checkout.
+
 ## Email sign-up
 
 `/signup` collects requests for product-launch and art updates through `/api/join`. The public support email is separate from this list. No customer accounts, passwords, or outgoing email delivery are added.

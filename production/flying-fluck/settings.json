@@ -1,0 +1,41 @@
+{
+  "title": "I Don't Give a Flying Fluck",
+  "brand": "A305X",
+  "status": "layout-proof-awaiting-printer",
+  "digital_page_count": 192,
+  "interior_page_count": 190,
+  "guided_page_count": 168,
+  "layout": {
+    "trim_inches": [6, 9],
+    "trim_basis": "Measured existing digital PDF; physical trim is not confirmed",
+    "cover_bleed_mm": 3.175,
+    "cover_safe_mm": 6.35,
+    "interior_inside_mm": 18,
+    "interior_outside_mm": 12.7,
+    "interior_top_bottom_mm": 15.24,
+    "defaults_are_printer_confirmed": false
+  },
+  "printer": {
+    "name": null,
+    "binding": null,
+    "paper_stock": null,
+    "template_reference": null,
+    "approved_interior_page_count": null,
+    "spine_mm": null,
+    "minimum_cover_dpi": null,
+    "color_workflow": null,
+    "physical_proof_approved": false
+  },
+  "commerce": {
+    "price_usd": null,
+    "fulfillment": null,
+    "purchasing_enabled": false
+  },
+  "artwork": {
+    "front": "front-original.png",
+    "back": "back-original.png",
+    "native_pixels": [1024, 1536],
+    "dpi_at_6x9": 170.666667,
+    "source_is_vector": false
+  }
+}
