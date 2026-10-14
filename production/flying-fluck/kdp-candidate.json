@@ -1,0 +1,31 @@
+{
+  "status": "production-candidate-not-submitted",
+  "provider": "Amazon KDP",
+  "profile_selection": "Assistant working default after the user's instruction to continue",
+  "user_confirmed_print_options": false,
+  "binding": "paperback",
+  "trim_inches": [6, 9],
+  "interior_ink": "black-and-white",
+  "interior_paper": "white",
+  "interior_pages": 190,
+  "interior_bleed": false,
+  "cover_finish": "matte",
+  "cover_bleed_inches": 0.125,
+  "spine_coefficient_inches_per_page": 0.002252,
+  "spine_inches": 0.42788,
+  "spine_mm": 10.868152,
+  "full_cover_inches": [12.67788, 9.25],
+  "barcode_area_inches": [2, 1.2],
+  "barcode_supplied": false,
+  "print_previewer_passed": false,
+  "physical_proof_approved": false,
+  "price_usd": null,
+  "purchasing_enabled": false,
+  "sources_checked": "2026-10-14",
+  "sources": [
+    "https://kdp.amazon.com/en_US/help/topic/G201953020",
+    "https://kdp.amazon.com/en_US/help/topic/GVBQ3CMEQW3W2VL6",
+    "https://kdp.amazon.com/en_US/help/topic/G5HDYGP4BXLX4RUW",
+    "https://kdp.amazon.com/en_US/help/topic/G201857950"
+  ]
+}

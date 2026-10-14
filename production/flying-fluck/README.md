@@ -98,3 +98,43 @@ is a concept mockup, including its illustrated book construction.
 Run `node --test tests/flying-fluck.test.mjs` and the Python verifier for page
 counts, boxes, font embedding, text bounds, asset identity and the release guard.
 Browser interaction QA was unavailable in the current managed environment.
+
+## Proposed KDP paperback candidate
+
+`kdp-candidate.json` is a separate **working profile**, not a confirmed printer
+order. The generic settings remain unconfirmed. The proposed profile uses a
+6 × 9 inch paperback, 190 black-and-white interior pages on white paper, and
+a matte cover. The published KDP white-paper coefficient gives a 0.42788 inch
+spine (10.868152 mm) and a 12.67788 × 9.25 inch cover PDF including outer bleed.
+These values must be recalculated if the paper, binding, size or count changes.
+
+```bash
+python3 -m pip install -r production/flying-fluck/requirements-kdp.txt
+python3 production/flying-fluck/kdp-cover.py \
+  --artwork-dir /absolute/artwork \
+  --interior /absolute/proofs/A305X_Flying_Fluck_Interior_190p_PROOF.pdf \
+  --output /absolute/kdp-candidate
+python3 production/flying-fluck/verify-kdp.py \
+  --candidate /absolute/kdp-candidate \
+  --artwork-dir /absolute/artwork \
+  --source-interior /absolute/proofs/A305X_Flying_Fluck_Interior_190p_PROOF.pdf
+```
+
+The cover PDF contains CMYK vector outlines traced from the original black and
+pink shapes, including both tiny flamingos. A native-grid comparison guards the
+lettering and bird details. This creates editable outlines, not new native
+raster detail or a newly approved design. The textured paper field becomes
+uniform ivory; the back artwork is fitted above a clear 2 × 1.2 inch barcode
+area. No ISBN or barcode is invented. A separate SVG retains editable paths and
+hidden guides, and a review PDF shows the fold and trim guides.
+
+The physical interior retains all 190 pages and all text. Its export strengthens
+rules to at least 0.75 pt, uses gray-only colors and embedded fonts, and removes
+digital bookmarks, unused standard font references and metadata. Submission
+PDFs have no guides, crop marks, annotations, raster images or digital outlines.
+The setup sheet and report record the proposed choices and exact geometry.
+
+Upload candidates are still pending KDP Print Previewer and a physical proof.
+There is no claim of PDF/X certification or provider acceptance. Publishing,
+pricing, purchasing and fulfillment have not been enabled. The website keeps
+the original presentation artwork and its honest prelaunch wording.

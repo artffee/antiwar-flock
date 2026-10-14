@@ -1,0 +1,4 @@
+-r requirements.txt
+vtracer==0.6.15
+numpy>=1.26,<3
+PyMuPDF>=1.24,<2
