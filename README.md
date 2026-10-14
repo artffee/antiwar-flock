@@ -62,3 +62,27 @@ PDFs outside the public website checkout.
 - Subscribe and unsubscribe use the same response for existing and unknown addresses. API validation and a honeypot apply; the existing best-effort per-IP rate limit allows five requests per ten minutes. Blob counters are not atomic under concurrent requests.
 - Visitors can unsubscribe at `/signup#leave`. Keep suppression records; never include `status: unsubscribed` in a campaign. Rejoining requires a fresh explicit opt-in.
 - Captured addresses have `emailVerified: false`. Before sending a campaign, configure a sending provider, verified sender domain, confirmation flow, and unsubscribe handling. Only confirmed, currently subscribed addresses should be mailed. This page does not send welcome or launch emails.
+
+## Not My Flucking Problem / The Daily Drama Dump
+
+`/not-my-flucking-problem` is a separate, free digital notebook. The homepage and
+store link directly to `/downloads/a305x-not-my-flucking-problem.pdf`: the complete
+146-page PDF (front cover + 144 interior pages + back cover). No signup or checkout
+is needed. `/downloads/a305x-not-my-flucking-problem-interior.pdf` provides the
+144-page interior without covers for personal printing.
+
+The notebook has 56 guided spreads, 280 session questions, four sections, reviews,
+case logs, and 13 lined notes pages. PDF pages are 6 x 9 inches. The text is
+searchable with embedded fonts and section bookmarks; use an annotation app for
+digital writing. This is not a fillable form PDF. The public full file preserves
+the original interior streams and compresses only the cover image encoding for a
+small download. The approved cover mockup is served as responsive WebP images.
+
+The free digital release does not open physical orders. Printer, stock, binding,
+commercial cover bleed, spine, price, and fulfillment remain unconfirmed. Cover
+artwork is for digital use and is not a printer-approved press master. Do not use
+the older Flying Fluck page count or print profile for this notebook. Flying Fluck
+and Field Manual 01 remain separate products with their existing release status.
+
+Run `node --test tests/not-my-flucking-problem.test.mjs` for public download,
+asset-link, and prelaunch checks.
