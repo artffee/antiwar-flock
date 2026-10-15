@@ -46,7 +46,7 @@ test('Only the sample PDF is public; all product links resolve',()=>{
   assert.ok(pdfLinks.every(p=>p==='/downloads/a305x-flying-fluck-preview.pdf'));
   for(const [_,href] of page.matchAll(/href="([^"]+)"/g)){
     if(!href.startsWith('/')&&!href.startsWith('./'))continue;
-    const path=href.split('#')[0];
+    const path=new URL(href, 'https://www.a305x.com/').pathname;
     if(path==='/')continue;
     assert.ok(existsSync(resolve(root,'.'+path))||existsSync(resolve(root,'.'+path+'.html'))||existsSync(resolve(root,path)),href);
   }

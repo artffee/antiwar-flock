@@ -1,6 +1,7 @@
 import { checkRateLimit, checkSignupStorage, saveEmail } from './_lib/store.js';
 
 const EMAIL_RE = new RegExp('^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$');
+const INTERESTS = ['all', 'tee', 'wall-art', 'flying-fluck', 'chill-pill', 'field-manual', 'drama-dump'];
 
 function getClientIp(req) {
   const fwd = req.headers['x-forwarded-for'];
@@ -37,6 +38,7 @@ export default async function handler(req, res) {
 
   const email = typeof body.email === 'string' ? body.email.trim() : '';
   const action = body.action || 'subscribe';
+  const interest = body.interest ?? 'all';
 
   if (!email || email.length > 254 || !EMAIL_RE.test(email)) {
     res.status(400).json({ error: 'That doesn’t look like an email.' });
@@ -51,6 +53,10 @@ export default async function handler(req, res) {
     res.status(400).json({ error: 'Please confirm that you want A305X email updates.' });
     return;
   }
+  if (action === 'subscribe' && !INTERESTS.includes(interest)) {
+    res.status(400).json({ error: 'Please choose an interest from the list.' });
+    return;
+  }
   if (body.website) {
     res.status(400).json({ error: 'Unable to submit this form.' });
     return;
@@ -61,7 +67,7 @@ export default async function handler(req, res) {
       res.status(429).json({ error: 'Too many requests. Please try again in 10 minutes.' });
       return;
     }
-    await saveEmail(email, action);
+    await saveEmail(email, action, interest);
     // Return the same result for new and existing addresses.
     res.status(200).json({ ok: true });
   } catch {

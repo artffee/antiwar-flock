@@ -84,7 +84,7 @@ async function readEmailRecord(pathname) {
   return JSON.parse(await new Response(result.stream).text());
 }
 
-export async function saveEmail(email, action = 'subscribe') {
+export async function saveEmail(email, action = 'subscribe', interest = 'all') {
   const normalized = String(email).trim().toLowerCase();
   const key = crypto.createHash('sha256').update(normalized).digest('hex');
   const pathname = `emails/${key}.json`;
@@ -93,15 +93,22 @@ export async function saveEmail(email, action = 'subscribe') {
     if (existing) await writeJsonBlob(pathname, { ...existing, status: 'unsubscribed', unsubscribedAt: new Date().toISOString() });
     return;
   }
-  if (existing?.status === 'subscribed' && existing?.consentVersion === '2026-10-01') return;
+  const interests = [...new Set([...(Array.isArray(existing?.interests) ? existing.interests : []), interest])];
+  if (existing?.status === 'subscribed' && existing?.consentVersion === '2026-10-01') {
+    if (existing.interests?.includes(interest)) return;
+    await writeJsonBlob(pathname, { ...existing, interests, preferencesUpdatedAt: new Date().toISOString() });
+    return;
+  }
   await writeJsonBlob(pathname, {
     email: normalized,
     joinedAt: existing?.joinedAt || new Date().toISOString(),
     status: 'subscribed',
-    emailVerified: false,
+    emailVerified: existing?.emailVerified === true,
     consentAt: new Date().toISOString(),
     consentVersion: '2026-10-01',
     consentText: 'I would like A305X product-launch and art updates by email.',
     source: '/signup',
+    interests,
+    preferencesUpdatedAt: new Date().toISOString(),
   });
 }

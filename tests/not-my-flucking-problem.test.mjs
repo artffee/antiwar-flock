@@ -30,7 +30,7 @@ test('The complete notebook downloads without a signup or checkout gate', () => 
 test('Product links and responsive cover assets resolve', () => {
   for (const [, href] of page.matchAll(/(?:href|src)="([^"]+)"/g)) {
     if (href === '/' || href.startsWith('#') || href.startsWith('data:') || href.startsWith('https:')) continue;
-    const path = href.split('#')[0].replace(/^\.\//, '').replace(/^\//, '');
+    const path = new URL(href, 'https://www.a305x.com/').pathname.replace(/^\.\//, '').replace(/^\//, '');
     assert.ok(existsSync(resolve(root, path)) || existsSync(resolve(root, `${path}.html`)), href);
   }
   for (const [, srcset] of page.matchAll(/srcset="([^"]+)"/g)) {

@@ -6,6 +6,8 @@
   "type": "module",
   "dependencies": {
     "@vercel/blob": "^2.8.0"
+  },
+  "scripts": {
+    "test": "node --experimental-vm-modules --test tests/*.test.mjs"
   }
 }
-

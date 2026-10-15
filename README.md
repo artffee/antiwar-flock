@@ -86,3 +86,23 @@ and Field Manual 01 remain separate products with their existing release status.
 
 Run `node --test tests/not-my-flucking-problem.test.mjs` for public download,
 asset-link, and prelaunch checks.
+
+## October 2026 experience refresh
+
+- Homepage now focuses on three featured creations, the complete free notebook, a solo game, the artist story, and launch updates. All product details and existing downloads remain available.
+- `/play` gathers all four games with accessible solo/friends filters. Old homepage deep links redirect to their replacement pages where needed. Coffee and scent concepts are retained in `/store#lab`.
+- Consistent main navigation, keyboard-friendly menu dismissal, visible content without JavaScript, larger mobile tap targets, responsive collection cards, Open Graph metadata, sitemap, robots file, and a custom 404 page.
+- Product links use `/signup?interest=tee` (also `flying-fluck`, `wall-art`, `chill-pill`, `field-manual`, `drama-dump`, or `all`). The form allows the visitor to change the selection. `/api/join` validates the fixed choice list and privately merges interests into the existing email record. Consent, subscription status, and unverified-address status are retained. No email is sent by this change.
+- `npm test` exercises the real join handler/storage against isolated in-memory storage; it does not create production subscribers. The suite includes repeated interests, invalid payloads, unsubscribe behavior, and storage-failure handling.
+
+### Analytics activation remains an owner setting
+
+`analytics-config.js` deliberately ships with `enabled: false` and `customEvents: false`. The current Vercel connection could read the project but returned a scope permission error for team settings. No analytics service was enabled and no paid plan was purchased.
+
+To activate: enable Web Analytics in the existing `antiwar-flock` project dashboard, change `enabled` to `true`, update `/privacy` to describe the activated service, and deploy. Enable `customEvents` only after checking the project's plan supports them. Verify page views in the Vercel dashboard before reporting collection as active.
+
+The prepared integration respects Do Not Track and Global Privacy Control, excludes Flock message routes, strips query strings/hash fragments from page URLs, and never sends email addresses or user-entered content. Optional custom events record PDF-link clicks (not completed downloads), launch-list clicks, game/experience opens (not completed game starts), and successful stored sign-ups. Product-interest records already work independently of analytics.
+
+### Verification scope
+
+Source tests and local link/asset checks are run before release. In the managed environment, the supported browser-preview skill was unavailable, so no local browser or device emulation was used. Live HTTP checks verify released pages and API readiness; full mobile visual QA and email delivery are separate checks. Outbound marketing delivery is not implemented by this change.

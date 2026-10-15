@@ -13,6 +13,7 @@ function closeMenu() {
   if (!menuButton || !siteNav) return;
   menuButton.setAttribute("aria-expanded", "false");
   siteNav.classList.remove("is-open");
+  menuButton.querySelector('.sr-only').textContent = 'Open menu';
 }
 
 if (menuButton && siteNav) {
@@ -20,16 +21,24 @@ if (menuButton && siteNav) {
     const shouldOpen = menuButton.getAttribute("aria-expanded") !== "true";
     menuButton.setAttribute("aria-expanded", String(shouldOpen));
     siteNav.classList.toggle("is-open", shouldOpen);
+    menuButton.querySelector('.sr-only').textContent = shouldOpen ? 'Close menu' : 'Open menu';
   });
 
   siteNav.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
+    if (event.key === "Escape" && menuButton.getAttribute('aria-expanded') === 'true') {
       closeMenu();
       menuButton.focus();
     }
   });
+  document.addEventListener('click', (event) => {
+    if (!siteNav.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
+  });
+  document.addEventListener('focusin', (event) => {
+    if (!siteNav.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
+  });
+  window.matchMedia('(min-width: 821px)').addEventListener('change', closeMenu);
 }
 
 let lastScrollY = window.scrollY;
@@ -68,6 +77,7 @@ if ("IntersectionObserver" in window) {
   );
 
   revealItems.forEach((item, index) => {
+    item.dataset.revealReady = 'true';
     item.style.transitionDelay = `${Math.min(index % 3, 2) * 80}ms`;
     observer.observe(item);
   });

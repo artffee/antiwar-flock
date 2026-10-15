@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /f/
+Disallow: /flock
+Disallow: /production/
+Disallow: /tests/
+Sitemap: https://www.a305x.com/sitemap.xml

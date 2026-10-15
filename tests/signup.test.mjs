@@ -105,3 +105,28 @@ test('repeated submissions from one address hit the existing rate limit', async 
   assert.equal((await s.call({ email: 'artist@example.com', consent: true }, 'POST', 'same-ip')).code, 429);
   assert.equal(s.emailRecords().length, 1);
 });
+
+test('product-specific interests are saved, merged, and preserved through unsubscribe', async () => {
+  const s = await setup();
+  assert.equal((await s.call({ email: 'artist@example.com', consent: true, interest: 'tee' })).code, 200);
+  const originalConsent = s.emailRecords()[0].consentAt;
+  await s.call({ email: 'artist@example.com', consent: true, interest: 'wall-art' });
+  await s.call({ email: 'artist@example.com', consent: true, interest: 'tee' });
+  const [record] = s.emailRecords();
+  assert.deepEqual(record.interests, ['tee', 'wall-art']);
+  assert.equal(record.consentAt, originalConsent);
+  assert.equal(record.emailVerified, false);
+  await s.call({ email: 'artist@example.com', action: 'unsubscribe' });
+  assert.equal(s.emailRecords()[0].status, 'unsubscribed');
+  assert.deepEqual(s.emailRecords()[0].interests, ['tee', 'wall-art']);
+});
+
+test('rejects arbitrary interest data before writing; old forms remain compatible', async () => {
+  const s = await setup();
+  for (const interest of ['private data', '<script>', [], {}, 1, 'x'.repeat(5000)]) {
+    assert.equal((await s.call({ email: 'artist@example.com', consent: true, interest })).code, 400);
+  }
+  assert.equal(s.records.size, 0);
+  await s.call({ email: 'artist@example.com', consent: true });
+  assert.deepEqual(s.emailRecords()[0].interests, ['all']);
+});
