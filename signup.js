@@ -28,7 +28,8 @@
     try {
       const data = await request();
       if (data.available !== true) throw new Error('Unavailable');
-      service.hidden = true;
+      service.hidden = data.confirmationAvailable === true;
+      if (!service.hidden) service.textContent = 'We can save your interest, but email confirmation is temporarily unavailable. You will not receive launch updates until you return and confirm your address.';
       forms.forEach((form) => { form.hidden = false; });
     } catch {
       service.textContent = 'Email sign-up is temporarily unavailable. Try again, or come back later. The free notebook and games are still available.';
@@ -68,7 +69,7 @@
         if (data.ok !== true) throw new Error('We could not confirm your request. Please try again.');
         status.dataset.error = 'false';
         status.textContent = action === 'subscribe'
-          ? 'You’re on the list. Your interest is saved. Thanks for joining the fluck!'
+          ? (data.confirmationAvailable ? 'Your request is saved. If eligible, you’ll receive a confirmation link. Review your interests there to join. Check spam too; already confirmed or blocked addresses are not re-enrolled.' : 'Your interest is saved. Email confirmation is temporarily unavailable. Please return later to request confirmation; you are not enrolled for launch emails.')
           : 'Your request is saved. If that address was on our list, it is now unsubscribed.';
         form.reset();
         if (action === 'subscribe') {

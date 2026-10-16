@@ -2,3 +2,7 @@
 .sites-runtime/
 *.tar.gz
 
+
+node_modules/
+.env*
+!.env.example
