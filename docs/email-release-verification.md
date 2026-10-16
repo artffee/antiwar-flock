@@ -46,8 +46,23 @@ Implementation source: `codex/a305x-confirmed-email` (see the pull request’s c
 Automatic approval review rejected a direct push to `main`, because it could
 trigger a production deployment without explicit release approval. The changes
 are being published on `codex/a305x-confirmed-email` as a draft pull request.
-Production release remains pending the owner's approval. Preview deployment
-verification will be recorded after the branch is published.
+Production release remains pending the owner's approval.
+
+The branch was published at implementation commit
+`c30ca9540932ba6f9b1191fef10778b9ad7f9128` in draft
+[PR #1](https://github.com/artffee/antiwar-flock/pull/1). GitHub's Vercel status was
+`success`, and the Vercel bot reported this preview **Ready** at
+2026-10-16 21:26:03 UTC:
+
+https://antiwar-flock-git-codex-a305x-co-df3f2f-usivaylo-5363s-projects.vercel.app
+
+Unauthenticated requests redirected to `https://vercel.com/login`, so their final
+HTTP 200 responses were a Vercel login page, not application/API success. The
+supported Vercel access tool also returned 403 at its protection-access step.
+Consequently the preview build/deployment is confirmed Ready by GitHub/Vercel,
+but deployed application behavior could not be tested with this connection.
+Vercel deployment/configuration reads remain blocked by the same team scope.
+No Deployment Protection setting was changed.
 
 Real email receipt, provider-domain verification, production webhook receipt and
 campaign dispatch have **not** been confirmed. Sending defaults off. No mass
