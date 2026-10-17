@@ -5,9 +5,13 @@
   "description": "A305X retro-futurist Miami rebellion brand site",
   "type": "module",
   "dependencies": {
-    "@vercel/blob": "^2.8.0"
+    "@vercel/blob": "^2.8.0",
+    "svix": "2.8.0"
   },
   "scripts": {
     "test": "node --experimental-vm-modules --test tests/*.test.mjs"
+  },
+  "engines": {
+    "node": "24.x"
   }
 }

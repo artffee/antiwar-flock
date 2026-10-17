@@ -52,16 +52,17 @@ standard PDF fonts for a small mobile download. The full interior proof retains
 embedded DejaVu fonts. Covers are shown in the website gallery. Keep the full
 PDFs outside the public website checkout.
 
-## Email sign-up
+## Email subscriptions and launch updates
 
-`/signup` collects requests for product-launch and art updates through `/api/join`. The public support email is separate from this list. No customer accounts, passwords, or outgoing email delivery are added.
+`/signup` and `/api/join` preserve the existing private subscriber records and requested product interests. The implemented double opt-in flow sends a signed 24-hour confirmation link through Resend **when sending is configured**, then requires an explicit address-owner action and topic selection at `/email`. Existing unverified addresses are never automatically confirmed or mailed. Requested interests and confirmed marketing interests are stored separately.
 
-- The form requires an unchecked consent checkbox. Consent text/version/date and subscription status are stored in private Vercel Blob under `emails/`. Legacy records without consent must not be used for marketing.
-- `GET /api/join` checks a private read without creating records or returning subscriber data. If storage is unavailable, the page hides both forms and explains that signup is temporarily unavailable.
-- Connect a **private** Vercel Blob store to this project's Production environment, using the credentials supported by the installed Blob SDK, and redeploy if storage is not yet connected. No secrets belong in this repository.
-- Subscribe and unsubscribe use the same response for existing and unknown addresses. API validation and a honeypot apply; the existing best-effort per-IP rate limit allows five requests per ten minutes. Blob counters are not atomic under concurrent requests.
-- Visitors can unsubscribe at `/signup#leave`. Keep suppression records; never include `status: unsubscribed` in a campaign. Rejoining requires a fresh explicit opt-in.
-- Captured addresses have `emailVerified: false`. Before sending a campaign, configure a sending provider, verified sender domain, confirmation flow, and unsubscribe handling. Only confirmed, currently subscribed addresses should be mailed. This page does not send welcome or launch emails.
+Unsubscribe works through the existing form, signed email links, and RFC 8058 one-click POST. Suppression is durable and takes precedence over confirmation, repeat signup, preference changes and future campaigns. Signed delivery webhooks handle bounces, complaints, failures and provider suppression. Version-conditional private writes prevent stale updates from erasing opt-outs.
+
+The operator-only `/api/launch` provides read-only audience previews, explicit approval of exact content and recipient digests, allowlisted single-recipient tests, and resumable sends to a fixed confirmed audience. Nothing schedules or sends a campaign automatically. Mobile-friendly confirmation and launch templates include text alternatives, unsubscribe links and Miami styling. Marketing is gated on an owner-approved business postal address.
+
+**Implementation is separate from production delivery.** Sending defaults off. `GET /api/join` reports storage readiness and confirmation configuration separately. When only storage works, the visitor is told their interest is saved but confirmation is unavailable and they are not enrolled for launch emails. No welcome/launch email is sent just by deploying this code. No new paid plan or bulk list import is added.
+
+See [email setup, targeting, approval and delivery verification](docs/email-operations.md), [environment variable template](.env.example), and [release verification](docs/email-release-verification.md). Never copy production subscriber data or secrets into this repository. Preserve the existing private Blob store. Run `npm test` for isolated lifecycle, concurrency, delivery-failure and suppression checks.
 
 ## Not My Flucking Problem / The Daily Drama Dump
 
@@ -92,7 +93,7 @@ asset-link, and prelaunch checks.
 - Homepage now focuses on three featured creations, the complete free notebook, a solo game, the artist story, and launch updates. All product details and existing downloads remain available.
 - `/play` gathers all four games with accessible solo/friends filters. Old homepage deep links redirect to their replacement pages where needed. Coffee and scent concepts are retained in `/store#lab`.
 - Consistent main navigation, keyboard-friendly menu dismissal, visible content without JavaScript, larger mobile tap targets, responsive collection cards, Open Graph metadata, sitemap, robots file, and a custom 404 page.
-- Product links use `/signup?interest=tee` (also `flying-fluck`, `wall-art`, `chill-pill`, `field-manual`, `drama-dump`, or `all`). The form allows the visitor to change the selection. `/api/join` validates the fixed choice list and privately merges interests into the existing email record. Consent, subscription status, and unverified-address status are retained. No email is sent by this change.
+- Product links use `/signup?interest=tee` (also `flying-fluck`, `wall-art`, `chill-pill`, `field-manual`, `drama-dump`, or `all`). The form allows the visitor to change the selection. `/api/join` validates the fixed choice list and preserves historical requested interests. The later email implementation adds confirmation and separately confirmed targeting preferences; see the email section above.
 - `npm test` exercises the real join handler/storage against isolated in-memory storage; it does not create production subscribers. The suite includes repeated interests, invalid payloads, unsubscribe behavior, and storage-failure handling.
 
 ### Analytics activation remains an owner setting
@@ -105,4 +106,4 @@ The prepared integration respects Do Not Track and Global Privacy Control, exclu
 
 ### Verification scope
 
-Source tests and local link/asset checks are run before release. In the managed environment, the supported browser-preview skill was unavailable, so no local browser or device emulation was used. Live HTTP checks verify released pages and API readiness; full mobile visual QA and email delivery are separate checks. Outbound marketing delivery is not implemented by this change.
+Source tests and local link/asset checks are run before release. In the managed environment, the supported browser-preview skill was unavailable, so no local browser or device emulation was used. Live HTTP checks verify released pages and API readiness; full mobile visual QA and email delivery are separate checks. Email functionality is implemented with explicit activation and campaign approval gates; actual production delivery requires the separate checks in the email operations guide.
