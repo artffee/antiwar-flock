@@ -31,7 +31,7 @@
       track('Game or experience open', { game: url.hostname === location.hostname ? url.pathname : 'fluck-the-system' });
     }
   });
-  document.addEventListener('a305x:subscribed', (event) => {
-    track('Email signup saved', { interest: event.detail.interest });
+  document.addEventListener('a305x:signup-requested', (event) => {
+    track('Email signup requested', { interest: event.detail.interest });
   });
 })();
