@@ -1,76 +1,39 @@
-import { checkRateLimit, checkSignupStorage, saveEmail } from './_lib/store.js';
-
-const EMAIL_RE = new RegExp('^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$');
+import { checkSignupRateLimit, checkSignupStorage, saveEmail } from './_lib/store.js';
+import { emailAvailable, validEmail } from './_lib/email.js';
+import { securityHeaders, clientIp, parseBody } from './_lib/request.js';
 const INTERESTS = ['all', 'tee', 'wall-art', 'flying-fluck', 'chill-pill', 'field-manual', 'drama-dump'];
 
-function getClientIp(req) {
-  const fwd = req.headers['x-forwarded-for'];
-  if (fwd) return String(fwd).split(',')[0].trim();
-  return req.socket?.remoteAddress || 'unknown';
-}
-
 export default async function handler(req, res) {
-  res.setHeader('Cache-Control', 'no-store');
+  securityHeaders(res);
   if (req.method === 'GET') {
     try {
       await checkSignupStorage();
-      res.status(200).json({ available: true });
+      res.status(200).json({ available: emailAvailable(), unsubscribeAvailable: true });
     } catch {
-      res.status(503).json({ available: false });
+      res.status(503).json({ available: false, unsubscribeAvailable: false });
     }
     return;
   }
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'GET, POST');
-    res.status(405).json({ error: 'Method not allowed' });
-    return;
+    return res.status(405).json({ error: 'Method not allowed' });
   }
-
-  let body = req.body;
-  if (typeof body === 'string') {
-    try {
-      body = JSON.parse(body);
-    } catch {
-      body = {};
-    }
+  const body = parseBody(req);
+  const email = typeof body?.email === 'string' ? body.email.trim() : '';
+  const action = body?.action || 'subscribe';
+  const interest = body?.interest ?? 'all';
+  if (!body || !validEmail(email) || !['subscribe', 'unsubscribe'].includes(action) || body.website ||
+      (action === 'subscribe' && (body.consent !== true || !INTERESTS.includes(interest)))) {
+    return res.status(400).json({ error: 'Check your email, selected interest, and consent, then try again.' });
   }
-  body = body || {};
-
-  const email = typeof body.email === 'string' ? body.email.trim() : '';
-  const action = body.action || 'subscribe';
-  const interest = body.interest ?? 'all';
-
-  if (!email || email.length > 254 || !EMAIL_RE.test(email)) {
-    res.status(400).json({ error: 'That doesn’t look like an email.' });
-    return;
-  }
-
-  if (!['subscribe', 'unsubscribe'].includes(action)) {
-    res.status(400).json({ error: 'Choose a valid email preference.' });
-    return;
-  }
-  if (action === 'subscribe' && body.consent !== true) {
-    res.status(400).json({ error: 'Please confirm that you want A305X email updates.' });
-    return;
-  }
-  if (action === 'subscribe' && !INTERESTS.includes(interest)) {
-    res.status(400).json({ error: 'Please choose an interest from the list.' });
-    return;
-  }
-  if (body.website) {
-    res.status(400).json({ error: 'Unable to submit this form.' });
-    return;
-  }
+  if (action === 'subscribe' && !emailAvailable()) return res.status(503).json({ error: 'Email confirmation is temporarily unavailable. Please try again later.' });
   try {
-    const allowed = await checkRateLimit(getClientIp(req), 'join');
-    if (!allowed) {
-      res.status(429).json({ error: 'Too many requests. Please try again in 10 minutes.' });
-      return;
-    }
+    const allowed = await checkSignupRateLimit(clientIp(req), `join-${action}`);
+    if (!allowed) return res.status(429).json({ error: 'Too many requests. Please try again in 10 minutes.' });
     await saveEmail(email, action, interest);
-    // Return the same result for new and existing addresses.
+    // Identical for unknown, pending, confirmed, suppressed, cooldown and provider failure.
     res.status(200).json({ ok: true });
   } catch {
-    res.status(503).json({ error: 'Email sign-up is temporarily unavailable. Please try again later.' });
+    res.status(503).json({ error: 'Email preferences are temporarily unavailable. Please try again later.' });
   }
 }

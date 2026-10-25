@@ -42,20 +42,20 @@
       <section class="signup-panel" aria-labelledby="form-title">
         <p class="signup-stamp">YOUR NEXT GOOD DISTRACTION</p>
         <h2 id="form-title">Stay in the loop.</h2>
-        <p>Choose what interests you. We’ll keep you in the loop.</p>
+        <p>Choose what interests you, then confirm your email address. Updates begin only after confirmation.</p>
         <p class="signup-service" id="signup-service" role="status">Checking sign-up availability…</p><button class="signup-retry" id="signup-retry" type="button" hidden>Try again</button>
         <form id="signup-form" data-email-form="subscribe" aria-describedby="signup-status" hidden>
           <label class="signup-label" for="signup-email">Email address</label>
           <input id="signup-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" maxlength="254" required />
-          <label class="signup-label" for="signup-interest">What caught your eye?</label><select id="signup-interest" name="interest"><option value="all">All new art &amp; drops</option><option value="tee">Wear the Message Tee</option><option value="flying-fluck">Flying Fluck journal</option><option value="wall-art">Wall art</option><option value="chill-pill">The Chill Pill object</option><option value="field-manual">Field Manual 01</option><option value="drama-dump">Daily Drama Dump physical edition</option></select><p class="signup-small">We’ll save this interest with your sign-up. You can choose another product and sign up again to add it.</p>
+          <label class="signup-label" for="signup-interest">What caught your eye?</label><select id="signup-interest" name="interest"><option value="all">All new art &amp; drops</option><option value="tee">Wear the Message Tee</option><option value="flying-fluck">Flying Fluck journal</option><option value="wall-art">Wall art</option><option value="chill-pill">The Chill Pill object</option><option value="field-manual">Field Manual 01</option><option value="drama-dump">Daily Drama Dump physical edition</option></select><p class="signup-small">Your choice stays pending until you confirm. To add another interest or request a fresh link, wait at least one minute, submit again, and confirm the latest email. Up to three requests per hour. Links expire after 24 hours.</p>
 <div class="signup-trap" aria-hidden="true"><label for="signup-website">Leave this field blank</label><input id="signup-website" name="website" type="text" tabindex="-1" autocomplete="off" /></div>
-          <label class="signup-consent"><input name="consent" type="checkbox" required /><span>I would like A305X product-launch and art updates by email.</span></label>
-          <p class="signup-small">Read our <a href="/privacy#submissions">Privacy notice</a>. You can leave the list on this page anytime.</p>
-          <button class="button button-dark" type="submit">Count me in <span aria-hidden="true">↗</span></button>
+          <label class="signup-consent"><input name="consent" type="checkbox" required /><span>I would like A305X product-launch and art updates by email. I will confirm my email address to activate this request.</span></label>
+          <p class="signup-small">Read our <a href="/privacy#submissions">Privacy notice</a>. Confirmation emails are sent through Resend when available. You can leave the list on this page anytime.</p>
+          <button class="button button-dark" type="submit">Send confirmation <span aria-hidden="true">↗</span></button>
           <p id="signup-status" class="signup-status" role="status" aria-live="polite" tabindex="-1"></p>
         </form>
         <noscript><p class="signup-service">Please enable JavaScript to use the email sign-up form.</p></noscript>
-        <div class="signup-footnote"><strong>Free to join. No purchase needed.</strong><p>This is our email list. Signing up does not place an order or reserve a product.</p></div>
+        <div class="signup-footnote"><strong>Free to join. No purchase needed.</strong><p>Submitting the form requests a confirmation email; it does not confirm your subscription, place an order, or reserve a product. Already confirmed? Your existing subscription stays active while new interests await confirmation.</p></div>
         <details class="signup-leave" id="leave"><summary>Already joined? Leave the list.</summary><p>Enter the email address you want removed from A305X updates.</p>
           <form data-email-form="unsubscribe" aria-describedby="leave-status" hidden>
             <label class="signup-label" for="leave-email">Email address</label>

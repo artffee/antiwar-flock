@@ -11,7 +11,7 @@
 
   async function request(options = {}) {
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 15000);
+    const timer = setTimeout(() => controller.abort(), 25000);
     try {
       const response = await fetch('/api/join', { ...options, signal: controller.signal });
       const data = await response.json();
@@ -27,15 +27,21 @@
     service.textContent = 'Checking sign-up availability…';
     try {
       const data = await request();
-      if (data.available !== true) throw new Error('Unavailable');
-      service.hidden = true;
-      forms.forEach((form) => { form.hidden = false; });
+      forms.forEach((form) => {
+        form.hidden = form.dataset.emailForm === 'unsubscribe' ? data.unsubscribeAvailable !== true : data.available !== true;
+      });
+      service.hidden = data.available === true;
+      if (!data.available) {
+        service.textContent = 'New email confirmations are temporarily unavailable. You can still unsubscribe below. Please come back later to join.';
+        if (retry) { retry.hidden = false; retry.disabled = false; }
+      }
     } catch {
       service.textContent = 'Email sign-up is temporarily unavailable. Try again, or come back later. The free notebook and games are still available.';
       if (retry) { retry.hidden = false; retry.disabled = false; }
     }
   }
   retry?.addEventListener('click', checkAvailability);
+  if (location.hash === '#leave') document.getElementById('leave').open = true;
   checkAvailability();
 
   forms.forEach((form) => {
@@ -68,12 +74,12 @@
         if (data.ok !== true) throw new Error('We could not confirm your request. Please try again.');
         status.dataset.error = 'false';
         status.textContent = action === 'subscribe'
-          ? 'You’re on the list. Your interest is saved. Thanks for joining the fluck!'
+          ? 'Check your inbox. If this request is eligible, a confirmation link will arrive. Confirm within 24 hours to activate your subscription or new interests. If it does not arrive, check spam and try again after one minute (up to three requests per hour).'
           : 'Your request is saved. If that address was on our list, it is now unsubscribed.';
         form.reset();
         if (action === 'subscribe') {
           if (interestSelect) interestSelect.value = interest;
-          document.dispatchEvent(new CustomEvent('a305x:subscribed', { detail: { interest } }));
+          document.dispatchEvent(new CustomEvent('a305x:signup-requested', { detail: { interest } }));
         }
       } catch (error) {
         status.dataset.error = 'true';

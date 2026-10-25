@@ -1,5 +1,5 @@
 import crypto from 'node:crypto';
-import { put, get } from '@vercel/blob';
+import { put, get, BlobPreconditionFailedError } from '@vercel/blob';
 
 const WINDOW_MS = 10 * 60 * 1000;
 const MAX_PER_WINDOW = 5;
@@ -78,37 +78,47 @@ export async function checkSignupStorage() {
   await get('meta/signup-readiness.json', { access: 'private', useCache: false });
 }
 
-async function readEmailRecord(pathname) {
+// Read failures must propagate: treating an outage as an empty list loses suppressions.
+export async function readPrivateRecord(pathname) {
   const result = await get(pathname, { access: 'private', useCache: false });
   if (!result) return null;
-  return JSON.parse(await new Response(result.stream).text());
+  if (!result.blob?.etag) throw new Error('Conditional storage is unavailable');
+  const data = JSON.parse(await new Response(result.stream).text());
+  if (!data || typeof data !== 'object' || Array.isArray(data)) throw new Error('Invalid private record');
+  return { data, etag: result.blob.etag };
 }
 
-export async function saveEmail(email, action = 'subscribe', interest = 'all') {
-  const normalized = String(email).trim().toLowerCase();
-  const key = crypto.createHash('sha256').update(normalized).digest('hex');
-  const pathname = `emails/${key}.json`;
-  const existing = await readEmailRecord(pathname);
-  if (action === 'unsubscribe') {
-    if (existing) await writeJsonBlob(pathname, { ...existing, status: 'unsubscribed', unsubscribedAt: new Date().toISOString() });
-    return;
+// The reducer is synchronous and may run again after a conflict. Never send email here.
+export async function updatePrivateRecord(pathname, reduce) {
+  for (let attempt = 0; attempt < 12; attempt++) {
+    const current = await readPrivateRecord(pathname);
+    const update = reduce(current?.data || null);
+    if (!update.record) return update.result;
+    try {
+      await put(pathname, JSON.stringify(update.record), {
+        access: 'private', addRandomSuffix: false, contentType: 'application/json',
+        allowOverwrite: Boolean(current),
+        ...(current ? { ifMatch: current.etag } : {}),
+      });
+      return update.result;
+    } catch (error) {
+      if (error instanceof BlobPreconditionFailedError) continue;
+      // A simultaneous create can report an already-existing blob rather than 412.
+      if (!current && await readPrivateRecord(pathname)) continue;
+      throw error;
+    }
   }
-  const interests = [...new Set([...(Array.isArray(existing?.interests) ? existing.interests : []), interest])];
-  if (existing?.status === 'subscribed' && existing?.consentVersion === '2026-10-01') {
-    if (existing.interests?.includes(interest)) return;
-    await writeJsonBlob(pathname, { ...existing, interests, preferencesUpdatedAt: new Date().toISOString() });
-    return;
-  }
-  await writeJsonBlob(pathname, {
-    email: normalized,
-    joinedAt: existing?.joinedAt || new Date().toISOString(),
-    status: 'subscribed',
-    emailVerified: existing?.emailVerified === true,
-    consentAt: new Date().toISOString(),
-    consentVersion: '2026-10-01',
-    consentText: 'I would like A305X product-launch and art updates by email.',
-    source: '/signup',
-    interests,
-    preferencesUpdatedAt: new Date().toISOString(),
+  throw new Error('Storage contention; retry the request');
+}
+
+export async function checkSignupRateLimit(identifier, bucket, max = 5, windowMs = WINDOW_MS) {
+  return updatePrivateRecord(`ratelimit/${bucket}/${hashIp(identifier)}.json`, (existing) => {
+    const now = Date.now();
+    const hits = (existing?.hits || []).filter((time) => now - time < windowMs);
+    if (hits.length >= max) return { result: false };
+    return { record: { hits: [...hits, now] }, result: true };
   });
 }
+
+// Retain the existing entry point while keeping subscription state transitions isolated.
+export { saveEmail } from './subscriptions.js';
