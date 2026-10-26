@@ -106,3 +106,35 @@ The prepared integration respects Do Not Track and Global Privacy Control, exclu
 ### Verification scope
 
 Source tests and local link/asset checks are run before release. In the managed environment, the supported browser-preview skill was unavailable, so no local browser or device emulation was used. Live HTTP checks verify released pages and API readiness; full mobile visual QA and email delivery are separate checks. Outbound marketing delivery is not implemented by this change.
+
+## SEO and optional Google Analytics 4
+
+The canonical production origin is `https://www.a305x.com`; the bare domain redirects
+there. All 13 sitemap pages have canonical URLs, Open Graph and explicit Twitter
+card metadata, plus linked WebSite/Organization/WebPage structured data and
+breadcrumbs on inner pages. Shared Flock messages and the 404 page are noindex;
+existing robots exclusions and the sitemap are retained. No product prices,
+availability claims, reviews, or ratings are invented by the structured data.
+
+`google-analytics-config.js` is deliberately **disabled with an empty measurement
+ID**. No A305X GA4 ID was found in source or the project's environment-variable
+names. The separate, older Vercel analytics configuration remains disabled too.
+Before activating GA4:
+
+1. Supply and verify the GA4 web-stream measurement ID for A305X (not another site).
+2. In that stream disable all Enhanced Measurement options, user-provided data
+   collection, Google signals, and advertising integrations. Remote stream settings
+   cannot be enforced solely by this JavaScript module.
+3. Update the privacy notice and set the verified ID and `enabled: true` in the
+   Google configuration; leave the older Vercel configuration disabled.
+4. Deploy and verify no Google requests before consent, explicit allow/decline,
+   stored choice, revocation, DNT/GPC, and a permitted page view in GA Realtime.
+
+The prepared basic-consent integration loads no Google tag before opt-in, limits
+measurement to fixed public routes, excludes signup and shared messages, removes
+query strings/fragments/referrers, uses fixed page titles, and sends no form data,
+email addresses, or custom events. Advertising consent stays denied. Choices expire
+after 180 days and can be changed with Analytics settings. No GA collection or
+Realtime result has been claimed while the configuration is disabled.
+
+Run `npm test` for the SEO, consent and existing application regression tests.
