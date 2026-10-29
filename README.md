@@ -52,16 +52,23 @@ standard PDF fonts for a small mobile download. The full interior proof retains
 embedded DejaVu fonts. Covers are shown in the website gallery. Keep the full
 PDFs outside the public website checkout.
 
-## Email sign-up
+## Email subscriptions — consolidated review branch
 
-`/signup` collects requests for product-launch and art updates through `/api/join`. The public support email is separate from this list. No customer accounts, passwords, or outgoing email delivery are added.
+This branch consolidates overlapping PRs #1 and #2 into one double opt-in system.
+Signup requires consent, then a single-use signed link and explicit topic confirmation.
+Historical requested interests remain separate from verified preferences. Private
+conditional writes, durable unsubscribe/suppression and signed delivery webhooks
+protect existing records. No legacy address is automatically confirmed or contacted.
 
-- The form requires an unchecked consent checkbox. Consent text/version/date and subscription status are stored in private Vercel Blob under `emails/`. Legacy records without consent must not be used for marketing.
-- `GET /api/join` checks a private read without creating records or returning subscriber data. If storage is unavailable, the page hides both forms and explains that signup is temporarily unavailable.
-- Connect a **private** Vercel Blob store to this project's Production environment, using the credentials supported by the installed Blob SDK, and redeploy if storage is not yet connected. No secrets belong in this repository.
-- Subscribe and unsubscribe use the same response for existing and unknown addresses. API validation and a honeypot apply; the existing best-effort per-IP rate limit allows five requests per ten minutes. Blob counters are not atomic under concurrent requests.
-- Visitors can unsubscribe at `/signup#leave`. Keep suppression records; never include `status: unsubscribed` in a campaign. Rejoining requires a fresh explicit opt-in.
-- Captured addresses have `emailVerified: false`. Before sending a campaign, configure a sending provider, verified sender domain, confirmation flow, and unsubscribe handling. Only confirmed, currently subscribed addresses should be mailed. This page does not send welcome or launch emails.
+**Production sending is off; campaigns are locked in code.** Disabled sending hides
+signup while preserving opt-out when storage is healthy. Preview email routes reject
+the inherited production Blob credential. No production subscriber data was used.
+
+See [comparison and verification](docs/email-consolidation.md),
+[activation requirements](docs/email-operations.md), and [.env.example](.env.example).
+Run `npm ci && npm test`. `npm run dev` runs a synthetic isolated preview with a fake
+outbox at `/__preview`; it never sends real email. Review this consolidated change
+instead of merging the two original implementations independently.
 
 ## Not My Flucking Problem / The Daily Drama Dump
 
@@ -92,7 +99,7 @@ asset-link, and prelaunch checks.
 - Homepage now focuses on three featured creations, the complete free notebook, a solo game, the artist story, and launch updates. All product details and existing downloads remain available.
 - `/play` gathers all four games with accessible solo/friends filters. Old homepage deep links redirect to their replacement pages where needed. Coffee and scent concepts are retained in `/store#lab`.
 - Consistent main navigation, keyboard-friendly menu dismissal, visible content without JavaScript, larger mobile tap targets, responsive collection cards, Open Graph metadata, sitemap, robots file, and a custom 404 page.
-- Product links use `/signup?interest=tee` (also `flying-fluck`, `wall-art`, `chill-pill`, `field-manual`, `drama-dump`, or `all`). The form allows the visitor to change the selection. `/api/join` validates the fixed choice list and privately merges interests into the existing email record. Consent, subscription status, and unverified-address status are retained. No email is sent by this change.
+- Product links use `/signup?interest=tee` (also `flying-fluck`, `wall-art`, `chill-pill`, `field-manual`, `drama-dump`, or `all`). The form allows the visitor to change the selection. `/api/join` validates the fixed choice list and preserves historical requested interests. The later email implementation adds confirmation and separately confirmed targeting preferences; see the email section above.
 - `npm test` exercises the real join handler/storage against isolated in-memory storage; it does not create production subscribers. The suite includes repeated interests, invalid payloads, unsubscribe behavior, and storage-failure handling.
 
 ### Analytics activation remains an owner setting
@@ -101,11 +108,15 @@ asset-link, and prelaunch checks.
 
 To activate: enable Web Analytics in the existing `antiwar-flock` project dashboard, change `enabled` to `true`, update `/privacy` to describe the activated service, and deploy. Enable `customEvents` only after checking the project's plan supports them. Verify page views in the Vercel dashboard before reporting collection as active.
 
-The prepared integration respects Do Not Track and Global Privacy Control, excludes Flock message routes, strips query strings/hash fragments from page URLs, and never sends email addresses or user-entered content. Optional custom events record PDF-link clicks (not completed downloads), launch-list clicks, game/experience opens (not completed game starts), and successful stored sign-ups. Product-interest records already work independently of analytics.
+The prepared integration respects Do Not Track and Global Privacy Control, excludes Flock message routes, strips query strings/hash fragments from page URLs, and never sends email addresses or user-entered content. Optional custom events record PDF-link clicks (not completed downloads), launch-list clicks, game/experience opens (not completed game starts), with signup and email-management routes excluded. Product-interest records already work independently of analytics.
 
 ### Verification scope
 
-Source tests and local link/asset checks are run before release. In the managed environment, the supported browser-preview skill was unavailable, so no local browser or device emulation was used. Live HTTP checks verify released pages and API readiness; full mobile visual QA and email delivery are separate checks. Outbound marketing delivery is not implemented by this change.
+The consolidated email change passes the repository test suite and native API imports.
+An isolated desktop browser flow used synthetic storage and fake delivery for signup,
+confirmation, preferences, used-token rejection and unsubscribe. Real provider delivery,
+private hosted-storage verification and mobile-device checks remain activation work.
+See the current [verification report](docs/email-consolidation.md).
 
 ## SEO and optional Google Analytics 4
 

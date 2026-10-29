@@ -3,3 +3,6 @@ node_modules
 production
 tests
 README.md
+docs
+scripts
+.env*

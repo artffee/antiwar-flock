@@ -1,76 +1,40 @@
-import { checkRateLimit, checkSignupStorage, saveEmail } from './_lib/store.js';
-
-const EMAIL_RE = new RegExp('^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$');
-const INTERESTS = ['all', 'tee', 'wall-art', 'flying-fluck', 'chill-pill', 'field-manual', 'drama-dump'];
-
-function getClientIp(req) {
-  const fwd = req.headers['x-forwarded-for'];
-  if (fwd) return String(fwd).split(',')[0].trim();
-  return req.socket?.remoteAddress || 'unknown';
-}
+import { checkRateLimit, checkSignupStorage } from './_lib/store.js';
+import { register, unsubscribeKey } from './_lib/subscribers.js';
+import { INTERESTS, validEmail, emailKey } from './_lib/email-tokens.js';
+import { emailReady } from './_lib/email-provider.js';
+import { headers, bodyJson, sameOrigin, clientIp } from './_lib/email-http.js';
 
 export default async function handler(req, res) {
-  res.setHeader('Cache-Control', 'no-store');
+  headers(res);
   if (req.method === 'GET') {
     try {
       await checkSignupStorage();
-      res.status(200).json({ available: true });
-    } catch {
-      res.status(503).json({ available: false });
-    }
-    return;
+      return res.status(200).json({ available: emailReady(), confirmationAvailable: emailReady(), unsubscribeAvailable: true });
+    } catch { return res.status(503).json({ available: false, confirmationAvailable: false, unsubscribeAvailable: false }); }
   }
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'GET, POST');
-    res.status(405).json({ error: 'Method not allowed' });
-    return;
+    return res.status(405).json({ error: 'Method not allowed' });
   }
-
-  let body = req.body;
-  if (typeof body === 'string') {
-    try {
-      body = JSON.parse(body);
-    } catch {
-      body = {};
-    }
-  }
-  body = body || {};
-
+  let body;
+  try { body = bodyJson(req); } catch { return res.status(400).json({ error: 'Invalid request' }); }
   const email = typeof body.email === 'string' ? body.email.trim() : '';
   const action = body.action || 'subscribe';
   const interest = body.interest ?? 'all';
-
-  if (!email || email.length > 254 || !EMAIL_RE.test(email)) {
-    res.status(400).json({ error: 'That doesn’t look like an email.' });
-    return;
-  }
-
-  if (!['subscribe', 'unsubscribe'].includes(action)) {
-    res.status(400).json({ error: 'Choose a valid email preference.' });
-    return;
-  }
-  if (action === 'subscribe' && body.consent !== true) {
-    res.status(400).json({ error: 'Please confirm that you want A305X email updates.' });
-    return;
-  }
-  if (action === 'subscribe' && !INTERESTS.includes(interest)) {
-    res.status(400).json({ error: 'Please choose an interest from the list.' });
-    return;
-  }
-  if (body.website) {
-    res.status(400).json({ error: 'Unable to submit this form.' });
-    return;
-  }
+  if (!validEmail(email)) return res.status(400).json({ error: 'That doesn’t look like an email.' });
+  if (!['subscribe', 'unsubscribe'].includes(action)) return res.status(400).json({ error: 'Choose a valid email preference.' });
+  if (action === 'subscribe' && body.consent !== true) return res.status(400).json({ error: 'Please confirm that you want A305X email updates.' });
+  if (action === 'subscribe' && (typeof interest !== 'string' || !Object.hasOwn(INTERESTS, interest))) return res.status(400).json({ error: 'Please choose an interest from the list.' });
+  if (body.website || !sameOrigin(req)) return res.status(400).json({ error: 'Unable to submit this form.' });
+  if (action === 'subscribe' && !emailReady()) return res.status(503).json({ error: 'Email confirmation is temporarily unavailable. Please try again later.' });
   try {
-    const allowed = await checkRateLimit(getClientIp(req), 'join');
-    if (!allowed) {
-      res.status(429).json({ error: 'Too many requests. Please try again in 10 minutes.' });
-      return;
+    if (!await checkRateLimit(clientIp(req), `join-${action}`)) return res.status(429).json({ error: 'Too many requests. Please try again in 10 minutes.' });
+    if (action === 'unsubscribe') {
+      await unsubscribeKey(emailKey(email), email.toLowerCase());
+      return res.status(200).json({ ok: true });
     }
-    await saveEmail(email, action, interest);
-    // Return the same result for new and existing addresses.
-    res.status(200).json({ ok: true });
+    return res.status(200).json({ ok: true, ...await register(email, interest) });
   } catch {
-    res.status(503).json({ error: 'Email sign-up is temporarily unavailable. Please try again later.' });
+    return res.status(503).json({ error: 'We could not complete email confirmation. Please try again in a minute. Your address will not receive launch updates until confirmed.' });
   }
 }

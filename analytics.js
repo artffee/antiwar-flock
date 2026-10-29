@@ -3,7 +3,7 @@
   if (!config.enabled || navigator.doNotTrack === '1' || navigator.globalPrivacyControl === true) return;
   if (!['a305x.com', 'www.a305x.com'].includes(location.hostname)) return;
   // Never measure shareable messages or identifiers in their URLs.
-  if (/^\/(?:f\/|flock(?:\.html)?(?:\/|$))/.test(location.pathname)) return;
+  if (/^\/(?:f\/|(?:flock|signup|email|confirm)(?:\.html)?(?:\/|$))/.test(location.pathname)) return;
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   window.va('beforeSend', (event) => {
     const url = new URL(event.url);
