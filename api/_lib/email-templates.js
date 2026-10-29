@@ -1,0 +1,24 @@
+import { ORIGIN } from './email-tokens.js';
+
+export const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+function frame({ title, eyebrow, heading, body, cta, url, note, footer }) {
+  return `<!doctype html><html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(title)}</title><style>@media(max-width:600px){.pad{padding:28px 22px!important}.headline{font-size:38px!important}}</style></head><body style="margin:0;background:#f3eedf;color:#191719;font-family:Arial,Helvetica,sans-serif"><div style="display:none;max-height:0;overflow:hidden">${escapeHtml(note)}</div><table role="presentation" style="width:100%;border-collapse:collapse"><tr><td align="center" style="padding:24px 10px"><table role="presentation" style="width:100%;max-width:600px;border-collapse:collapse;background:#fffdf4;border:2px solid #191719"><tr><td class="pad" style="padding:32px 40px;background:#191719;color:#fffdf4"><p style="font-size:36px;font-weight:900;letter-spacing:-2px;margin:0">A305X<span style="color:#ff66b1">↗</span></p><p style="font-size:11px;letter-spacing:3px;margin:8px 0 0">MIAMI / EARTH / INDEPENDENT MINDS</p></td></tr><tr><td style="height:10px;background:linear-gradient(90deg,#ff66b1,#8de4da,#eee85f)"></td></tr><tr><td class="pad" style="padding:40px"><p style="font-size:12px;font-weight:700;letter-spacing:2px">${escapeHtml(eyebrow)}</p><h1 class="headline" style="font-size:46px;line-height:1.05;letter-spacing:-2px;margin:20px 0 24px">${escapeHtml(heading)}</h1>${body}<table role="presentation" style="margin:30px 0"><tr><td style="background:#ff66b1;border:2px solid #191719"><a href="${escapeHtml(url)}" style="display:inline-block;padding:17px 24px;color:#191719;font-size:16px;font-weight:800;text-decoration:none">${escapeHtml(cta)} ↗</a></td></tr></table><p style="font-size:13px;line-height:1.7;color:#514b50">${escapeHtml(note)}</p></td></tr><tr><td class="pad" style="padding:24px 40px;border-top:2px solid #191719;background:#8de4da"><p style="font-size:12px;letter-spacing:1px;font-weight:800">BORN TO DISOBEY. FREE TO LEAVE.</p>${footer}<p style="font-size:12px;line-height:1.7">A305X · Miami, Florida<br><a href="${ORIGIN}/privacy" style="color:#191719">Privacy</a> · <a href="mailto:orionmind@gmail.com" style="color:#191719">Contact A305X</a></p></td></tr></table></td></tr></table></body></html>`;
+}
+export function confirmationEmail(confirmUrl, links) {
+  const subject = 'A305X — confirm your inbox. Keep your freedom.';
+  const note = 'This confirmation link expires in 24 hours. If you did not request it, ignore this email or block future A305X updates below.';
+  return {
+    subject,
+    html: frame({ title: subject, eyebrow: 'ONE SMALL CLICK. YOUR CALL.', heading: 'Your inbox. Your rules.', body: '<p style="font-size:18px;line-height:1.65">Someone asked to join the A305X list. Confirm that this is your email, then choose the art and product drops you want to hear about.</p><p style="font-size:16px;line-height:1.65">No confirmation, no marketing. No purchase. Independent minds welcome.</p>', cta: 'Review & confirm', url: confirmUrl, note, footer: `<p style="font-size:13px"><a href="${escapeHtml(links.unsubscribe)}" style="color:#191719">Block future A305X updates</a></p>` }),
+    text: `A305X / MIAMI, EARTH\n\nYour inbox. Your rules.\n\nConfirm your address and review your interests:\n${confirmUrl}\n\nNo confirmation, no marketing. ${note}\n\nBlock future updates: ${links.unsubscribe}\nPrivacy: ${ORIGIN}/privacy\nContact: orionmind@gmail.com`,
+  };
+}
+export function launchEmail(campaign, links, postalAddress) {
+  const subject = `A305X — ${campaign.title}`;
+  const note = 'You confirmed A305X updates for this product or all new art & drops. Change your interests or leave whenever you want.';
+  return {
+    subject,
+    html: frame({ title: subject, eyebrow: 'INCOMING FROM MIAMI', heading: campaign.title, body: `<p style="font-size:18px;line-height:1.7;white-space:pre-line">${escapeHtml(campaign.message)}</p>`, cta: 'Explore the drop', url: `${ORIGIN}${campaign.path}`, note, footer: `<p style="font-size:13px;line-height:1.9"><a href="${escapeHtml(links.unsubscribe)}" style="color:#191719">Unsubscribe from all updates</a><br><a href="${escapeHtml(links.preferences)}" style="color:#191719">Choose your interests</a></p><p style="font-size:12px;line-height:1.7">${escapeHtml(postalAddress)}</p>` }),
+    text: `A305X / INCOMING FROM MIAMI\n\n${campaign.title}\n\n${campaign.message}\n\nExplore: ${ORIGIN}${campaign.path}\n\n${note}\nUnsubscribe: ${links.unsubscribe}\nInterests: ${links.preferences}\n\nA305X\n${postalAddress}\nContact: orionmind@gmail.com\nPrivacy: ${ORIGIN}/privacy`,
+  };
+}

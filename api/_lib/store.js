@@ -1,5 +1,6 @@
 import crypto from 'node:crypto';
 import { put, get } from '@vercel/blob';
+import { mutatePrivate, readPrivate } from './private-store.js';
 
 const WINDOW_MS = 10 * 60 * 1000;
 const MAX_PER_WINDOW = 5;
@@ -34,13 +35,13 @@ export async function checkRateLimit(ip, bucket, max, windowMs) {
   const limit = max || MAX_PER_WINDOW;
   const window = windowMs || WINDOW_MS;
   const now = Date.now();
-  const existing = await readJsonBlob(pathname, false);
-  let hits = Array.isArray(existing?.hits) ? existing.hits : [];
-  hits = hits.filter((t) => now - t < window);
-  if (hits.length >= limit) return false;
-  hits.push(now);
-  await writeJsonBlob(pathname, { hits });
-  return true;
+  const ticket = crypto.randomUUID();
+  const record = await mutatePrivate(pathname, (old) => {
+    const hits = (Array.isArray(old?.hits) ? old.hits : []).filter((t) => now - t < window);
+    if (hits.length >= limit) return;
+    return { hits: [...hits, now], ticket };
+  });
+  return record?.ticket === ticket;
 }
 
 export async function getFlockCount() {
@@ -75,40 +76,5 @@ export async function loadFlock(shareId) {
 
 export async function checkSignupStorage() {
   // A private read checks the connection without creating records or exposing data.
-  await get('meta/signup-readiness.json', { access: 'private', useCache: false });
-}
-
-async function readEmailRecord(pathname) {
-  const result = await get(pathname, { access: 'private', useCache: false });
-  if (!result) return null;
-  return JSON.parse(await new Response(result.stream).text());
-}
-
-export async function saveEmail(email, action = 'subscribe', interest = 'all') {
-  const normalized = String(email).trim().toLowerCase();
-  const key = crypto.createHash('sha256').update(normalized).digest('hex');
-  const pathname = `emails/${key}.json`;
-  const existing = await readEmailRecord(pathname);
-  if (action === 'unsubscribe') {
-    if (existing) await writeJsonBlob(pathname, { ...existing, status: 'unsubscribed', unsubscribedAt: new Date().toISOString() });
-    return;
-  }
-  const interests = [...new Set([...(Array.isArray(existing?.interests) ? existing.interests : []), interest])];
-  if (existing?.status === 'subscribed' && existing?.consentVersion === '2026-10-01') {
-    if (existing.interests?.includes(interest)) return;
-    await writeJsonBlob(pathname, { ...existing, interests, preferencesUpdatedAt: new Date().toISOString() });
-    return;
-  }
-  await writeJsonBlob(pathname, {
-    email: normalized,
-    joinedAt: existing?.joinedAt || new Date().toISOString(),
-    status: 'subscribed',
-    emailVerified: existing?.emailVerified === true,
-    consentAt: new Date().toISOString(),
-    consentVersion: '2026-10-01',
-    consentText: 'I would like A305X product-launch and art updates by email.',
-    source: '/signup',
-    interests,
-    preferencesUpdatedAt: new Date().toISOString(),
-  });
+  await readPrivate('meta/signup-readiness.json');
 }
