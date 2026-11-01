@@ -1,15 +1,24 @@
 (() => {
   const config = window.A305X_ANALYTICS || {};
-  if (!config.enabled || navigator.doNotTrack === '1' || navigator.globalPrivacyControl === true) return;
-  if (!['a305x.com', 'www.a305x.com'].includes(location.hostname)) return;
-  // Never measure shareable messages or identifiers in their URLs.
-  if (/^\/(?:f\/|flock(?:\.html)?(?:\/|$))/.test(location.pathname)) return;
+  if (!config.enabled || navigator.doNotTrack === '1' || window.doNotTrack === '1' || navigator.globalPrivacyControl === true) return;
+  const hosts = new Set(['a305x.com', 'www.a305x.com']);
+  const pages = new Set(['/', '/store', '/play', '/about', '/not-my-flucking-problem', '/flying-fluck', '/chill-pill', '/take-a-break', '/vote-for-yesterday', '/store-info', '/privacy', '/terms']);
+  const publicPath = path => path.replace(/\.html$/, '') || '/';
+  // Measure only known public pages, never signup, shared messages or token routes.
+  if (!hosts.has(location.hostname) || !pages.has(publicPath(location.pathname))) return;
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   window.va('beforeSend', (event) => {
-    const url = new URL(event.url);
-    url.search = '';
-    url.hash = '';
-    return { ...event, url: url.href };
+    try {
+      const url = new URL(event.url);
+      const path = publicPath(url.pathname);
+      if (url.protocol !== 'https:' || !hosts.has(url.hostname) || !pages.has(path)) return null;
+      url.pathname = path;
+      url.search = '';
+      url.hash = '';
+      return { ...event, url: url.href };
+    } catch {
+      return null;
+    }
   });
   const script = document.createElement('script');
   script.defer = true;

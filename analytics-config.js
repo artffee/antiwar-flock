@@ -1,4 +1,3 @@
-// Enable only after Web Analytics is enabled for the existing antiwar-flock
-// Vercel project. Custom events require a compatible plan. No account upgrade
-// or new subscription is authorized by this configuration.
-window.A305X_ANALYTICS = { enabled: false, customEvents: false };
+// Web Analytics enabled for antiwar-flock on the existing Hobby plan.
+// Page views only. Custom events require a compatible plan.
+window.A305X_ANALYTICS = { enabled: true, customEvents: false };

@@ -95,13 +95,15 @@ asset-link, and prelaunch checks.
 - Product links use `/signup?interest=tee` (also `flying-fluck`, `wall-art`, `chill-pill`, `field-manual`, `drama-dump`, or `all`). The form allows the visitor to change the selection. `/api/join` validates the fixed choice list and privately merges interests into the existing email record. Consent, subscription status, and unverified-address status are retained. No email is sent by this change.
 - `npm test` exercises the real join handler/storage against isolated in-memory storage; it does not create production subscribers. The suite includes repeated interests, invalid payloads, unsubscribe behavior, and storage-failure handling.
 
-### Analytics activation remains an owner setting
+### Visitor analytics
 
-`analytics-config.js` deliberately ships with `enabled: false` and `customEvents: false`. The current Vercel connection could read the project but returned a scope permission error for team settings. No analytics service was enabled and no paid plan was purchased.
+Vercel Web Analytics was enabled for the existing `antiwar-flock` project on November 1, 2026, using its included Hobby plan. `analytics-config.js` sets `enabled: true` and `customEvents: false`. Google Analytics remains disabled. No plan upgrade or paid add-on was purchased.
 
-To activate: enable Web Analytics in the existing `antiwar-flock` project dashboard, change `enabled` to `true`, update `/privacy` to describe the activated service, and deploy. Enable `customEvents` only after checking the project's plan supports them. Verify page views in the Vercel dashboard before reporting collection as active.
+The dashboard shows visitors, page views, popular pages, referring sites, countries, and device/browser breakdowns for visits collected after activation. Historical visits from before activation cannot be reconstructed. The Hobby allowance is 50,000 events per month across the team, with 30 days of viewable history and capped collection. Custom events remain off because they are not included in this plan.
 
-The prepared integration respects Do Not Track and Global Privacy Control, excludes Flock message routes, strips query strings/hash fragments from page URLs, and never sends email addresses or user-entered content. Optional custom events record PDF-link clicks (not completed downloads), launch-list clicks, game/experience opens (not completed game starts), and successful stored sign-ups. Product-interest records already work independently of analytics.
+The integration respects Do Not Track and Global Privacy Control, measures only fixed public page routes, excludes signup, shared Flock messages, unknown/token routes, and preview hosts, and strips query strings/hash fragments from measured page URLs. It does not collect form contents or send custom events. Vercel uses cookie-free aggregate visitor statistics. Product-interest records work independently of analytics.
+
+To verify collection, visit a public page on `www.a305x.com`, then check the project's Analytics dashboard or page-view API. Allow a short ingestion delay. Test visits count as traffic and must not be presented as newly acquired customers. To stop collection, set `enabled: false`, deploy, and disable Web Analytics in the project dashboard.
 
 ### Verification scope
 
@@ -118,7 +120,7 @@ availability claims, reviews, or ratings are invented by the structured data.
 
 `google-analytics-config.js` is deliberately **disabled with an empty measurement
 ID**. No A305X GA4 ID was found in source or the project's environment-variable
-names. The separate, older Vercel analytics configuration remains disabled too.
+names. Vercel Web Analytics is the active visitor analytics service.
 Before activating GA4:
 
 1. Supply and verify the GA4 web-stream measurement ID for A305X (not another site).
@@ -126,7 +128,7 @@ Before activating GA4:
    collection, Google signals, and advertising integrations. Remote stream settings
    cannot be enforced solely by this JavaScript module.
 3. Update the privacy notice and set the verified ID and `enabled: true` in the
-   Google configuration; leave the older Vercel configuration disabled.
+   Google configuration; disable Vercel analytics if replacing it with GA4.
 4. Deploy and verify no Google requests before consent, explicit allow/decline,
    stored choice, revocation, DNT/GPC, and a permitted page view in GA Realtime.
 
