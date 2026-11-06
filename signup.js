@@ -63,6 +63,7 @@
             website: form.querySelector('[name="website"]')?.value || '',
             action,
             interest,
+            discoverySource: form.querySelector('[name="discoverySource"]')?.value || '',
           }),
         });
         if (data.ok !== true) throw new Error('We could not confirm your request. Please try again.');

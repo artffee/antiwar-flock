@@ -130,3 +130,5 @@ test('rejects arbitrary interest data before writing; old forms remain compatibl
   await s.call({ email: 'artist@example.com', consent: true });
   assert.deepEqual(s.emailRecords()[0].interests, ['all']);
 });
+test('stores optional discovery source separately from signup path and does not return it',async()=>{const s=await setup();const r=await s.call({email:'source@example.com',consent:true,discoverySource:'ChatGPT'});assert.equal(r.code,200);assert.deepEqual(r.body,{ok:true});assert.equal(s.emailRecords()[0].discoverySource,'ChatGPT');assert.equal(s.emailRecords()[0].source,'/signup');await s.call({email:'source@example.com',consent:true,discoverySource:'Google Search / Maps'});assert.equal(s.emailRecords()[0].discoverySource,'ChatGPT');});
+test('rejects unlisted discovery sources before storage',async()=>{const s=await setup();const r=await s.call({email:'source@example.com',consent:true,discoverySource:'https://private.example'});assert.equal(r.code,400);assert.equal(s.records.size,0);});
