@@ -1979,3 +1979,5 @@ a {
   .yesterday-poster img { width: 62%; right: -9%; }
   .poster-ballot b { font-size: 1.6rem; }
 }
+
+.discovery-faq details{padding:1rem 0;border-bottom:1px solid currentColor}.discovery-faq summary{cursor:pointer;font-weight:600;min-height:44px}.discovery-faq p{margin:.5rem 0;max-width:65ch}

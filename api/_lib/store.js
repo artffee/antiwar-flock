@@ -84,7 +84,7 @@ async function readEmailRecord(pathname) {
   return JSON.parse(await new Response(result.stream).text());
 }
 
-export async function saveEmail(email, action = 'subscribe', interest = 'all') {
+export async function saveEmail(email, action = 'subscribe', interest = 'all', discoverySource = '') {
   const normalized = String(email).trim().toLowerCase();
   const key = crypto.createHash('sha256').update(normalized).digest('hex');
   const pathname = `emails/${key}.json`;
@@ -108,6 +108,7 @@ export async function saveEmail(email, action = 'subscribe', interest = 'all') {
     consentVersion: '2026-10-01',
     consentText: 'I would like A305X product-launch and art updates by email.',
     source: '/signup',
+    discoverySource: existing?.discoverySource || discoverySource,
     interests,
     preferencesUpdatedAt: new Date().toISOString(),
   });

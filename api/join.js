@@ -39,6 +39,8 @@ export default async function handler(req, res) {
   const email = typeof body.email === 'string' ? body.email.trim() : '';
   const action = body.action || 'subscribe';
   const interest = body.interest ?? 'all';
+  const discoverySource = body.discoverySource ?? '';
+  if (!["", "Google Search / Maps", "ChatGPT", "Gemini", "Perplexity", "Other AI assistant", "Social media", "Friend / referral", "Other"].includes(discoverySource)) { res.status(400).json({ error: 'Please choose a listed discovery source.' }); return; }
 
   if (!email || email.length > 254 || !EMAIL_RE.test(email)) {
     res.status(400).json({ error: 'That doesn’t look like an email.' });
@@ -67,7 +69,7 @@ export default async function handler(req, res) {
       res.status(429).json({ error: 'Too many requests. Please try again in 10 minutes.' });
       return;
     }
-    await saveEmail(email, action, interest);
+    await saveEmail(email, action, interest, discoverySource);
     // Return the same result for new and existing addresses.
     res.status(200).json({ ok: true });
   } catch {
