@@ -2,7 +2,7 @@
   'use strict';
   const config = window.A305X_GOOGLE_ANALYTICS || {};
   const id = config.measurementId || '';
-  const pages = new Set(['/', '/store', '/play', '/about', '/not-my-flucking-problem', '/flying-fluck', '/chill-pill', '/take-a-break', '/vote-for-yesterday', '/store-info', '/privacy', '/terms']);
+  const pages = new Set(['/', '/store', '/healthy-response', '/play', '/about', '/not-my-flucking-problem', '/flying-fluck', '/chill-pill', '/take-a-break', '/vote-for-yesterday', '/store-info', '/privacy', '/terms']);
   const path = location.pathname.replace(/\.html$/, '') || '/';
   if (!config.enabled || !/^G-[A-Z0-9]{6,}$/.test(id)) return;
   if (!['www.a305x.com', 'a305x.com'].includes(location.hostname) || !pages.has(path)) return;
