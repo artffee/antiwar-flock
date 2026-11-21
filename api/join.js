@@ -1,7 +1,7 @@
 import { checkRateLimit, checkSignupStorage, saveEmail } from './_lib/store.js';
 
 const EMAIL_RE = new RegExp('^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$');
-const INTERESTS = ['all', 'tee', 'wall-art', 'flying-fluck', 'chill-pill', 'field-manual', 'drama-dump'];
+const INTERESTS = ['all', 'tee', 'wall-art', 'flying-fluck', 'chill-pill', 'field-manual', 'drama-dump', 'healthy-response'];
 
 function getClientIp(req) {
   const fwd = req.headers['x-forwarded-for'];

@@ -4,7 +4,9 @@ import {readFileSync,existsSync} from 'node:fs';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const urls=[...read('sitemap.xml').matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1]);
 test('sitemap pages have unique canonical metadata and valid linked structured data',()=>{
- assert.equal(new Set(urls).size,13);
+ assert.equal(new Set(urls).size,14);
+ assert.equal(urls.length,new Set(urls).size);
+ assert.ok(urls.includes('https://www.a305x.com/healthy-response'));
  for(const url of urls){
   const path=new URL(url).pathname;const page=read(path==='/'?'index.html':path.slice(1)+'.html');
   assert.equal((page.match(/rel="canonical"/g)||[]).length,1);
